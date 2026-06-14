@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #0b0f17;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Obarito brand text selection (default). */
+::selection {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Rewindly's landing keeps its own amber selection. */
+.rewindly-scope ::selection {
+  background: #e9a23a;
+  color: #142844;
+}
+
+@keyframes ob-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Long-form legal copy (privacy / terms). */
+.legal-body h2 {
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: #0b0f17;
+  margin: 48px 0 14px;
+  scroll-margin-top: 90px;
+}
+.legal-body p {
+  font-size: 16.5px;
+  line-height: 1.72;
+  color: #3a4654;
+  margin: 0 0 16px;
+}
+.legal-body li {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: #3a4654;
+  margin: 0 0 9px;
+}
+.legal-body ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  list-style: disc;
+}
+.legal-body strong {
+  color: #0b0f17;
+  font-weight: 600;
+}
+.legal-body a {
+  color: #2563eb;
+}
+.toc a:hover {
+  color: #2563eb;
+}
