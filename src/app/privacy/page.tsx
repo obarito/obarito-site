@@ -115,8 +115,9 @@ export default function PrivacyPage() {
       <ul>
         <li>
           Product snapshots are retained for your plan&apos;s history window -{" "}
-          <strong>30 days on Free</strong> and <strong>1 year on Pro</strong> -
-          after which older snapshots are pruned automatically.
+          <strong>30 days on Free</strong> and <strong>unlimited on Pro</strong>.
+          On Free, snapshots older than 30 days are pruned automatically; on Pro,
+          history is kept until you delete it or uninstall.
         </li>
         <li>
           When you uninstall, your access token is revoked. Shopify then sends a{" "}

@@ -319,7 +319,7 @@ export default function RewindlyPage() {
                 {[
                   "Tracks every product change",
                   "Anomaly detection + email alerts",
-                  "7 days of history",
+                  "30 days of history",
                 ].map((f) => (
                   <div key={f} className="text-[14px] text-[#3A4654]">
                     <span className="font-semibold text-[#28A06B]">✓</span>{" "}
@@ -353,7 +353,7 @@ export default function RewindlyPage() {
                   "Unlimited history",
                   "One-click undo & restore",
                   "Version compare",
-                  "Slack alerts + weekly digest",
+                  "Unlimited email + Slack alerts",
                   "Omnibus 30-day price compliance",
                 ].map((f) => (
                   <div key={f} className="text-[14px] text-[#DCE5F0]">

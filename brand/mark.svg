@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Obarito orbital O mark">
+  <!--
+    Orbital ring = the letter "O". r=21, circumference 131.95.
+    The dash pattern opens with a 13.93 gap (~38deg) at the path origin (3 o'clock),
+    then draws the 118.02 arc. The whole ring is rotated -45deg so the open gap
+    lands at the upper-right, where the accent node parks on the orbit path.
+  -->
+  <circle cx="32" cy="32" r="21" stroke="currentColor" stroke-width="7"
+          stroke-linecap="round"
+          stroke-dasharray="13.93 118.02"
+          transform="rotate(-45 32 32)"/>
+  <!-- Orbiting node parked on the ring centreline at -45deg (upper-right). -->
+  <circle cx="46.85" cy="17.15" r="6.5" fill="#E8A13A"/>
+</svg>
