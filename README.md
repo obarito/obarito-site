@@ -37,8 +37,7 @@ npm run start    # serve the production build
 All site-wide constants live in **`src/lib/config.ts`**:
 
 - `APPSTORE_URL` - Rewindly's Shopify App Store listing. Every "Add to Shopify" /
-  install CTA points here. Placeholder is `https://apps.shopify.com/rewindly`
-  until the real listing is live.
+  install CTA points here: `https://apps.shopify.com/rewindly-product-watchdog`.
 - `SUPPORT_EMAIL` / `PRIVACY_EMAIL` / `LEGAL_EMAIL` - contact addresses surfaced
   on `/support` and the legal pages.
 
