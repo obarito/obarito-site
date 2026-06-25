@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import RewindlyMark from "@/components/RewindlyMark";
-import ObaritoMark from "@/components/ObaritoMark";
+import RewindlyHeader from "@/components/RewindlyHeader";
+import RewindlyFooter from "@/components/RewindlyFooter";
 import { APPSTORE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -14,38 +14,7 @@ export default function RewindlyPage() {
   return (
     <div className="rewindly-scope text-[#16202E]">
       {/* ===== HEADER ===== */}
-      <header className="sticky top-0 z-50 border-b border-[#E9EDF2] bg-[rgba(255,255,255,0.85)] backdrop-blur-[12px]">
-        <div className="mx-auto flex max-w-[1160px] items-center justify-between px-5 py-[15px] sm:px-8">
-          <Link href="/rewindly" className="flex items-center gap-[11px]">
-            <div className="flex h-8 w-8 items-center justify-center rounded-[9px] bg-[#1a3353] text-white">
-              <RewindlyMark className="h-[19px] w-[19px]" />
-            </div>
-            <span className="text-[20px] font-semibold tracking-[-0.025em] text-[#1a3353]">
-              Rewindly
-            </span>
-          </Link>
-          <nav className="flex items-center gap-5 sm:gap-7">
-            <a href="#features" className="hidden text-[14.5px] font-medium text-[#48586B] sm:inline">
-              Features
-            </a>
-            <a href="#how" className="hidden text-[14.5px] font-medium text-[#48586B] sm:inline">
-              How it works
-            </a>
-            <a href="#pricing" className="hidden text-[14.5px] font-medium text-[#48586B] sm:inline">
-              Pricing
-            </a>
-            <Link href="/support" className="hidden text-[14.5px] font-medium text-[#48586B] sm:inline">
-              Support
-            </Link>
-            <a
-              href={APPSTORE_URL}
-              className="rounded-[10px] bg-[#1a3353] px-[17px] py-2.5 text-[14px] font-semibold text-white"
-            >
-              Add to Shopify
-            </a>
-          </nav>
-        </div>
-      </header>
+      <RewindlyHeader />
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden bg-[#1a3353] text-white">
@@ -386,68 +355,7 @@ export default function RewindlyPage() {
       </section>
 
       {/* ===== FOOTER (with Obarito signature) ===== */}
-      <footer className="bg-[#0E1B30] text-[#9FB1C8]">
-        <div className="mx-auto max-w-[1160px] px-5 pb-[30px] pt-[54px] sm:px-8">
-          <div className="grid grid-cols-1 gap-10 border-b border-[#1B2C45] pb-10 md:grid-cols-[1.5fr_1fr_1fr]">
-            <div>
-              <div className="mb-4 flex items-center gap-[11px]">
-                <div className="flex h-[30px] w-[30px] items-center justify-center rounded-[8px] bg-[#1a3353] text-white">
-                  <RewindlyMark className="h-[18px] w-[18px]" />
-                </div>
-                <span className="text-[19px] font-semibold tracking-[-0.025em] text-white">
-                  Rewindly
-                </span>
-              </div>
-              <p className="m-0 max-w-[280px] text-[14px] leading-[1.6] text-[#647C99]">
-                A watchdog for your Shopify catalog. Track every change, flag the
-                suspicious, undo in one click.
-              </p>
-            </div>
-            <div>
-              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#465873]">
-                Product
-              </div>
-              <div className="flex flex-col gap-[11px]">
-                <a href="#features" className="text-[14.5px] text-[#9FB1C8]">
-                  Features
-                </a>
-                <a href="#pricing" className="text-[14.5px] text-[#9FB1C8]">
-                  Pricing
-                </a>
-                <Link href="/support" className="text-[14.5px] text-[#9FB1C8]">
-                  Support
-                </Link>
-              </div>
-            </div>
-            <div>
-              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#465873]">
-                Legal
-              </div>
-              <div className="flex flex-col gap-[11px]">
-                <Link href="/privacy" className="text-[14.5px] text-[#9FB1C8]">
-                  Privacy
-                </Link>
-                <Link href="/terms" className="text-[14.5px] text-[#9FB1C8]">
-                  Terms
-                </Link>
-                <Link href="/support" className="text-[14.5px] text-[#9FB1C8]">
-                  Support
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-wrap items-center justify-between gap-3.5 pt-[22px]">
-            <span className="text-[13px] text-[#465873]">© 2026 Rewindly</span>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-[9px] rounded-full border border-[#1B2C45] bg-white/[0.04] px-3.5 py-2 text-[13px] text-[#9FB1C8]"
-            >
-              <ObaritoMark className="h-4 w-4 text-[#9FB1C8]" nodeColor="#3B82F6" />
-              An <span className="font-medium text-white">Obarito</span> app
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <RewindlyFooter />
     </div>
   );
 }

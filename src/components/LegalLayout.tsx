@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import ObaritoHeader from "./ObaritoHeader";
 import ObaritoFooter from "./ObaritoFooter";
+import RewindlyHeader from "./RewindlyHeader";
+import RewindlyFooter from "./RewindlyFooter";
 
 export type TocItem = { id: string; label: string };
 
@@ -14,6 +16,12 @@ type LegalLayoutProps = {
   effectiveDate: string;
   /** Optional callout shown above the dates (e.g. a pre-launch review note). */
   notice?: ReactNode;
+  /**
+   * Which header + footer chrome to render. App-specific legal pages (e.g.
+   * /rewindly/*) pass "rewindly" so they carry the Rewindly app header and
+   * footer; the company legal pages default to the main Obarito chrome.
+   */
+  brand?: "obarito" | "rewindly";
   children: ReactNode;
 };
 
@@ -30,11 +38,12 @@ export default function LegalLayout({
   lastUpdated,
   effectiveDate,
   notice,
+  brand = "obarito",
   children,
 }: LegalLayoutProps) {
   return (
     <>
-      <ObaritoHeader />
+      {brand === "rewindly" ? <RewindlyHeader /> : <ObaritoHeader />}
 
       {/* Title block */}
       <section className="mx-auto max-w-[1000px] px-5 pt-[clamp(44px,6vw,72px)] sm:px-8">
@@ -83,7 +92,11 @@ export default function LegalLayout({
         <div className="legal-body">{children}</div>
       </section>
 
-      <ObaritoFooter active={active} />
+      {brand === "rewindly" ? (
+        <RewindlyFooter />
+      ) : (
+        <ObaritoFooter active={active} />
+      )}
     </>
   );
 }
