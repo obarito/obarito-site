@@ -41,6 +41,24 @@ All site-wide constants live in **`src/lib/config.ts`**:
 - `SUPPORT_EMAIL` / `PRIVACY_EMAIL` / `LEGAL_EMAIL` - contact addresses surfaced
   on `/support` and the legal pages.
 
+### Analytics & heatmaps
+
+Traffic analytics (GA4) and heatmaps/session replay (Microsoft Clarity) are wired
+in `src/components/Analytics.tsx` and mounted globally from the root layout. Both
+are **opt-in via env vars** - when unset, nothing loads and no third-party
+requests fire, so local dev and preview deploys stay clean. Copy `.env.example`
+and set the two ids in the Vercel project (Production scope):
+
+- `NEXT_PUBLIC_GA_ID` - GA4 measurement id (`G-XXXXXXX`); auto-sends a pageview on
+  every route change and feeds Google Ads conversions.
+- `NEXT_PUBLIC_CLARITY_ID` - Microsoft Clarity project id; heatmaps + replay.
+
+Both autocapture the "Add to Shopify" outbound click (the one conversion on this
+site), so the CTAs need no per-button code. Note: tracking stops at the App Store
+jump - reconcile outbound clicks against installs in the Shopify Partner
+dashboard. Add a Meta Pixel / other ad tag in `Analytics.tsx` behind its own
+`NEXT_PUBLIC_*` flag when needed.
+
 ## Brand notes
 
 - **Obarito** (home, legal, support): orbital "O" mark, blue accent `#2563EB`,
