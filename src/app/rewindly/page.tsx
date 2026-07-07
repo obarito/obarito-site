@@ -209,6 +209,31 @@ export default function RewindlyPage() {
                 side by side.
               </p>
             </div>
+            <div className="rounded-[18px] border border-[#E9EDF2] bg-white p-[30px]">
+              <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[12px] bg-[#E5F4EC] text-[20px] text-[#28A06B]">
+                ⟲
+              </div>
+              <div className="mb-2 text-[18px] font-semibold">
+                Point-in-time bulk rollback
+              </div>
+              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5A6B80]">
+                A bad import or a rogue app hit your whole catalog? Restore every
+                product to how it looked at any earlier moment, in one run.
+              </p>
+            </div>
+            <div className="rounded-[18px] border border-[#E9EDF2] bg-white p-[30px]">
+              <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[12px] bg-[#FCF1DC] text-[20px] text-[#C5871F]">
+                €
+              </div>
+              <div className="mb-2 text-[18px] font-semibold">
+                EU/UK Omnibus compliance
+              </div>
+              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5A6B80]">
+                Show the lowest price from the last 30 days right on your product
+                pages with a storefront widget - built from the history Rewindly
+                already keeps.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -255,7 +280,7 @@ export default function RewindlyPage() {
         className="scroll-mt-[64px] border-y border-[#E9EDF2] bg-[#F4F6F9]"
       >
         <div className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
-          <div className="mx-auto mb-11 max-w-[560px] text-center">
+          <div className="mx-auto mb-11 max-w-[600px] text-center">
             <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#E9A23A]">
               Pricing
             </div>
@@ -263,20 +288,24 @@ export default function RewindlyPage() {
               Start free. Upgrade when it pays for itself.
             </h2>
             <p className="m-0 text-[16px] text-[#5A6B80]">
-              Billed through Shopify. Cancel anytime by uninstalling. Pro includes
-              a 14-day free trial.
+              Billed through Shopify. Cancel anytime by uninstalling. Paid plans
+              include a 14-day free trial, and annual billing saves you two
+              months.
             </p>
           </div>
-          <div className="mx-auto grid max-w-[780px] grid-cols-1 gap-5 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+          <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-stretch gap-5 sm:grid-cols-[repeat(auto-fit,minmax(260px,1fr))]">
             {/* Free */}
-            <div className="rounded-[20px] border border-[#E9EDF2] bg-white p-[34px]">
+            <div className="flex h-full flex-col rounded-[20px] border border-[#E9EDF2] bg-white p-[34px]">
               <div className="text-[18px] font-semibold text-[#1a3353]">Free</div>
-              <div className="my-[14px] mb-1.5 flex items-baseline gap-1.5">
+              <div className="mb-1.5 mt-[14px] flex items-baseline gap-1.5">
                 <span className="text-[42px] font-semibold tracking-[-0.03em]">$0</span>
                 <span className="text-[15px] text-[#94A3B8]">/ month</span>
               </div>
-              <p className="m-0 mb-[22px] text-[14px] text-[#5A6B80]">
-                For stores that want to know the moment something changes.
+              <div className="invisible mb-[6px] text-[12.5px]" aria-hidden>
+                &nbsp;
+              </div>
+              <p className="m-0 mb-[22px] mt-2 min-h-[45px] text-[14px] text-[#5A6B80]">
+                Watch your catalog and undo the occasional bad edit.
               </p>
               <a
                 href={APPSTORE_URL}
@@ -286,9 +315,46 @@ export default function RewindlyPage() {
               </a>
               <div className="flex flex-col gap-[11px]">
                 {[
-                  "Tracks every product change",
-                  "Anomaly detection + email alerts",
+                  "Up to 100 products tracked",
                   "30 days of history",
+                  "Anomaly detection + in-app alerts",
+                  "30 email alerts per month",
+                  "5 one-click restores per month",
+                ].map((f) => (
+                  <div key={f} className="text-[14px] text-[#3A4654]">
+                    <span className="font-semibold text-[#28A06B]">✓</span>{" "}
+                    &nbsp;{f}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Starter */}
+            <div className="flex h-full flex-col rounded-[20px] border border-[#E9EDF2] bg-white p-[34px]">
+              <div className="text-[18px] font-semibold text-[#1a3353]">Starter</div>
+              <div className="mb-1.5 mt-[14px] flex items-baseline gap-1.5">
+                <span className="text-[42px] font-semibold tracking-[-0.03em]">$7.99</span>
+                <span className="text-[15px] text-[#94A3B8]">/ month</span>
+              </div>
+              <div className="mb-[6px] text-[12.5px] text-[#94A3B8]">
+                or $79.90 / year
+              </div>
+              <p className="m-0 mb-[22px] mt-2 min-h-[45px] text-[14px] text-[#5A6B80]">
+                A full undo safety net for growing stores.
+              </p>
+              <a
+                href={APPSTORE_URL}
+                className="mb-6 block rounded-[11px] border border-[#C8D2DF] bg-white py-3 text-center text-[14.5px] font-semibold text-[#1a3353]"
+              >
+                Start Starter
+              </a>
+              <div className="flex flex-col gap-[11px]">
+                {[
+                  "Everything in Free",
+                  "Up to 1,000 products tracked",
+                  "90 days of history",
+                  "Unlimited one-click restores",
+                  "Unlimited email alerts",
+                  "Version compare (field-by-field diff)",
                 ].map((f) => (
                   <div key={f} className="text-[14px] text-[#3A4654]">
                     <span className="font-semibold text-[#28A06B]">✓</span>{" "}
@@ -298,16 +364,19 @@ export default function RewindlyPage() {
               </div>
             </div>
             {/* Pro */}
-            <div className="relative rounded-[20px] border border-[#1a3353] bg-[#1a3353] p-[34px] text-white">
+            <div className="relative flex h-full flex-col rounded-[20px] border border-[#1a3353] bg-[#1a3353] p-[34px] text-white">
               <div className="absolute right-5 top-5 rounded-full bg-[#E9A23A] px-[9px] py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[#142844]">
                 Popular
               </div>
               <div className="text-[18px] font-semibold text-white">Pro</div>
-              <div className="my-[14px] mb-1.5 flex items-baseline gap-1.5">
-                <span className="text-[42px] font-semibold tracking-[-0.03em]">$29</span>
+              <div className="mb-1.5 mt-[14px] flex items-baseline gap-1.5">
+                <span className="text-[42px] font-semibold tracking-[-0.03em]">$19</span>
                 <span className="text-[15px] text-[#A9BBD4]">/ month</span>
               </div>
-              <p className="m-0 mb-[22px] text-[14px] text-[#BBC9DD]">
+              <div className="mb-[6px] text-[12.5px] text-[#8FA2BD]">
+                or $190 / year
+              </div>
+              <p className="m-0 mb-[22px] mt-2 min-h-[45px] text-[14px] text-[#BBC9DD]">
                 For busy stores with staff, apps, and a lot to lose.
               </p>
               <a
@@ -318,12 +387,12 @@ export default function RewindlyPage() {
               </a>
               <div className="flex flex-col gap-[11px]">
                 {[
-                  "Everything in Free",
-                  "Unlimited history",
-                  "One-click undo & restore",
-                  "Version compare",
-                  "Unlimited email + Slack alerts",
-                  "Omnibus 30-day price compliance",
+                  "Everything in Starter",
+                  "Unlimited products tracked",
+                  "Full history — nothing pruned",
+                  "Point-in-time bulk rollback",
+                  "Slack alerts",
+                  "Omnibus 30-day price notice on your storefront",
                 ].map((f) => (
                   <div key={f} className="text-[14px] text-[#DCE5F0]">
                     <span className="font-semibold text-[#E9A23A]">✓</span> &nbsp;

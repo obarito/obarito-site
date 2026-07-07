@@ -8,7 +8,7 @@ import { APPSTORE_URL, SUPPORT_EMAIL } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Rewindly Documentation - How to use the app",
   description:
-    "Learn how to use Rewindly: automatic product snapshots, version timelines, comparing changes, one-click restore/undo, EU/UK price compliance, and alerts.",
+    "Learn how to use Rewindly: automatic product snapshots, version timelines, comparing changes, one-click restore/undo, point-in-time bulk rollback, EU/UK Omnibus price compliance, and alerts.",
 };
 
 type TocItem = { id: string; label: string };
@@ -97,7 +97,7 @@ export default function RewindlyDocsPage() {
           </Link>
         </div>
         <div className="mt-[26px] border-b border-[#EEF1F5] pb-2 font-mono text-[12px] text-[#94A3B8]">
-          LAST UPDATED · 25 June 2026
+          LAST UPDATED · 7 July 2026
         </div>
       </section>
 
@@ -243,6 +243,14 @@ export default function RewindlyDocsPage() {
               Restore brings back the product&apos;s saved fields. It is the quickest
               way to recover from a bad bulk edit or an app that overwrote your data.
             </li>
+            <li>
+              When a whole batch of products went wrong at once - a bad CSV import or
+              a feed app overwriting the catalog - use{" "}
+              <strong>point-in-time bulk rollback</strong> from the Products page to
+              restore every product to how it looked at a chosen moment, in a single
+              run.
+              <ProTag />
+            </li>
           </ul>
           <Figure
             src="/rewindly/docs/restore.png"
@@ -270,9 +278,13 @@ export default function RewindlyDocsPage() {
             </li>
           </ul>
           <p>
-            You can see this on the <strong>price-history &amp; compliance</strong>{" "}
-            card at the top of each product page - shown in the screenshot under{" "}
-            <a href="#compare">Comparing versions</a> above.
+            You can see this inside the app on the{" "}
+            <strong>price-history &amp; compliance</strong> card at the top of each
+            product page - shown in the screenshot under{" "}
+            <a href="#compare">Comparing versions</a> above. Rewindly also ships an{" "}
+            <strong>Omnibus price notice</strong> theme app block you can add to your
+            product pages, so the lowest 30-day price is displayed to shoppers right
+            on the storefront - which is what the Directive actually requires.
           </p>
 
           <h2 id="alerts">Alerts &amp; notifications</h2>
@@ -304,22 +316,33 @@ export default function RewindlyDocsPage() {
           </p>
 
           <h2 id="plans">Plans &amp; billing</h2>
-          <p>Rewindly has two plans:</p>
+          <p>Rewindly has three plans:</p>
           <ul>
             <li>
-              <strong>Free</strong> - automatic product snapshots and history for the
-              last <strong>30 days</strong>.
+              <strong>Free</strong> - up to <strong>100 products</strong>, the last{" "}
+              <strong>30 days</strong> of history, in-app alerts,{" "}
+              <strong>30 email alerts</strong> a month, and{" "}
+              <strong>5 one-click restores</strong> a month.
             </li>
             <li>
-              <strong>Pro</strong> - <strong>unlimited history</strong>, version
-              comparison, one-click restore/undo, EU/UK price-compliance, and Slack
-              alerts.
+              <strong>Starter - $7.99/month</strong> - up to{" "}
+              <strong>1,000 products</strong>, <strong>90 days</strong> of history,{" "}
+              <strong>unlimited restores</strong>, unlimited email alerts, and
+              field-by-field version compare.
+            </li>
+            <li>
+              <strong>Pro - $19/month</strong> - <strong>unlimited</strong> products
+              and history, <strong>point-in-time bulk rollback</strong>, Slack
+              alerts, and the EU/UK Omnibus 30-day price notice for your storefront.
             </li>
           </ul>
           <p>
-            You can upgrade or cancel any time from within the app; billing is handled
+            Paid plans include a <strong>14-day free trial</strong>, and annual
+            billing saves you about two months. You can change plans or cancel any
+            time from within the app - no reinstall needed. Billing is handled
             securely by Shopify and appears on your normal Shopify invoice. If you
-            cancel, you keep access until the end of the current billing period.
+            cancel, you keep access until the end of the current billing period, and
+            your snapshots are always kept when you switch plans.
           </p>
 
           <h2 id="faq">FAQ &amp; troubleshooting</h2>
