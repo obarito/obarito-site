@@ -53,13 +53,16 @@ export default function HomePage() {
               style={{ transformOrigin: "120px 120px", animation: "ob-spin 60s linear infinite" }}
             />
             <circle cx="120" cy="120" r="58" fill="none" stroke="#EEF1F5" strokeWidth="1.5" />
+            {/* Every node sits ON the r=92 orbit, which is the whole idea of the
+                diagram. Keep any new one at a distance of 92 from 120,120: pick the
+                angle, then cx = 120 + 92·cos θ, cy = 120 + 92·sin θ. */}
             {/* future faint node */}
-            <circle cx="44" cy="158" r="7" fill="#fff" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="2 3" />
+            <circle cx="37.71" cy="161.14" r="7" fill="#fff" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="2 3" />
             {/* attesta node */}
-            <line x1="120" y1="120" x2="196" y2="158" stroke="#E2E8F0" strokeWidth="1.5" />
+            <line x1="120" y1="120" x2="202.29" y2="161.14" stroke="#E2E8F0" strokeWidth="1.5" />
             <g>
-              <circle cx="196" cy="158" r="15" fill="#0F4B3C" />
-              <AttestaGlyph x={196} y={158} size={16} />
+              <circle cx="202.29" cy="161.14" r="15" fill="#0F4B3C" />
+              <AttestaGlyph x={202.29} y={161.14} size={16} />
             </g>
             {/* rewindly node */}
             <line x1="120" y1="120" x2="120" y2="28" stroke="#E2E8F0" strokeWidth="1.5" />
