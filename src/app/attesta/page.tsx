@@ -163,7 +163,7 @@ export default function AttestaPage() {
                 See how it works
               </a>
             </div>
-            <div className="mt-[30px] flex flex-wrap gap-6 text-[13.5px] text-[#8DB3A5]">
+            <div className="mt-[30px] flex flex-wrap gap-6 text-[13.5px] text-[#94B8AB]">
               <span>✓ &nbsp;Free plan available</span>
               <span>✓ &nbsp;Germany first, EU to follow</span>
             </div>
@@ -178,7 +178,7 @@ export default function AttestaPage() {
                   Invoice issued
                 </span>
               </div>
-              <span className="font-mono text-[11px] text-[#94A3B8]">
+              <span className="font-mono text-[11px] text-[#5C6B82]">
                 ORDER #1041
               </span>
             </div>
@@ -191,11 +191,11 @@ export default function AttestaPage() {
                   <div className="text-[13.5px] font-semibold text-[#16202E]">
                     Order paid
                   </div>
-                  <div className="text-[12.5px] text-[#7A8A9C]">
+                  <div className="text-[12.5px] text-[#637385]">
                     Delacroix SARL · France
                   </div>
                 </div>
-                <span className="flex-none text-[12px] text-[#94A3B8]">14:02</span>
+                <span className="flex-none text-[12px] text-[#5C6B82]">14:02</span>
               </div>
 
               <div className="flex items-center gap-[13px] rounded-[12px] border border-[#CBEAD8] bg-[#F0FAF4] px-3.5 py-[13px]">
@@ -206,7 +206,7 @@ export default function AttestaPage() {
                   <div className="text-[13.5px] font-semibold text-[#16202E]">
                     Reverse-Charge applied
                   </div>
-                  <div className="text-[12.5px] text-[#3F8C63]">
+                  <div className="text-[12.5px] text-[#387D59]">
                     FR40312345678 valid in VIES · 0 % VAT
                   </div>
                 </div>
@@ -223,11 +223,11 @@ export default function AttestaPage() {
                   <div className="text-[13.5px] font-semibold text-[#16202E]">
                     RE-2026-0147 archived
                   </div>
-                  <div className="text-[12.5px] text-[#7A8A9C]">
+                  <div className="text-[12.5px] text-[#637385]">
                     ZUGFeRD 2.2 · EN 16931 · PDF/A-3
                   </div>
                 </div>
-                <span className="flex-none text-[12px] text-[#94A3B8]">
+                <span className="flex-none text-[12px] text-[#5C6B82]">
                   Emailed
                 </span>
               </div>
@@ -239,7 +239,7 @@ export default function AttestaPage() {
       {/* ===== THE MANDATE ===== */}
       <section className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
         <div className="mb-11 max-w-[680px]">
-          <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0F8A5F]">
+          <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
             The mandate
           </div>
           <h2 className="m-0 mb-3.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
@@ -257,7 +257,7 @@ export default function AttestaPage() {
               key={m.title}
               className="rounded-[16px] border border-[#E6EDEA] bg-[#F7FAF9] px-7 py-[30px]"
             >
-              <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.12em] text-[#0F8A5F]">
+              <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.12em] text-[#0E8058]">
                 {m.label}
               </div>
               <div className="mb-2.5 text-[19px] font-semibold tracking-[-0.02em] text-[#16202E]">
@@ -278,7 +278,7 @@ export default function AttestaPage() {
       >
         <div className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
           <div className="mb-11 max-w-[680px]">
-            <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0F8A5F]">
+            <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
               What it does
             </div>
             <h2 className="m-0 mb-3.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
@@ -316,7 +316,7 @@ export default function AttestaPage() {
         className="mx-auto max-w-[1160px] scroll-mt-[72px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8"
       >
         <div className="mb-11 max-w-[680px]">
-          <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0F8A5F]">
+          <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
             How it works
           </div>
           <h2 className="m-0 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
@@ -326,7 +326,7 @@ export default function AttestaPage() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
           {STEPS.map((s) => (
             <div key={s.n}>
-              <div className="mb-4 font-mono text-[13px] font-medium tracking-[0.1em] text-[#34D399]">
+              <div className="mb-4 font-mono text-[13px] font-medium tracking-[0.1em] text-[#1D845F]">
                 {s.n}
               </div>
               <div className="mb-2.5 text-[20px] font-semibold tracking-[-0.02em] text-[#16202E]">
@@ -347,7 +347,7 @@ export default function AttestaPage() {
       >
         <div className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
           <div className="mb-11 max-w-[680px]">
-            <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0F8A5F]">
+            <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
               Pricing
             </div>
             <h2 className="m-0 mb-3.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
@@ -389,7 +389,7 @@ export default function AttestaPage() {
                     </span>
                     <span
                       className={`text-[15px] ${
-                        featured ? "text-[#A9CFC1]" : "text-[#94A3B8]"
+                        featured ? "text-[#A9CFC1]" : "text-[#5C6B82]"
                       }`}
                     >
                       / month
@@ -397,7 +397,7 @@ export default function AttestaPage() {
                   </div>
                   <div
                     className={`mb-[6px] text-[12.5px] ${
-                      featured ? "text-[#8DB3A5]" : "text-[#94A3B8]"
+                      featured ? "text-[#94B8AB]" : "text-[#5C6B82]"
                     } ${t.yearly ? "" : "invisible"}`}
                     aria-hidden={t.yearly ? undefined : true}
                   >
@@ -432,7 +432,7 @@ export default function AttestaPage() {
                       >
                         <span
                           className={`font-semibold ${
-                            featured ? "text-[#34D399]" : "text-[#0F8A5F]"
+                            featured ? "text-[#34D399]" : "text-[#0E8058]"
                           }`}
                         >
                           ✓
@@ -446,7 +446,7 @@ export default function AttestaPage() {
             })}
           </div>
 
-          <p className="m-0 mt-8 text-[13.5px] text-[#7C8F88]">
+          <p className="m-0 mt-8 text-[13.5px] text-[#64746E]">
             Prices exclude VAT. Billed through your Shopify invoice. Cancel any
             time.
           </p>

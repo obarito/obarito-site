@@ -92,7 +92,7 @@ export default function HomePage() {
             <h2 className="m-0 mb-2.5 text-[clamp(28px,3.6vw,38px)] font-semibold tracking-[-0.03em]">
               One studio, a growing shelf of focused apps.
             </h2>
-            <p className="m-0 max-w-[560px] text-[17px] leading-[1.6] text-[#64748B]">
+            <p className="m-0 max-w-[560px] text-[17px] leading-[1.6] text-[#5C6B82]">
               Every Obarito app does one job well and orbits the same dependable
               center. Here&apos;s what&apos;s on the shelf today.
             </p>
@@ -117,7 +117,7 @@ export default function HomePage() {
                     <div className="text-[20px] font-semibold tracking-[-0.02em] text-[#0B0F17]">
                       Rewindly
                     </div>
-                    <div className="mt-px text-[13px] text-[#64748B]">
+                    <div className="mt-px text-[13px] text-[#5C6B82]">
                       Store change watchdog
                     </div>
                   </div>
@@ -150,12 +150,12 @@ export default function HomePage() {
                     <div className="text-[20px] font-semibold tracking-[-0.02em] text-[#0B0F17]">
                       Attesta
                     </div>
-                    <div className="mt-px text-[13px] text-[#64748B]">
+                    <div className="mt-px text-[13px] text-[#5C6B82]">
                       German e-invoicing
                     </div>
                   </div>
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ECFDF5] px-[9px] py-[5px] font-mono text-[10px] uppercase tracking-[0.08em] text-[#0F8A5F]">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ECFDF5] px-[9px] py-[5px] font-mono text-[10px] uppercase tracking-[0.08em] text-[#0E8058]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#34D399]" /> New
                 </span>
               </div>
@@ -177,13 +177,13 @@ export default function HomePage() {
               <div className="mb-2 text-[20px] font-semibold tracking-[-0.02em] text-[#334155]">
                 More in orbit
               </div>
-              <p className="m-0 mb-[22px] max-w-[300px] text-[15px] leading-[1.6] text-[#94A3B8]">
+              <p className="m-0 mb-[22px] max-w-[300px] text-[15px] leading-[1.6] text-[#5C6B82]">
                 New Obarito apps are in the works - each built to the same steady,
                 well-engineered standard.
               </p>
               <Link
                 href="/support"
-                className="rounded-[9px] border border-[#D9DFE7] px-4 py-[9px] text-[14px] font-medium text-[#64748B]"
+                className="rounded-[9px] border border-[#D9DFE7] px-4 py-[9px] text-[14px] font-medium text-[#5C6B82]"
               >
                 Get notified
               </Link>
@@ -212,7 +212,7 @@ export default function HomePage() {
               merchants can actually trust with their store. We ship slowly and
               deliberately - no dark patterns, no bloat, no surprises.
             </p>
-            <p className="m-0 text-[clamp(17px,1.9vw,20px)] leading-[1.62] text-[#64748B]">
+            <p className="m-0 text-[clamp(17px,1.9vw,20px)] leading-[1.62] text-[#5C6B82]">
               Each app is engineered to be quiet, dependable, and genuinely useful
               - a stable core you can build a store around. Obarito is sibling to{" "}
               <span className="text-[#334155]">wpaxiom</span>, our WordPress studio.
@@ -232,12 +232,12 @@ export default function HomePage() {
                   obarito
                 </span>
               </div>
-              <p className="m-0 max-w-[260px] text-[14px] leading-[1.6] text-[#64748B]">
+              <p className="m-0 max-w-[260px] text-[14px] leading-[1.6] text-[#6A7E9A]">
                 Focused, dependable Shopify apps from a studio that ships with care.
               </p>
             </div>
             <div>
-              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#475569]">
+              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#6A7E9A]">
                 Apps
               </div>
               <div className="flex flex-col gap-[11px]">
@@ -247,11 +247,11 @@ export default function HomePage() {
                 <Link href="/attesta" className="text-[14.5px] text-[#CBD5E1]">
                   Attesta
                 </Link>
-                <span className="text-[14.5px] text-[#475569]">More coming soon</span>
+                <span className="text-[14.5px] text-[#6A7E9A]">More coming soon</span>
               </div>
             </div>
             <div>
-              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#475569]">
+              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#6A7E9A]">
                 Company
               </div>
               <div className="flex flex-col gap-[11px]">
@@ -264,7 +264,7 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#475569]">
+              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#6A7E9A]">
                 Legal
               </div>
               <div className="flex flex-col gap-[11px]">
@@ -281,10 +281,10 @@ export default function HomePage() {
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3 pt-6">
-            <span className="text-[13px] text-[#475569]">
+            <span className="text-[13px] text-[#6A7E9A]">
               © 2026 Obarito. All rights reserved.
             </span>
-            <span className="font-mono text-[11px] tracking-[0.06em] text-[#475569]">
+            <span className="font-mono text-[11px] tracking-[0.06em] text-[#6A7E9A]">
               SIBLING TO WPAXIOM · WORDPRESS
             </span>
           </div>

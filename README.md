@@ -69,6 +69,19 @@ jump - reconcile outbound clicks against installs in the Shopify Partner
 dashboard. Add a Meta Pixel / other ad tag in `Analytics.tsx` behind its own
 `NEXT_PUBLIC_*` flag when needed.
 
+### Speed Insights
+
+`@vercel/speed-insights` reports real-user Core Web Vitals per route. It is
+mounted straight from the root layout rather than from `Analytics.tsx`, because
+it takes no id and no env var: in production it loads
+`/_vercel/speed-insights/script.js` from our own origin, which only the Vercel
+edge serves. Enable Speed Insights on the Vercel project and the numbers appear;
+there is nothing to configure in the repo.
+
+The layout renders it only when `NODE_ENV` is `production`. In dev the package
+would instead pull a debug script from `va.vercel-scripts.com`, and the rule
+above is that a local run fires no third-party requests.
+
 ## Brand notes
 
 - **Obarito** (home, legal, support): orbital "O" mark, blue accent `#2563EB`,

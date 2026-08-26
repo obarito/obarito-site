@@ -24,7 +24,7 @@ export default function SupportPage() {
         <h1 className="m-0 mb-[18px] text-[clamp(34px,5vw,50px)] font-semibold tracking-[-0.035em]">
           We&apos;re here to help.
         </h1>
-        <p className="mx-auto m-0 max-w-[560px] text-[19px] leading-[1.6] text-[#64748B]">
+        <p className="mx-auto m-0 max-w-[560px] text-[19px] leading-[1.6] text-[#5C6B82]">
           Real people, real answers. Reach out about any Obarito app and we&apos;ll
           get you sorted - most questions are answered the same business day.
         </p>
@@ -36,7 +36,7 @@ export default function SupportPage() {
           {/* Email card */}
           <div className="flex flex-col justify-between rounded-[20px] bg-[#0B0F17] p-10 text-white">
             <div>
-              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-[#64748B]">
+              <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-[#6A7E9A]">
                 Email us
               </div>
               <a
@@ -53,13 +53,13 @@ export default function SupportPage() {
             <div className="mt-8 flex gap-7 border-t border-[#1C2230] pt-6">
               <div>
                 <div className="text-[20px] font-semibold">&lt; 1 day</div>
-                <div className="mt-0.5 text-[13px] text-[#64748B]">
+                <div className="mt-0.5 text-[13px] text-[#6A7E9A]">
                   Typical first reply
                 </div>
               </div>
               <div>
                 <div className="text-[20px] font-semibold">Mon to Fri</div>
-                <div className="mt-0.5 text-[13px] text-[#64748B]">Support hours</div>
+                <div className="mt-0.5 text-[13px] text-[#6A7E9A]">Support hours</div>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function SupportPage() {
                 <div className="text-[16px] font-semibold text-[#0B0F17]">
                   Rewindly help
                 </div>
-                <div className="mt-0.5 text-[13.5px] text-[#64748B]">
+                <div className="mt-0.5 text-[13.5px] text-[#5C6B82]">
                   Setup, snapshots &amp; undo
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function SupportPage() {
                 <div className="text-[16px] font-semibold text-[#0B0F17]">
                   Attesta help
                 </div>
-                <div className="mt-0.5 text-[13.5px] text-[#64748B]">
+                <div className="mt-0.5 text-[13.5px] text-[#5C6B82]">
                   E-invoicing, VAT &amp; DATEV
                 </div>
               </div>
@@ -111,7 +111,7 @@ export default function SupportPage() {
         <h2 className="m-0 mb-2 text-[clamp(24px,3vw,30px)] font-semibold tracking-[-0.03em]">
           How to get help fast
         </h2>
-        <p className="m-0 mb-8 text-[16px] text-[#64748B]">
+        <p className="m-0 mb-8 text-[16px] text-[#5C6B82]">
           A little context up front means we can fix things in one reply instead of
           three.
         </p>
@@ -126,7 +126,7 @@ export default function SupportPage() {
                 {card.n}
               </div>
               <div className="mb-[7px] text-[17px] font-semibold">{card.h}</div>
-              <p className="m-0 text-[14.5px] leading-[1.6] text-[#64748B]">{card.p}</p>
+              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5C6B82]">{card.p}</p>
             </div>
           ))}
         </div>
@@ -143,7 +143,7 @@ export default function SupportPage() {
               <div className="mb-1.5 text-[16px] font-semibold">
                 Is there a Shopify-specific way to reach you?
               </div>
-              <p className="m-0 text-[14.5px] leading-[1.6] text-[#64748B]">
+              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5C6B82]">
                 Yes - email is best for now. Include your{" "}
                 <strong className="text-[#334155]">.myshopify.com</strong> URL so we
                 can find your install quickly.
@@ -153,7 +153,7 @@ export default function SupportPage() {
               <div className="mb-1.5 text-[16px] font-semibold">
                 How do I request data deletion?
               </div>
-              <p className="m-0 text-[14.5px] leading-[1.6] text-[#64748B]">
+              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5C6B82]">
                 Uninstalling triggers Shopify&apos;s redaction webhooks. For a manual
                 request, email{" "}
                 <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#2563EB]">
@@ -175,7 +175,7 @@ export default function SupportPage() {
               <div className="mb-1.5 text-[16px] font-semibold">
                 Do you offer onboarding help?
               </div>
-              <p className="m-0 text-[14.5px] leading-[1.6] text-[#64748B]">
+              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5C6B82]">
                 For larger stores, yes. Mention your setup and we&apos;ll walk you
                 through it.
               </p>

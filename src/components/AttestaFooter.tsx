@@ -22,13 +22,13 @@ export default function AttestaFooter() {
                 Attesta
               </span>
             </div>
-            <p className="m-0 max-w-[290px] text-[14px] leading-[1.6] text-[#5F857A]">
+            <p className="m-0 max-w-[290px] text-[14px] leading-[1.6] text-[#6A9488]">
               German e-invoicing for Shopify. Every paid order becomes a ZUGFeRD
               invoice, archived for ten years and emailed.
             </p>
           </div>
           <div>
-            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#456D60]">
+            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#6A9488]">
               Product
             </div>
             <div className="flex flex-col gap-[11px]">
@@ -47,7 +47,7 @@ export default function AttestaFooter() {
             </div>
           </div>
           <div>
-            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#456D60]">
+            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#6A9488]">
               Company
             </div>
             <div className="flex flex-col gap-[11px]">
@@ -64,7 +64,7 @@ export default function AttestaFooter() {
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3.5 pt-[22px]">
-          <span className="text-[13px] text-[#456D60]">© 2026 Attesta</span>
+          <span className="text-[13px] text-[#6A9488]">© 2026 Attesta</span>
           <Link
             href="/"
             className="inline-flex items-center gap-[9px] rounded-full border border-[#14402F] bg-white/[0.04] px-3.5 py-2 text-[13px] text-[#9EBCB1]"

@@ -40,10 +40,10 @@ export default function ObaritoFooter({ active }: ObaritoFooterProps) {
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3 pt-[22px]">
-          <span className="text-[13px] text-[#475569]">
+          <span className="text-[13px] text-[#6A7E9A]">
             © 2026 Obarito. All rights reserved.
           </span>
-          <span className="font-mono text-[11px] tracking-[0.06em] text-[#475569]">
+          <span className="font-mono text-[11px] tracking-[0.06em] text-[#6A7E9A]">
             SIBLING TO WPAXIOM · WORDPRESS
           </span>
         </div>

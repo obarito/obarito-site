@@ -63,7 +63,7 @@ export default function RewindlyPage() {
                   Change feed
                 </span>
               </div>
-              <span className="font-mono text-[11px] text-[#94A3B8]">LIVE</span>
+              <span className="font-mono text-[11px] text-[#5C6B82]">LIVE</span>
             </div>
             <div className="flex flex-col gap-2 px-3.5 py-2.5">
               {/* row alert */}
@@ -76,7 +76,7 @@ export default function RewindlyPage() {
                     Price changed · Aspen Hoodie
                   </div>
                   <div className="text-[12.5px] text-[#8A6D2F]">
-                    <span className="text-[#B79A5E] line-through">$72.00</span> →
+                    <span className="text-[#866E3C] line-through">$72.00</span> →
                     $9.00 · 2:14 PM
                   </div>
                 </div>
@@ -93,11 +93,11 @@ export default function RewindlyPage() {
                   <div className="text-[13.5px] font-semibold text-[#16202E]">
                     Description edited · Trail Mug
                   </div>
-                  <div className="text-[12.5px] text-[#7A8A9C]">
+                  <div className="text-[12.5px] text-[#637385]">
                     128 characters changed · 11:42
                   </div>
                 </div>
-                <span className="flex-none text-[12px] text-[#94A3B8]">View</span>
+                <span className="flex-none text-[12px] text-[#5C6B82]">View</span>
               </div>
               {/* row restored */}
               <div className="flex items-center gap-[13px] rounded-[12px] border border-[#CBEAD8] bg-[#F0FAF4] px-3.5 py-[13px]">
@@ -108,11 +108,11 @@ export default function RewindlyPage() {
                   <div className="text-[13.5px] font-semibold text-[#16202E]">
                     Restored · Summit Jacket
                   </div>
-                  <div className="text-[12.5px] text-[#3F8C63]">
+                  <div className="text-[12.5px] text-[#387D59]">
                     Reverted to yesterday 4:10 PM
                   </div>
                 </div>
-                <span className="flex-none text-[12px] font-semibold text-[#28A06B]">
+                <span className="flex-none text-[12px] font-semibold text-[#1F7B52]">
                   Done
                 </span>
               </div>
@@ -124,7 +124,7 @@ export default function RewindlyPage() {
       {/* ===== PROBLEM ===== */}
       <section className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
         <div className="mb-11 max-w-[680px]">
-          <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#E9A23A]">
+          <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#9B6311]">
             The problem
           </div>
           <h2 className="m-0 mb-3.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
@@ -161,7 +161,7 @@ export default function RewindlyPage() {
       >
         <div className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
           <div className="mb-10 max-w-[640px]">
-            <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#E9A23A]">
+            <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#9B6311]">
               What Rewindly does
             </div>
             <h2 className="m-0 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
@@ -190,7 +190,7 @@ export default function RewindlyPage() {
               </p>
             </div>
             <div className="rounded-[18px] border border-[#E9EDF2] bg-white p-[30px]">
-              <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[12px] bg-[#E5F4EC] text-[22px] text-[#28A06B]">
+              <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[12px] bg-[#E5F4EC] text-[22px] text-[#1F7B52]">
                 ↺
               </div>
               <div className="mb-2 text-[18px] font-semibold">Undo in one click</div>
@@ -210,7 +210,7 @@ export default function RewindlyPage() {
               </p>
             </div>
             <div className="rounded-[18px] border border-[#E9EDF2] bg-white p-[30px]">
-              <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[12px] bg-[#E5F4EC] text-[20px] text-[#28A06B]">
+              <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[12px] bg-[#E5F4EC] text-[20px] text-[#1F7B52]">
                 ⟲
               </div>
               <div className="mb-2 text-[18px] font-semibold">
@@ -244,7 +244,7 @@ export default function RewindlyPage() {
         className="mx-auto max-w-[1160px] scroll-mt-[64px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8"
       >
         <div className="mb-11 max-w-[640px]">
-          <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#E9A23A]">
+          <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#9B6311]">
             How it works
           </div>
           <h2 className="m-0 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
@@ -281,7 +281,7 @@ export default function RewindlyPage() {
       >
         <div className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
           <div className="mx-auto mb-11 max-w-[600px] text-center">
-            <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#E9A23A]">
+            <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#9B6311]">
               Pricing
             </div>
             <h2 className="m-0 mb-2.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
@@ -299,7 +299,7 @@ export default function RewindlyPage() {
               <div className="text-[18px] font-semibold text-[#1a3353]">Free</div>
               <div className="mb-1.5 mt-[14px] flex items-baseline gap-1.5">
                 <span className="text-[42px] font-semibold tracking-[-0.03em]">$0</span>
-                <span className="text-[15px] text-[#94A3B8]">/ month</span>
+                <span className="text-[15px] text-[#5C6B82]">/ month</span>
               </div>
               <div className="invisible mb-[6px] text-[12.5px]" aria-hidden>
                 &nbsp;
@@ -322,7 +322,7 @@ export default function RewindlyPage() {
                   "5 one-click restores per month",
                 ].map((f) => (
                   <div key={f} className="text-[14px] text-[#3A4654]">
-                    <span className="font-semibold text-[#28A06B]">✓</span>{" "}
+                    <span className="font-semibold text-[#1F7B52]">✓</span>{" "}
                     &nbsp;{f}
                   </div>
                 ))}
@@ -333,9 +333,9 @@ export default function RewindlyPage() {
               <div className="text-[18px] font-semibold text-[#1a3353]">Starter</div>
               <div className="mb-1.5 mt-[14px] flex items-baseline gap-1.5">
                 <span className="text-[42px] font-semibold tracking-[-0.03em]">$7.99</span>
-                <span className="text-[15px] text-[#94A3B8]">/ month</span>
+                <span className="text-[15px] text-[#5C6B82]">/ month</span>
               </div>
-              <div className="mb-[6px] text-[12.5px] text-[#94A3B8]">
+              <div className="mb-[6px] text-[12.5px] text-[#5C6B82]">
                 or $79.90 / year
               </div>
               <p className="m-0 mb-[22px] mt-2 min-h-[45px] text-[14px] text-[#5A6B80]">
@@ -357,7 +357,7 @@ export default function RewindlyPage() {
                   "Version compare (field-by-field diff)",
                 ].map((f) => (
                   <div key={f} className="text-[14px] text-[#3A4654]">
-                    <span className="font-semibold text-[#28A06B]">✓</span>{" "}
+                    <span className="font-semibold text-[#1F7B52]">✓</span>{" "}
                     &nbsp;{f}
                   </div>
                 ))}

@@ -57,7 +57,7 @@ function Figure({
           className="h-auto w-full"
         />
       </div>
-      <figcaption className="mt-2.5 text-[13px] leading-[1.55] text-[#94A3B8]">
+      <figcaption className="mt-2.5 text-[13px] leading-[1.55] text-[#5C6B82]">
         {caption}
       </figcaption>
     </figure>
@@ -77,7 +77,7 @@ export default function RewindlyDocsPage() {
         <h1 className="m-0 mb-[18px] text-[clamp(34px,5vw,48px)] font-semibold tracking-[-0.035em]">
           How to use Rewindly
         </h1>
-        <p className="m-0 mb-[26px] max-w-[640px] text-[18px] leading-[1.6] text-[#64748B]">
+        <p className="m-0 mb-[26px] max-w-[640px] text-[18px] leading-[1.6] text-[#5C6B82]">
           Rewindly quietly records every change to your products and lets you
           review, compare, and undo them. There is nothing to configure to start -
           this guide walks through each part of the app.
@@ -96,7 +96,7 @@ export default function RewindlyDocsPage() {
             Contact support
           </Link>
         </div>
-        <div className="mt-[26px] border-b border-[#EEF1F5] pb-2 font-mono text-[12px] text-[#94A3B8]">
+        <div className="mt-[26px] border-b border-[#EEF1F5] pb-2 font-mono text-[12px] text-[#5C6B82]">
           LAST UPDATED · 7 July 2026
         </div>
       </section>
@@ -104,7 +104,7 @@ export default function RewindlyDocsPage() {
       {/* Body: sticky TOC + content */}
       <section className="mx-auto grid max-w-[1000px] grid-cols-1 items-start gap-10 px-5 pb-20 pt-10 sm:px-8 md:grid-cols-[200px_1fr] md:gap-[56px]">
         <nav className="toc top-[90px] hidden md:sticky md:block">
-          <div className="mb-[14px] font-mono text-[10px] uppercase tracking-[0.14em] text-[#94A3B8]">
+          <div className="mb-[14px] font-mono text-[10px] uppercase tracking-[0.14em] text-[#5C6B82]">
             On this page
           </div>
           <div className="flex flex-col gap-2.5">
@@ -112,7 +112,7 @@ export default function RewindlyDocsPage() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="text-[13.5px] text-[#64748B]"
+                className="text-[13.5px] text-[#5C6B82]"
               >
                 {item.label}
               </a>

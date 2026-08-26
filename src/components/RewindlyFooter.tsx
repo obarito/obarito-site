@@ -23,13 +23,13 @@ export default function RewindlyFooter() {
                 Rewindly
               </span>
             </div>
-            <p className="m-0 max-w-[280px] text-[14px] leading-[1.6] text-[#647C99]">
+            <p className="m-0 max-w-[280px] text-[14px] leading-[1.6] text-[#7086A1]">
               A watchdog for your Shopify catalog. Track every change, flag the
               suspicious, undo in one click.
             </p>
           </div>
           <div>
-            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#465873]">
+            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#7086A1]">
               Product
             </div>
             <div className="flex flex-col gap-[11px]">
@@ -45,7 +45,7 @@ export default function RewindlyFooter() {
             </div>
           </div>
           <div>
-            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#465873]">
+            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#7086A1]">
               Company
             </div>
             <div className="flex flex-col gap-[11px]">
@@ -62,7 +62,7 @@ export default function RewindlyFooter() {
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3.5 pt-[22px]">
-          <span className="text-[13px] text-[#465873]">© 2026 Rewindly</span>
+          <span className="text-[13px] text-[#7086A1]">© 2026 Rewindly</span>
           <Link
             href="/"
             className="inline-flex items-center gap-[9px] rounded-full border border-[#1B2C45] bg-white/[0.04] px-3.5 py-2 text-[13px] text-[#9FB1C8]"

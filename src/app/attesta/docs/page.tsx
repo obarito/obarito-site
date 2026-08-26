@@ -67,7 +67,7 @@ function Figure({
           className="h-auto w-full"
         />
       </div>
-      <figcaption className="mt-2.5 text-[13px] leading-[1.55] text-[#7C8F88]">
+      <figcaption className="mt-2.5 text-[13px] leading-[1.55] text-[#64746E]">
         {caption}
       </figcaption>
     </figure>
@@ -81,7 +81,7 @@ export default function AttestaDocsPage() {
 
       {/* Title block */}
       <section className="mx-auto max-w-[1000px] px-5 pt-[clamp(44px,6vw,72px)] sm:px-8">
-        <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#0F8A5F]">
+        <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#0E8058]">
           Attesta · Guide
         </div>
         <h1 className="m-0 mb-[18px] text-[clamp(34px,5vw,48px)] font-semibold tracking-[-0.035em] text-[#16202E]">
@@ -106,7 +106,7 @@ export default function AttestaDocsPage() {
             Contact support
           </Link>
         </div>
-        <div className="mt-[26px] border-b border-[#E6EDEA] pb-2 font-mono text-[12px] text-[#7C8F88]">
+        <div className="mt-[26px] border-b border-[#E6EDEA] pb-2 font-mono text-[12px] text-[#64746E]">
           LAST UPDATED · 26 August 2026
         </div>
       </section>
@@ -114,7 +114,7 @@ export default function AttestaDocsPage() {
       {/* Body: sticky TOC + content */}
       <section className="mx-auto grid max-w-[1000px] grid-cols-1 items-start gap-10 px-5 pb-20 pt-10 sm:px-8 md:grid-cols-[200px_1fr] md:gap-[56px]">
         <nav className="toc top-[90px] hidden md:sticky md:block">
-          <div className="mb-[14px] font-mono text-[10px] uppercase tracking-[0.14em] text-[#7C8F88]">
+          <div className="mb-[14px] font-mono text-[10px] uppercase tracking-[0.14em] text-[#64746E]">
             On this page
           </div>
           <div className="flex flex-col gap-2.5">
