@@ -3,6 +3,8 @@ import ObaritoHeader from "./ObaritoHeader";
 import ObaritoFooter from "./ObaritoFooter";
 import RewindlyHeader from "./RewindlyHeader";
 import RewindlyFooter from "./RewindlyFooter";
+import AttestaHeader from "./AttestaHeader";
+import AttestaFooter from "./AttestaFooter";
 
 export type TocItem = { id: string; label: string };
 
@@ -18,10 +20,12 @@ type LegalLayoutProps = {
   notice?: ReactNode;
   /**
    * Which header + footer chrome to render. App-specific legal pages (e.g.
-   * /rewindly/*) pass "rewindly" so they carry the Rewindly app header and
-   * footer; the company legal pages default to the main Obarito chrome.
+   * /rewindly/*, /attesta/*) pass their app name so they carry that app's
+   * header and footer; the company legal pages default to the main Obarito
+   * chrome. "attesta" also puts the page in `.attesta-scope`, which swaps the
+   * link and selection colours to the app's green.
    */
-  brand?: "obarito" | "rewindly";
+  brand?: "obarito" | "rewindly" | "attesta";
   children: ReactNode;
 };
 
@@ -41,13 +45,21 @@ export default function LegalLayout({
   brand = "obarito",
   children,
 }: LegalLayoutProps) {
+  const attesta = brand === "attesta";
+
   return (
-    <>
-      {brand === "rewindly" ? <RewindlyHeader /> : <ObaritoHeader />}
+    <div className={attesta ? "attesta-scope" : undefined}>
+      {brand === "rewindly" && <RewindlyHeader />}
+      {attesta && <AttestaHeader />}
+      {brand === "obarito" && <ObaritoHeader />}
 
       {/* Title block */}
       <section className="mx-auto max-w-[1000px] px-5 pt-[clamp(44px,6vw,72px)] sm:px-8">
-        <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#2563EB]">
+        <div
+          className={`mb-4 font-mono text-[11px] uppercase tracking-[0.18em] ${
+            attesta ? "text-[#0F8A5F]" : "text-[#2563EB]"
+          }`}
+        >
           Legal
         </div>
         <h1 className="m-0 mb-[18px] text-[clamp(34px,5vw,48px)] font-semibold tracking-[-0.035em]">
@@ -92,11 +104,9 @@ export default function LegalLayout({
         <div className="legal-body">{children}</div>
       </section>
 
-      {brand === "rewindly" ? (
-        <RewindlyFooter />
-      ) : (
-        <ObaritoFooter active={active} />
-      )}
-    </>
+      {brand === "rewindly" && <RewindlyFooter />}
+      {attesta && <AttestaFooter />}
+      {brand === "obarito" && <ObaritoFooter active={active} />}
+    </div>
   );
 }

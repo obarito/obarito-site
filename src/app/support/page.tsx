@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ObaritoHeader from "@/components/ObaritoHeader";
 import ObaritoFooter from "@/components/ObaritoFooter";
-import { PRIVACY_EMAIL, SUPPORT_EMAIL } from "@/lib/config";
+import AttestaMark from "@/components/AttestaMark";
+import { SUPPORT_EMAIL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Support",
@@ -57,7 +58,7 @@ export default function SupportPage() {
                 </div>
               </div>
               <div>
-                <div className="text-[20px] font-semibold">Mon–Fri</div>
+                <div className="text-[20px] font-semibold">Mon to Fri</div>
                 <div className="mt-0.5 text-[13px] text-[#64748B]">Support hours</div>
               </div>
             </div>
@@ -85,20 +86,22 @@ export default function SupportPage() {
                 </div>
               </div>
             </Link>
-            <a
-              href={`mailto:${PRIVACY_EMAIL}`}
+            <Link
+              href="/attesta/docs"
               className="flex items-center gap-4 rounded-[16px] border border-[#E2E8F0] bg-[#F7F8FA] p-6"
             >
-              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-[11px] bg-[#EFF4FF] text-[18px] font-bold text-[#2563EB]">
-                @
+              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-[11px] bg-[#0F4B3C] text-white">
+                <AttestaMark className="h-[22px] w-[22px]" />
               </div>
               <div>
                 <div className="text-[16px] font-semibold text-[#0B0F17]">
-                  Data &amp; privacy requests
+                  Attesta help
                 </div>
-                <div className="mt-0.5 text-[13.5px] text-[#64748B]">{PRIVACY_EMAIL}</div>
+                <div className="mt-0.5 text-[13.5px] text-[#64748B]">
+                  E-invoicing, VAT &amp; DATEV
+                </div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -153,14 +156,19 @@ export default function SupportPage() {
               <p className="m-0 text-[14.5px] leading-[1.6] text-[#64748B]">
                 Uninstalling triggers Shopify&apos;s redaction webhooks. For a manual
                 request, email{" "}
-                <a href={`mailto:${PRIVACY_EMAIL}`} className="text-[#2563EB]">
-                  {PRIVACY_EMAIL}
+                <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#2563EB]">
+                  {SUPPORT_EMAIL}
                 </a>{" "}
                 and see the{" "}
                 <Link href="/privacy" className="text-[#2563EB]">
                   Privacy Policy
                 </Link>
-                .
+                . Attesta keeps issued invoices for ten years even after an erasure
+                request, because German retention law requires it: the{" "}
+                <Link href="/attesta/privacy" className="text-[#2563EB]">
+                  Attesta policy
+                </Link>{" "}
+                explains where that line falls.
               </p>
             </div>
             <div className="rounded-[14px] border border-[#E2E8F0] bg-white px-[26px] py-[22px]">

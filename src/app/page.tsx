@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ObaritoHeader from "@/components/ObaritoHeader";
 import ObaritoMark from "@/components/ObaritoMark";
+import AttestaMark, { AttestaGlyph } from "@/components/AttestaMark";
 
 export default function HomePage() {
   return (
@@ -52,9 +53,14 @@ export default function HomePage() {
               style={{ transformOrigin: "120px 120px", animation: "ob-spin 60s linear infinite" }}
             />
             <circle cx="120" cy="120" r="58" fill="none" stroke="#EEF1F5" strokeWidth="1.5" />
-            {/* future faint nodes */}
+            {/* future faint node */}
             <circle cx="44" cy="158" r="7" fill="#fff" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="2 3" />
-            <circle cx="196" cy="158" r="7" fill="#fff" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="2 3" />
+            {/* attesta node */}
+            <line x1="120" y1="120" x2="196" y2="158" stroke="#E2E8F0" strokeWidth="1.5" />
+            <g>
+              <circle cx="196" cy="158" r="15" fill="#0F4B3C" />
+              <AttestaGlyph x={196} y={158} size={16} />
+            </g>
             {/* rewindly node */}
             <line x1="120" y1="120" x2="120" y2="28" stroke="#E2E8F0" strokeWidth="1.5" />
             <g>
@@ -85,7 +91,7 @@ export default function HomePage() {
             </h2>
             <p className="m-0 max-w-[560px] text-[17px] leading-[1.6] text-[#64748B]">
               Every Obarito app does one job well and orbits the same dependable
-              center. Here&apos;s what&apos;s live today.
+              center. Here&apos;s what&apos;s on the shelf today.
             </p>
           </div>
 
@@ -124,6 +130,39 @@ export default function HomePage() {
               </p>
               <span className="inline-flex items-center gap-[7px] text-[14.5px] font-medium text-[#2563EB]">
                 View Rewindly <span className="text-[16px]">→</span>
+              </span>
+            </Link>
+
+            {/* Attesta card */}
+            <Link
+              href="/attesta"
+              className="block rounded-[18px] border border-[#E2E8F0] bg-white px-8 py-[34px] transition-[box-shadow,transform] duration-200 hover:-translate-y-[3px] hover:shadow-[0_14px_40px_rgba(15,23,42,0.10)]"
+            >
+              <div className="mb-[26px] flex items-center justify-between">
+                <div className="flex items-center gap-[13px]">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[13px] bg-[#0F4B3C] text-white">
+                    <AttestaMark className="h-[26px] w-[26px]" />
+                  </div>
+                  <div>
+                    <div className="text-[20px] font-semibold tracking-[-0.02em] text-[#0B0F17]">
+                      Attesta
+                    </div>
+                    <div className="mt-px text-[13px] text-[#64748B]">
+                      German e-invoicing
+                    </div>
+                  </div>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ECFDF5] px-[9px] py-[5px] font-mono text-[10px] uppercase tracking-[0.08em] text-[#0F8A5F]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#34D399]" /> New
+                </span>
+              </div>
+              <p className="m-0 mb-6 text-[15.5px] leading-[1.6] text-[#334155]">
+                Turns every paid order into a ZUGFeRD invoice with the EN 16931 XML
+                inside it, picks the right tax treatment, and files it in a
+                ten-year GoBD archive. E-Rechnung without the homework.
+              </p>
+              <span className="inline-flex items-center gap-[7px] text-[14.5px] font-medium text-[#2563EB]">
+                View Attesta <span className="text-[16px]">→</span>
               </span>
             </Link>
 
@@ -201,6 +240,9 @@ export default function HomePage() {
               <div className="flex flex-col gap-[11px]">
                 <Link href="/rewindly" className="text-[14.5px] text-[#CBD5E1]">
                   Rewindly
+                </Link>
+                <Link href="/attesta" className="text-[14.5px] text-[#CBD5E1]">
+                  Attesta
                 </Link>
                 <span className="text-[14.5px] text-[#475569]">More coming soon</span>
               </div>

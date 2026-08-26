@@ -35,10 +35,10 @@ export default function ObaritoHeader({ active }: ObaritoHeaderProps) {
             Support
           </Link>
           <Link
-            href="/rewindly"
+            href="/attesta"
             className="rounded-[9px] bg-[#0B0F17] px-4 py-[9px] text-[14px] font-medium text-white"
           >
-            View Rewindly
+            View Attesta
           </Link>
         </nav>
       </div>

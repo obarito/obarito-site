@@ -12,6 +12,10 @@ This is a standalone repo, separate from the Laravel apps it markets.
 | ----------- | ----------------------------------------------------------------------- |
 | `/`         | Company home - what Obarito is + the app portfolio grid                 |
 | `/rewindly` | Rewindly app landing (keeps Rewindly's own navy brand, signed "An Obarito app") |
+| `/attesta`  | Attesta app landing (keeps Attesta's own green brand, signed "An Obarito app") |
+| `/attesta/docs` | Attesta user guide (onboarding, invoices, tax treatment, exports, plans) |
+| `/attesta/privacy` | Attesta privacy policy (buyer PII, GoBD retention vs erasure) |
+| `/attesta/terms` | Attesta terms of service |
 | `/privacy`  | Privacy policy (shared across apps) - **DRAFT scaffolding**             |
 | `/terms`    | Terms of service - **DRAFT scaffolding**                                |
 | `/support`  | Support / contact                                                       |
@@ -38,8 +42,14 @@ All site-wide constants live in **`src/lib/config.ts`**:
 
 - `APPSTORE_URL` - Rewindly's Shopify App Store listing. Every "Add to Shopify" /
   install CTA points here: `https://apps.shopify.com/rewindly-product-watchdog`.
-- `SUPPORT_EMAIL` / `PRIVACY_EMAIL` / `LEGAL_EMAIL` - contact addresses surfaced
-  on `/support` and the legal pages.
+- `ATTESTA_APPSTORE_URL` - the same thing for Attesta. It is the in-page anchor
+  `#pricing` while the listing is being prepared, so no CTA on `/attesta` leads
+  anywhere dead. Swap in the apps.shopify.com URL when the listing publishes and
+  every button on that page becomes a real install link.
+- `SUPPORT_EMAIL` - the only inbox that exists. Support, privacy and data
+  requests all point here, including from the legal pages. There is no
+  `privacy@`; give it its own constant again only once the mailbox is real.
+- `LEGAL_EMAIL` - inbox for legal/terms questions, used by `/terms`.
 
 ### Analytics & heatmaps
 
@@ -66,9 +76,15 @@ dashboard. Add a Meta Pixel / other ad tag in `Analytics.tsx` behind its own
 - **Rewindly** (`/rewindly` only): keeps its own brand - navy `#1a3353`,
   amber `#E9A23A`, stacked-layers mark. Obarito appears only as the
   "An Obarito app" footer signature.
+- **Attesta** (`/attesta/*`): keeps its own brand - green `#0F4B3C`,
+  mint `#34D399`, the clip-A mark. Same "An Obarito app" footer signature.
+  `LegalLayout` takes `brand="attesta"`, which swaps in the Attesta chrome and
+  puts the page in `.attesta-scope` for the green link colour.
 
 Reusable building blocks live in `src/components/`:
-`ObaritoHeader`, `ObaritoFooter`, `LegalLayout`, `ObaritoMark`, `RewindlyMark`.
+`ObaritoHeader`, `ObaritoFooter`, `LegalLayout`, `ObaritoMark`, `RewindlyMark`,
+`AttestaMark` (which also exports `AttestaGlyph` for placing the mark inside an
+SVG that already exists, the way the home-page orbit does).
 A future app's landing can be added as `src/app/<app>/page.tsx` following the
 `/rewindly` structure.
 
@@ -84,6 +100,26 @@ A future app's landing can be added as `src/app/<app>/page.tsx` following the
 - Confirm support/privacy/legal email inboxes are monitored.
 - Favicon is set from the Obarito mark (`src/app/icon.svg`). Add an OG share
   image if desired (currently text-only Open Graph metadata).
+
+## Docs page figures
+
+`/rewindly/docs` and `/attesta/docs` both carry captioned screenshots from
+`public/<app>/docs/`.
+
+The Attesta set is cut from that app's App Store artwork rather than captured from
+a browser, because the app only renders inside the Shopify admin. The listing
+images pair a headline with an app surface; the crop keeps the surface and drops
+the headline. `_dev/brand/gen/crop_docs.sh` in the Attesta repo holds the rects
+and writes straight into `public/attesta/docs/`, so re-run it after changing any
+listing image:
+
+```bash
+/var/www/html/attesta/_dev/brand/gen/crop_docs.sh
+```
+
+They are between 700 and 1400 pixels wide, so they are close to 1x on a retina
+screen where the Rewindly captures are 2x. Replace them with real captures once
+the app is installable on a demo store.
 
 ## Deploy
 

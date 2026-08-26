@@ -389,7 +389,7 @@ export default function RewindlyPage() {
                 {[
                   "Everything in Starter",
                   "Unlimited products tracked",
-                  "Full history — nothing pruned",
+                  "Full history, nothing pruned",
                   "Point-in-time bulk rollback",
                   "Slack alerts",
                   "Omnibus 30-day price notice on your storefront",

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalLayout, { type TocItem } from "@/components/LegalLayout";
-import { PRIVACY_EMAIL } from "@/lib/config";
+import { SUPPORT_EMAIL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -176,7 +176,7 @@ export default function PrivacyPage() {
       <p>
         Questions or requests about this policy or your data:{" "}
         <strong>
-          <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>
+          <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
         </strong>
         . The data controller is <strong>Obarito</strong>. We aim to respond
         within a reasonable period.

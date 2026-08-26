@@ -31,6 +31,12 @@ body {
   color: #142844;
 }
 
+/* Attesta's landing keeps its own mint selection. */
+.attesta-scope ::selection {
+  background: #34d399;
+  color: #0b3729;
+}
+
 @keyframes ob-spin {
   to {
     transform: rotate(360deg);
@@ -72,4 +78,15 @@ body {
 }
 .toc a:hover {
   color: #2563eb;
+}
+
+/* Attesta's docs body keeps the app's green links instead of Obarito blue. */
+.attesta-scope .legal-body h2 {
+  color: #16202e;
+}
+.attesta-scope .legal-body a {
+  color: #0f8a5f;
+}
+.attesta-scope .toc a:hover {
+  color: #0f8a5f;
 }

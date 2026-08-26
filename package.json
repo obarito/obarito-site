@@ -2,7 +2,7 @@
   "name": "obarito-site",
   "version": "0.1.0",
   "private": true,
-  "description": "obarito.com — publisher site for the Obarito studio of Shopify apps",
+  "description": "obarito.com, publisher site for the Obarito studio of Shopify apps",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
