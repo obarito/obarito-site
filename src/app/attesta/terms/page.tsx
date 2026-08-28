@@ -33,7 +33,7 @@ export default function AttestaTermsPage() {
       toc={toc}
       active="terms"
       brand="attesta"
-      lastUpdated="26 August 2026"
+      lastUpdated="28 August 2026"
       effectiveDate="26 August 2026"
     >
       <h2 id="service">The service</h2>
@@ -122,6 +122,14 @@ export default function AttestaTermsPage() {
         tells us you have gone. What we hold and how long is set out in the{" "}
         <Link href="/attesta/privacy">Privacy Policy</Link>, which forms part of
         these Terms.
+      </p>
+      <p>
+        Because the App writes invoices, it processes personal data about your
+        buyers on your behalf. You are the controller of that data and we are
+        your processor. The terms of that processing are set out in the{" "}
+        <Link href="/attesta/dpa">Data Processing Agreement</Link>, which also
+        forms part of these Terms and takes effect when you install the App.
+        Nothing separate needs signing.
       </p>
 
       <h2 id="availability">Availability</h2>
