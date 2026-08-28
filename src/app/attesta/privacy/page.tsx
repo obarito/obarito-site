@@ -31,7 +31,7 @@ export default function AttestaPrivacyPage() {
       toc={toc}
       active="privacy"
       brand="attesta"
-      lastUpdated="26 August 2026"
+      lastUpdated="28 August 2026"
       effectiveDate="26 August 2026"
     >
       <h2 id="roles">Who controls what</h2>
@@ -57,6 +57,11 @@ export default function AttestaPrivacyPage() {
         If one of your buyers contacts us directly about their data, we will
         point them to you, because the decision about their data is yours to
         make.
+      </p>
+      <p>
+        The processor relationship is set out in full in our{" "}
+        <Link href="/attesta/dpa">Data Processing Agreement</Link>, which takes
+        effect when you install the App.
       </p>
 
       <h2 id="collect">Data we process</h2>
@@ -264,9 +269,30 @@ export default function AttestaPrivacyPage() {
         Archived invoices are kept outside the public web root and are served
         only to the shop that owns them, through links that are scoped and
         time-limited. Each document&apos;s hash is chained to the one before it,
-        so a change to an archived invoice is detectable rather than silent. No
-        system is perfectly secure, and we do not claim otherwise, but we take
-        reasonable measures to protect what we hold.
+        so a change to an archived invoice is detectable rather than silent.
+      </p>
+      <p>
+        Buyer personal data is <strong>encrypted at rest</strong> with AES-256,
+        not only in transit. That covers the buyer name, VAT ID and email we
+        store against an invoice, the EN 16931 XML and the stored invoice view
+        (both of which carry the full billing address), the order payload behind
+        a failed invoice attempt, the trader details VIES returns, and your
+        Shopify access token. The archived PDFs are encrypted on disk as well,
+        so a copy of the archive without the key is not readable.
+      </p>
+      <p>
+        There is no admin panel and no support login, so there is no screen
+        through which we can browse your invoices. Every request is
+        authenticated by a Shopify session token and every database query is
+        scoped to the shop making it, so one merchant&apos;s data is not
+        reachable from another&apos;s session. Reads of buyer data through the
+        App, meaning invoice views, downloads and the two bulk exports, are
+        written to a separate access log that records who read what and when,
+        never the data itself. That log is kept for one year.
+      </p>
+      <p>
+        No system is perfectly secure, and we do not claim otherwise, but we
+        take reasonable measures to protect what we hold.
       </p>
 
       <h2 id="changes">Changes to this policy</h2>

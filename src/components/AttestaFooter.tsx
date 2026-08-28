@@ -60,6 +60,9 @@ export default function AttestaFooter() {
               <Link href="/attesta/terms" className="text-[14.5px] text-[#9EBCB1]">
                 Terms
               </Link>
+              <Link href="/attesta/dpa" className="text-[14.5px] text-[#9EBCB1]">
+                DPA
+              </Link>
             </div>
           </div>
         </div>
