@@ -75,12 +75,19 @@ const STEPS = [
 
 /**
  * Mirrors the app's own pricing screen (config/plans.php + lang/{locale}/pricing.php).
- * Two things here are deliberate and easy to "fix" wrongly:
+ * Three things here are deliberate and easy to "fix" wrongly:
  *   - Prices are USD. The Shopify Billing API call hardcodes currencyCode USD, so a page
  *     quoting EUR would promise one price and charge another.
+ *   - `yearly` is the whole year's charge, taken in one go when the merchant approves it,
+ *     not a spread-out monthly rate. The rule is ten months for twelve, so the year is
+ *     always exactly ten times the monthly price and the saving is a flat 16.67% on every
+ *     tier. Quoting a per-month equivalent here describes a charge Shopify never makes.
  *   - Peppol / B2G is not a tier. It is not built, and a "coming soon" plan reads to an
  *     App Store reviewer as advertising a feature the app does not have. It gets a tier
  *     when it ships.
+ *
+ * Nothing in this repo tests these numbers. The app's `plans` table is what the merchant is
+ * actually charged, so a price change there has to be copied here by hand.
  */
 const TIERS = [
   {
@@ -100,7 +107,7 @@ const TIERS = [
   {
     name: "Compliance",
     price: "$9",
-    yearly: "$7 / mo billed yearly",
+    yearly: "or $90 / year, 2 months free",
     tagline: "The whole job, no limit",
     features: [
       "Unlimited invoices",
@@ -114,14 +121,14 @@ const TIERS = [
   {
     name: "Accounting",
     price: "$19",
-    yearly: "$15 / mo billed yearly",
+    yearly: "or $190 / year, 2 months free",
     tagline: "The tax-accountant plan",
     features: [
       "Everything in Compliance",
       "DATEV-Paket (EXTF CSV + ZIP)",
       "Numbering migration",
       "Verfahrensdokumentation",
-      "CSV / API export",
+      "CSV export",
     ],
     popular: false,
   },

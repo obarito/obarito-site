@@ -87,8 +87,9 @@ export default function AttestaTermsPage() {
         <li>
           Attesta offers a <strong>Free</strong> plan,{" "}
           <strong>Compliance</strong> at $9 per month and{" "}
-          <strong>Accounting</strong> at $19 per month. Annual billing is around
-          20% cheaper. Prices exclude VAT.
+          <strong>Accounting</strong> at $19 per month. Paid yearly they are
+          $90 and $190, taken as a single charge, which is two months free.
+          Prices exclude VAT.
         </li>
         <li>
           Billing runs through Shopify&apos;s billing system and appears on your

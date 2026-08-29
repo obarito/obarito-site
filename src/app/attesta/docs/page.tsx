@@ -505,20 +505,21 @@ export default function AttestaDocsPage() {
               XML is the legal record.
             </li>
             <li>
-              <strong>Compliance, $9/month</strong> ($7 a month billed yearly) -
-              unlimited invoices, automatic Stornorechnungen,
+              <strong>Compliance, $9/month</strong> (or $90 a year, taken as
+              one charge) - unlimited invoices, automatic Stornorechnungen,
               USt-IdNr.-Erfassung with VIES, automatic Reverse-Charge and the
               GoBD ten-year archive.
             </li>
             <li>
-              <strong>Accounting, $19/month</strong> ($15 a month billed yearly)
-              - everything in Compliance plus the DATEV package, numbering
-              migration, Verfahrensdokumentation and CSV or API export.
+              <strong>Accounting, $19/month</strong> (or $190 a year, taken as
+              one charge) - everything in Compliance plus the DATEV package, numbering
+              migration, Verfahrensdokumentation and CSV export.
             </li>
           </ul>
           <p>
             Billing runs through Shopify and appears on your normal Shopify
-            invoice, in USD. Annual billing saves about 20%. You can change
+            invoice, in USD. A year costs ten months, so annual billing saves
+            16.67%. You can change
             plans or cancel from inside the app at any time, and if you cancel
             you land back on Free, where invoicing keeps working: the free tier
             still issues legally valid e-invoices.
