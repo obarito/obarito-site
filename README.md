@@ -42,10 +42,8 @@ All site-wide constants live in **`src/lib/config.ts`**:
 
 - `APPSTORE_URL` - Rewindly's Shopify App Store listing. Every "Add to Shopify" /
   install CTA points here: `https://apps.shopify.com/rewindly-product-watchdog`.
-- `ATTESTA_APPSTORE_URL` - the same thing for Attesta. It is the in-page anchor
-  `#pricing` while the listing is being prepared, so no CTA on `/attesta` leads
-  anywhere dead. Swap in the apps.shopify.com URL when the listing publishes and
-  every button on that page becomes a real install link.
+- `ATTESTA_APPSTORE_URL` - the same thing for Attesta. Every install CTA on
+  `/attesta` points here: `https://apps.shopify.com/attesta-e-rechnung-zugferd`.
 - `SUPPORT_EMAIL` - the only inbox that exists. Support, privacy and data
   requests all point here, including from the legal pages. There is no
   `privacy@`; give it its own constant again only once the mailbox is real.

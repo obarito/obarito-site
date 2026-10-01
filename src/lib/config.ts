@@ -11,12 +11,11 @@
 export const APPSTORE_URL = "https://apps.shopify.com/rewindly-product-watchdog";
 
 /**
- * ATTESTA_APPSTORE_URL - the target for every install CTA on /attesta. It is an
- * in-page anchor while the listing is being prepared, so no button leads
- * anywhere dead. Swap in the apps.shopify.com URL once the listing is published
- * and every CTA on the page turns into a real install link; nothing else changes.
+ * ATTESTA_APPSTORE_URL - Attesta's Shopify App Store listing, approved on
+ * 2026-10-01. Every install CTA on /attesta points here.
  */
-export const ATTESTA_APPSTORE_URL = "#pricing";
+export const ATTESTA_APPSTORE_URL =
+  "https://apps.shopify.com/attesta-e-rechnung-zugferd";
 
 export const SUPPORT_EMAIL = "support@obarito.com";
 export const LEGAL_EMAIL = "legal@obarito.com";
