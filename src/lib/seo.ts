@@ -6,7 +6,7 @@ import {
   SITE_NAME,
 } from "@/lib/config";
 
-export const SITE_URL = "https://obarito.com";
+export const SITE_URL = "https://www.obarito.com";
 
 type PageMetadataOptions = {
   title: string;
