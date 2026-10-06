@@ -51,7 +51,7 @@ export default function AttestaHeader({
           <Link
             href={alternatePath}
             hrefLang={english ? "de-DE" : "en"}
-            className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[#0F6B4A]"
+            className="inline-flex min-w-11 items-center justify-center rounded-full border border-[#C9D9D3] bg-[#F5F8F7] px-3 py-1.5 text-[12px] font-semibold uppercase tracking-[0.1em] text-[#0F6B4A] transition-colors hover:border-[#8FB3A6] hover:bg-[#E8F5EE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0E8058] focus-visible:ring-offset-2"
             aria-label={english ? "Deutsche Version" : "English version"}
           >
             {english ? "DE" : "EN"}
