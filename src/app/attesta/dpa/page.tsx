@@ -5,230 +5,241 @@ import { SUPPORT_EMAIL } from "@/lib/config";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Data Processing Agreement - Attesta",
+  title: "Auftragsverarbeitungsvertrag - Attesta",
   description:
-    "The Art. 28 GDPR terms on which Obarito processes your buyers' personal data when Attesta issues invoices on your behalf.",
+    "Vereinbarung nach Art. 28 DSGVO zur Verarbeitung personenbezogener Käuferdaten durch Obarito bei der Rechnungserstellung mit Attesta.",
   path: "/attesta/dpa",
+  locale: "de_DE",
+  languages: {
+    "de-DE": "/attesta/dpa",
+    en: "/en/attesta/dpa",
+    "x-default": "/attesta/dpa",
+  },
 });
 
 const toc: TocItem[] = [
-  { id: "parties", label: "Parties and scope" },
-  { id: "subject", label: "Subject and duration" },
-  { id: "nature", label: "Nature and purpose" },
-  { id: "categories", label: "Data and data subjects" },
-  { id: "instructions", label: "Your instructions" },
-  { id: "confidentiality", label: "Confidentiality" },
-  { id: "security", label: "Security measures" },
-  { id: "retention", label: "Retention and deletion" },
-  { id: "subprocessors", label: "Sub-processors" },
-  { id: "assistance", label: "Assistance we give you" },
-  { id: "breach", label: "Breach notification" },
-  { id: "audit", label: "Audit" },
-  { id: "termination", label: "On termination" },
-  { id: "contact", label: "Contact" },
+  { id: "parties", label: "Parteien und Geltungsbereich" },
+  { id: "subject", label: "Gegenstand und Dauer" },
+  { id: "nature", label: "Art und Zweck" },
+  { id: "categories", label: "Daten und betroffene Personen" },
+  { id: "instructions", label: "Ihre Weisungen" },
+  { id: "confidentiality", label: "Vertraulichkeit" },
+  { id: "security", label: "Sicherheitsmaßnahmen" },
+  { id: "retention", label: "Aufbewahrung und Löschung" },
+  { id: "subprocessors", label: "Unterauftragsverarbeiter" },
+  { id: "assistance", label: "Unsere Unterstützung" },
+  { id: "breach", label: "Meldung von Verletzungen" },
+  { id: "audit", label: "Prüfung" },
+  { id: "termination", label: "Vertragsende" },
+  { id: "contact", label: "Kontakt" },
 ];
 
 export default function AttestaDpaPage() {
   return (
     <LegalLayout
       path="/attesta/dpa"
-      title="Data Processing Agreement"
-      intro={`Attesta writes invoices, so it processes personal data about your buyers on your behalf. This agreement sets out the terms of that processing under Art. 28 GDPR. It takes effect when you install the App and runs for as long as the installation does. You do not need to sign anything separately.`}
+      title="Auftragsverarbeitungsvertrag"
+      intro={`Attesta erstellt Rechnungen und verarbeitet dabei personenbezogene Daten Ihrer Käufer in Ihrem Auftrag. Dieser Vertrag regelt die Verarbeitung nach Art. 28 DSGVO. Er tritt mit der Installation der App in Kraft und gilt für deren Dauer. Eine gesonderte Unterzeichnung ist nicht erforderlich.`}
       toc={toc}
       active="privacy"
       brand="attesta"
-      lastUpdated="28 August 2026"
-      effectiveDate="28 August 2026"
+      lastUpdated="7. Oktober 2026"
+      effectiveDate="28. August 2026"
     >
-      <h2 id="parties">Parties and scope</h2>
+      <h2 id="parties">Parteien und Geltungsbereich</h2>
       <p>
-        You, the merchant who installed Attesta, are the{" "}
-        <strong>controller</strong> of your buyers&apos; personal data. Obarito,
-        which operates Attesta, is your <strong>processor</strong> for that
-        data.
+        Sie als Händler, der Attesta installiert hat, sind{" "}
+        <strong>Verantwortlicher</strong> für die personenbezogenen Daten Ihrer
+        Käufer. Obarito betreibt Attesta und ist für diese Daten Ihr{" "}
+        <strong>Auftragsverarbeiter</strong>.
       </p>
       <p>
-        This agreement covers only that relationship. Data about you and your
-        shop, meaning your account, your seller details and your billing, is
-        handled by Obarito as controller and is covered by the{" "}
-        <Link href="/attesta/privacy">Privacy Policy</Link> instead. Where this
-        agreement and the{" "}
-        <Link href="/attesta/terms">Terms of Service</Link> disagree about
-        personal data, this agreement wins.
-      </p>
-
-      <h2 id="subject">Subject and duration</h2>
-      <p>
-        We generate German e-invoices from your paid Shopify orders, validate
-        them against EN 16931, archive them, and deliver them to your buyers
-        where you have switched that on. Processing runs for the term of your
-        installation, and for archived invoices, for the statutory retention
-        period described below.
+        Dieser Vertrag gilt nur für dieses Auftragsverhältnis. Daten über Sie und
+        Ihren Shop, darunter Konto-, Verkäufer- und Abrechnungsdaten, verarbeitet
+        Obarito als Verantwortlicher nach der{" "}
+        <Link href="/attesta/privacy">Datenschutzerklärung</Link>. Widersprechen sich
+        dieser Vertrag und die{" "}
+        <Link href="/attesta/terms">Nutzungsbedingungen</Link> hinsichtlich
+        personenbezogener Daten, hat dieser Vertrag Vorrang.
       </p>
 
-      <h2 id="nature">Nature and purpose</h2>
+      <h2 id="subject">Gegenstand und Dauer</h2>
       <p>
-        Processing is automated and serves one purpose: producing, validating,
-        archiving, exporting and delivering invoices that satisfy §14 UStG, the
-        GoBD and EN 16931. We do not use your buyers&apos; data for anything
-        else. We do not sell or share it, do not use it for marketing, do not
-        build profiles from it, do not enrich it against outside sources, and do
-        not use it to train machine learning models.
+        Wir erstellen aus Ihren bezahlten Shopify-Bestellungen deutsche
+        E-Rechnungen, validieren sie nach EN 16931, archivieren sie und senden sie,
+        sofern aktiviert, an Ihre Käufer. Die Verarbeitung erfolgt für die Dauer
+        der Installation. Für archivierte Rechnungen gilt die unten beschriebene
+        Aufbewahrungsdauer.
       </p>
 
-      <h2 id="categories">Data and data subjects</h2>
+      <h2 id="nature">Art und Zweck der Verarbeitung</h2>
       <p>
-        The data subjects are your customers, and where a business buys from
-        you, the people representing that business. The categories we process
-        are the buyer&apos;s name or company name, their billing address, their
-        email address, their VAT identification number where they give one, and
-        the contents of their order. The full inventory, and the reason each
-        field is needed, is in the{" "}
-        <Link href="/attesta/privacy">Privacy Policy</Link>.
-      </p>
-      <p>
-        We request the minimum that the job needs. Phone numbers are not
-        requested and we have no use for them.
+        Die Verarbeitung erfolgt automatisiert zur Erstellung, Validierung,
+        Archivierung, Ausfuhr und Zustellung von Rechnungen nach § 14 UStG, GoBD
+        und EN 16931. Wir verwenden Käuferdaten nicht für andere Zwecke. Wir
+        verkaufen sie nicht, geben sie nicht zu Marketingzwecken weiter, erstellen
+        keine Profile, reichern sie nicht mit externen Quellen an und nutzen sie
+        nicht zum Trainieren von Machine-Learning-Modellen.
       </p>
 
-      <h2 id="instructions">Your instructions</h2>
+      <h2 id="categories">Daten und betroffene Personen</h2>
       <p>
-        We process your buyers&apos; data only on your documented instructions.
-        The App&apos;s settings and this agreement are those instructions. If an
-        instruction looks to us like it would infringe data protection law, we
-        will tell you, and we may decline to carry it out.
+        Betroffene Personen sind Ihre Kunden und bei Geschäftskunden die für das
+        jeweilige Unternehmen handelnden Personen. Wir verarbeiten Name oder
+        Firmenname, Rechnungsanschrift, E-Mail-Adresse, gegebenenfalls USt-IdNr.
+        sowie den Inhalt der Bestellung. Eine vollständige Übersicht und die
+        jeweiligen Verarbeitungszwecke enthält die{" "}
+        <Link href="/attesta/privacy">Datenschutzerklärung</Link>.
       </p>
       <p>
-        One case is settled here in advance, because it comes up often enough to
-        deserve a written answer rather than an improvised one. Where an erasure
-        request arrives for a buyer whose invoice has already been issued, we{" "}
-        <strong>retain</strong> the invoice under Art. 17(3)(b) GDPR, because
-        you are legally required to keep it. Erasing it on request would put you
-        in breach of your own retention duty. What can be erased is erased, and
-        the request is recorded.
+        Wir erheben nur die für die Aufgabe erforderlichen Daten. Telefonnummern
+        werden nicht angefordert oder verwendet.
       </p>
 
-      <h2 id="confidentiality">Confidentiality</h2>
+      <h2 id="instructions">Ihre Weisungen</h2>
       <p>
-        Everyone we authorise to handle personal data is bound to
-        confidentiality in writing, and that obligation outlives their
-        involvement. Attesta has no admin panel and no support login, so
-        reaching your data at all requires deliberate server access rather than
-        a screen someone can wander into.
+        Wir verarbeiten Käuferdaten nur auf Ihre dokumentierte Weisung. Die
+        Einstellungen der App und dieser Vertrag bilden diese Weisungen. Halten wir
+        eine Weisung für datenschutzwidrig, informieren wir Sie und können ihre
+        Ausführung ablehnen.
+      </p>
+      <p>
+        Für Löschanfragen zu Käufern mit bereits ausgestellter Rechnung gilt: Auf
+        Ihre Weisung <strong>bewahren</strong> wir die Rechnung nach Art. 17 Abs. 3
+        Buchst. b DSGVO auf, soweit eine gesetzliche Aufbewahrungspflicht besteht.
+        Daten, die nicht aufbewahrt werden müssen, werden gelöscht. Die Anfrage wird
+        dokumentiert.
       </p>
 
-      <h2 id="security">Security measures</h2>
-      <p>Under Art. 32 GDPR we apply at least the following:</p>
+      <h2 id="confidentiality">Vertraulichkeit</h2>
+      <p>
+        Alle zur Verarbeitung personenbezogener Daten befugten Personen sind
+        schriftlich zur Vertraulichkeit verpflichtet. Diese Pflicht besteht nach
+        Ende ihrer Tätigkeit fort. Attesta besitzt weder ein Administrationspanel
+        noch einen Support-Login. Ein Zugriff auf Ihre Daten erfordert daher einen
+        bewussten Serverzugriff.
+      </p>
+
+      <h2 id="security">Sicherheitsmaßnahmen</h2>
+      <p>Nach Art. 32 DSGVO setzen wir mindestens folgende Maßnahmen um:</p>
       <ul>
         <li>
-          TLS on all traffic, to browsers and to the Shopify API alike.
+          TLS für die gesamte Kommunikation mit Browsern und der Shopify-API.
         </li>
         <li>
-          AES-256 encryption at rest of buyer personal data, the invoice XML,
-          the stored invoice view, order payloads held against failed attempts,
-          VIES trader details, and your Shopify access token.
+          AES-256-Verschlüsselung im Ruhezustand für personenbezogene Käuferdaten,
+          Rechnungs-XML, gespeicherte Rechnungsansichten, Bestelldaten
+          fehlgeschlagener Versuche, VIES-Händlerdaten und Shopify-Zugriffstoken.
         </li>
-        <li>Encryption at rest of the archived invoice PDFs.</li>
+        <li>Verschlüsselung archivierter Rechnungs-PDFs im Ruhezustand.</li>
         <li>
-          Strict separation between merchants: every database query is scoped to
-          the shop making it.
+          Strikte Mandantentrennung: Jede Datenbankabfrage ist auf den anfragenden
+          Shop begrenzt.
         </li>
-        <li>Authentication of every request by Shopify session token.</li>
+        <li>Authentifizierung jeder Anfrage durch ein Shopify-Sitzungstoken.</li>
         <li>
-          No administrative interface through which our staff can browse
-          merchant or buyer data.
-        </li>
-        <li>
-          An access log recording reads of buyer data through the App, kept for
-          one year.
+          Keine Verwaltungsoberfläche, über die Beschäftigte Händler- oder
+          Käuferdaten durchsuchen können.
         </li>
         <li>
-          Production kept separate from development and test, with no production
-          data copied into either.
+          Ein Zugriffsprotokoll für Lesezugriffe auf Käuferdaten über die App mit
+          einer Aufbewahrungsdauer von einem Jahr.
         </li>
-        <li>Encrypted, off-server backups of the invoice archive.</li>
         <li>
-          A documented incident response procedure and a documented data loss
-          prevention strategy.
+          Trennung von Produktion, Entwicklung und Test ohne Übernahme von
+          Produktionsdaten in Entwicklungs- oder Testsysteme.
+        </li>
+        <li>Verschlüsselte Sicherungskopien des Rechnungsarchivs außerhalb des Servers.</li>
+        <li>
+          Dokumentierte Verfahren für Sicherheitsvorfälle und zur Vermeidung von
+          Datenverlusten.
         </li>
       </ul>
 
-      <h2 id="retention">Retention and deletion</h2>
+      <h2 id="retention">Aufbewahrung und Löschung</h2>
       <p>
-        Issued invoices are kept for ten years, as the GoBD and §14b UStG
-        require. The order payload held behind a failed invoice attempt is
-        erased once the attempt succeeds, on a buyer erasure request, or on your
-        instruction. When you uninstall, we erase everything we hold for your
-        shop as your processor once Shopify&apos;s <code>shop/redact</code>{" "}
-        request reaches us, about 48 hours later.
+        Solange die App installiert bleibt, bewahrt ihr Standardarchiv ausgestellte
+        Rechnungen im Rahmen des von Ihnen beauftragten Dienstes zehn Jahre auf.
+        Diese Konfiguration bedeutet nicht, dass für jede Rechnung eine gesetzliche
+        Frist von zehn Jahren gilt. Die allgemeine Frist nach § 14b UStG beträgt
+        acht Jahre; in bestimmten Fällen können längere Fristen gelten. Als
+        Verantwortlicher bestimmen Sie die maßgebliche Frist und Rechtsgrundlage.
+        Bestelldaten eines fehlgeschlagenen Rechnungsversuchs werden gelöscht,
+        sobald der Versuch erfolgreich ist, ein Käufer die Löschung verlangt oder
+        Sie uns entsprechend anweisen.
       </p>
       <p>
-        Your ten-year duty does not end with the uninstall, it stays with you as
-        the controller, so <strong>export your GoBD ZIP before you leave</strong>
-        . You can export it from the App at any time while the installation
-        lasts.
-      </p>
-
-      <h2 id="subprocessors">Sub-processors</h2>
-      <p>
-        You give general authorisation for the sub-processors listed in the{" "}
-        <Link href="/attesta/privacy">Privacy Policy</Link>: Shopify, our
-        hosting provider, our email provider, and the European Commission&apos;s
-        VIES service. We will announce any intended addition or replacement
-        before it takes effect, and you may object.
-      </p>
-      <p>
-        Invoice generation itself happens on our own server. The PDF renderer
-        and the ZUGFeRD writer are libraries running locally, so no invoice
-        content is sent anywhere to be processed. No AI or language model
-        provider receives your buyers&apos; data.
+        Nach der Deinstallation löschen wir alle Daten, die wir als Ihr
+        Auftragsverarbeiter für den Shop speichern, sobald uns Shopifys Anfrage{" "}
+        <code>shop/redact</code> erreicht, üblicherweise nach etwa 48 Stunden.
+        Fortbestehende Aufbewahrungspflichten bleiben bei Ihnen als Verantwortlichem.
+        <strong> Exportieren Sie deshalb vor der Deinstallation Ihr GoBD-ZIP.</strong>{" "}
+        Während der Installation können Sie es jederzeit aus der App exportieren.
       </p>
 
-      <h2 id="assistance">Assistance we give you</h2>
+      <h2 id="subprocessors">Unterauftragsverarbeiter</h2>
       <p>
-        We help you answer requests from your buyers, mainly through
-        Shopify&apos;s privacy webhooks, all three of which Attesta implements. A
-        data request returns the invoice records we hold for the named orders so
-        you can answer the buyer, since the answer is yours to give.
+        Sie erteilen eine allgemeine Genehmigung für die in der{" "}
+        <Link href="/attesta/privacy">Datenschutzerklärung</Link> aufgeführten
+        Unterauftragsverarbeiter: Shopify, unseren Hostinganbieter, unseren
+        E-Mail-Anbieter und den VIES-Dienst der Europäischen Kommission. Wir
+        informieren Sie vor einer beabsichtigten Ergänzung oder Ersetzung. Sie
+        können widersprechen.
       </p>
       <p>
-        We also help with data protection impact assessments and with
-        notifications to supervisory authorities, so far as the information is
-        ours to give.
-      </p>
-
-      <h2 id="breach">Breach notification</h2>
-      <p>
-        If we become aware of a breach affecting your data, we will tell you
-        without undue delay and at the latest within <strong>48 hours</strong>.
-        Your own 72-hour clock under Art. 33 GDPR starts when you are told, so
-        telling you late would cost you time you need.
-      </p>
-      <p>
-        The notice will say what happened, which categories of data and roughly
-        how many records are affected as far as we know, what the likely
-        consequences are, and what we have done about it. Where we cannot yet
-        tell, we will say that rather than guess.
+        Die Rechnungserstellung erfolgt auf unserem eigenen Server. PDF-Erzeugung
+        und ZUGFeRD-Ausgabe werden durch lokal ausgeführte Bibliotheken verarbeitet.
+        Rechnungsinhalte werden dafür nicht an andere Stellen übertragen. Anbieter
+        von KI- oder Sprachmodellen erhalten keine Käuferdaten.
       </p>
 
-      <h2 id="audit">Audit</h2>
+      <h2 id="assistance">Unsere Unterstützung</h2>
       <p>
-        We will give you the information needed to show compliance with Art. 28
-        GDPR, and allow an audit by you or an auditor you appoint, on reasonable
-        notice and without disrupting the service.
+        Wir unterstützen Sie bei Anfragen Ihrer Käufer, insbesondere über die drei
+        von Attesta implementierten Shopify-Datenschutz-Webhooks. Bei einer
+        Datenauskunft stellen wir Ihnen die zu den genannten Bestellungen
+        gespeicherten Rechnungsdaten bereit, damit Sie dem Käufer antworten können.
+      </p>
+      <p>
+        Wir unterstützen Sie außerdem bei Datenschutz-Folgenabschätzungen und
+        Meldungen an Aufsichtsbehörden, soweit die erforderlichen Informationen aus
+        unserem Verantwortungsbereich stammen.
       </p>
 
-      <h2 id="termination">On termination</h2>
+      <h2 id="breach">Meldung von Datenschutzverletzungen</h2>
       <p>
-        When the installation ends, we delete your data as described under
-        Retention and deletion. Export your archive first: once the erasure runs,
-        it is gone from our side, and the retention duty remains yours.
+        Werden wir auf eine Verletzung des Schutzes Ihrer Daten aufmerksam,
+        informieren wir Sie unverzüglich, spätestens innerhalb von{" "}
+        <strong>48 Stunden</strong>. Damit bleibt Ihnen Zeit für die gegebenenfalls
+        erforderliche Meldung innerhalb von 72 Stunden nach Art. 33 DSGVO.
+      </p>
+      <p>
+        Unsere Mitteilung beschreibt nach aktuellem Kenntnisstand den Vorfall, die
+        betroffenen Datenkategorien und die ungefähre Zahl der Datensätze, mögliche
+        Folgen sowie ergriffene Maßnahmen. Noch nicht bekannte Angaben werden als
+        solche gekennzeichnet.
       </p>
 
-      <h2 id="contact">Contact</h2>
+      <h2 id="audit">Prüfung</h2>
       <p>
-        Questions about this agreement, or a request for the current
-        sub-processor list with each entity and country, go to{" "}
+        Wir stellen Ihnen die zum Nachweis der Einhaltung von Art. 28 DSGVO
+        erforderlichen Informationen zur Verfügung. Nach angemessener Vorankündigung
+        ermöglichen wir Prüfungen durch Sie oder einen von Ihnen beauftragten
+        Prüfer, sofern der Dienst dadurch nicht beeinträchtigt wird.
+      </p>
+
+      <h2 id="termination">Vertragsende</h2>
+      <p>
+        Mit dem Ende der Installation löschen wir Ihre Daten wie unter
+        „Aufbewahrung und Löschung“ beschrieben. Exportieren Sie Ihr Archiv vorher.
+        Nach der Löschung ist es bei uns nicht mehr verfügbar, während
+        fortbestehende Aufbewahrungspflichten bei Ihnen verbleiben.
+      </p>
+
+      <h2 id="contact">Kontakt</h2>
+      <p>
+        Fragen zu diesem Vertrag und Anfragen zur aktuellen Liste der
+        Unterauftragsverarbeiter mit Unternehmen und Sitzland senden Sie an{" "}
         <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
       </p>
     </LegalLayout>

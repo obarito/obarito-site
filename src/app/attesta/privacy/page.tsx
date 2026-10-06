@@ -5,313 +5,323 @@ import { SUPPORT_EMAIL } from "@/lib/config";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Privacy Policy - Attesta",
+  title: "Datenschutzerklärung - Attesta",
   description:
-    "How Attesta handles store, seller and buyer data when it issues German e-invoices, including the ten-year GoBD retention that limits erasure.",
+    "Wie Attesta Shop-, Händler- und Käuferdaten bei der Erstellung deutscher E-Rechnungen verarbeitet, einschließlich Archivierung und Aufbewahrungspflichten.",
   path: "/attesta/privacy",
+  locale: "de_DE",
+  languages: {
+    "de-DE": "/attesta/privacy",
+    en: "/en/attesta/privacy",
+    "x-default": "/attesta/privacy",
+  },
 });
 
 const toc: TocItem[] = [
-  { id: "roles", label: "Who controls what" },
-  { id: "collect", label: "Data we process" },
-  { id: "buyers", label: "Buyer data" },
-  { id: "use", label: "How we use it" },
-  { id: "shopify", label: "Shopify scopes & webhooks" },
-  { id: "sharing", label: "Sub-processors" },
-  { id: "retention", label: "Retention & erasure" },
-  { id: "rights", label: "Your rights" },
-  { id: "security", label: "Security" },
-  { id: "changes", label: "Changes to this policy" },
-  { id: "contact", label: "Contact" },
+  { id: "roles", label: "Verantwortlichkeiten" },
+  { id: "collect", label: "Verarbeitete Daten" },
+  { id: "buyers", label: "Käuferdaten" },
+  { id: "use", label: "Verwendungszwecke" },
+  { id: "shopify", label: "Shopify-Berechtigungen" },
+  { id: "sharing", label: "Unterauftragsverarbeiter" },
+  { id: "retention", label: "Aufbewahrung und Löschung" },
+  { id: "rights", label: "Ihre Rechte" },
+  { id: "security", label: "Sicherheit" },
+  { id: "changes", label: "Änderungen" },
+  { id: "contact", label: "Kontakt" },
 ];
 
 export default function AttestaPrivacyPage() {
   return (
     <LegalLayout
       path="/attesta/privacy"
-      title="Privacy Policy"
-      intro={`This Privacy Policy explains how Attesta ("the App"), operated by Obarito ("we", "us"), handles data when you install and use the App on your Shopify store. Attesta writes invoices, so unlike our other apps it does process personal data about your buyers. This policy sets out exactly which data, why, and how long we keep it.`}
+      title="Datenschutzerklärung"
+      intro={`Diese Datenschutzerklärung erläutert, wie die von Obarito („wir“ oder „uns“) betriebene App Attesta Daten verarbeitet, wenn Sie sie in Ihrem Shopify-Shop installieren und nutzen. Da Attesta Rechnungen erstellt, verarbeitet die App personenbezogene Daten Ihrer Käufer. Hier erfahren Sie, welche Daten wir zu welchem Zweck und wie lange verarbeiten.`}
       toc={toc}
       active="privacy"
       brand="attesta"
-      lastUpdated="28 August 2026"
-      effectiveDate="26 August 2026"
+      lastUpdated="7. Oktober 2026"
+      effectiveDate="26. August 2026"
     >
-      <h2 id="roles">Who controls what</h2>
+      <h2 id="roles">Verantwortlichkeiten</h2>
       <p>
-        Two relationships run in parallel, and which one applies decides who
-        answers a question about the data.
+        Es bestehen zwei parallele Datenschutzverhältnisse. Welches davon gilt,
+        bestimmt, wer für Fragen zu den jeweiligen Daten verantwortlich ist.
       </p>
       <ul>
         <li>
-          For data about <strong>you and your shop</strong>, such as your
-          account, your seller details and your billing, Obarito is the{" "}
-          <strong>controller</strong>.
+          Für Daten über <strong>Sie und Ihren Shop</strong>, etwa Konto-, Händler-
+          und Abrechnungsdaten, ist Obarito <strong>Verantwortlicher</strong>.
         </li>
         <li>
-          For the personal data of <strong>your buyers</strong> that the App
-          processes in order to write invoices, <strong>you</strong> are the
-          controller and Obarito is your <strong>processor</strong>. We act on
-          your instructions, which you give by configuring the App and by making
-          sales through it.
+          Für personenbezogene Daten <strong>Ihrer Käufer</strong>, die Attesta zur
+          Rechnungserstellung verarbeitet, sind <strong>Sie</strong> der
+          Verantwortliche und Obarito ist Ihr <strong>Auftragsverarbeiter</strong>.
+          Wir handeln nach Ihren Weisungen, die Sie durch die Konfiguration der App
+          und die darüber abgewickelten Verkäufe erteilen.
         </li>
       </ul>
       <p>
-        If one of your buyers contacts us directly about their data, we will
-        point them to you, because the decision about their data is yours to
-        make.
+        Wendet sich ein Käufer direkt an uns, verweisen wir ihn an Sie, da Sie über
+        die Verarbeitung seiner Daten entscheiden.
       </p>
       <p>
-        The processor relationship is set out in full in our{" "}
-        <Link href="/attesta/dpa">Data Processing Agreement</Link>, which takes
-        effect when you install the App.
+        Die Auftragsverarbeitung ist vollständig in unserem{" "}
+        <Link href="/attesta/dpa">Auftragsverarbeitungsvertrag</Link> geregelt,
+        der mit der Installation der App in Kraft tritt.
       </p>
 
-      <h2 id="collect">Data we process</h2>
+      <h2 id="collect">Verarbeitete Daten</h2>
       <ul>
         <li>
-          <strong>Store and account data</strong> - your{" "}
-          <strong>.myshopify.com</strong> domain, the shop details Shopify
-          provides at install, and the access token Shopify issues to the App.
+          <strong>Shop- und Kontodaten:</strong> Ihre{" "}
+          <strong>.myshopify.com</strong>-Domain, die bei der Installation von
+          Shopify bereitgestellten Shopdaten und das Zugriffstoken für die App.
         </li>
         <li>
-          <strong>Your seller identity</strong> - the details you enter in
-          onboarding and Settings: legal name and address, USt-IdNr. and
-          Steuernummer, Kleinunternehmer status, IBAN, BIC and payment terms,
-          your logo, your invoice email text, and, if you use the accounting
-          features, your tax adviser&apos;s email address and your DATEV Berater
-          and Mandant numbers. These print on the invoice or drive the export,
-          which is why the App asks for them.
+          <strong>Ihre Verkäuferdaten:</strong> rechtlicher Name und Anschrift,
+          USt-IdNr., Steuernummer, Kleinunternehmerstatus, IBAN, BIC,
+          Zahlungsbedingungen, Logo und Text der Rechnungs-E-Mail. Wenn Sie die
+          Buchhaltungsfunktionen nutzen, kommen die E-Mail-Adresse Ihrer
+          Steuerberatung sowie DATEV-Berater- und Mandantennummer hinzu. Diese
+          Angaben erscheinen auf Rechnungen oder werden für Exporte benötigt.
         </li>
         <li>
-          <strong>Order data</strong> - for each paid order, the line items,
-          amounts, currency, tax rates and the buyer&apos;s details needed on the
-          invoice.
+          <strong>Bestelldaten:</strong> Positionen, Beträge, Währung, Steuersätze
+          und die für die Rechnung erforderlichen Käuferdaten jeder bezahlten
+          Bestellung.
         </li>
         <li>
-          <strong>Issued documents</strong> - for every invoice and credit note:
-          its number, the order it came from, the buyer name and VAT ID,
-          currency, net, tax and gross totals, the tax treatment applied, the EN
-          16931 XML, the archived PDF, and the SHA-256 hashes that chain one
-          document to the next.
+          <strong>Erstellte Dokumente:</strong> Nummer, zugehörige Bestellung,
+          Käufername und USt-IdNr., Währung, Netto-, Steuer- und Bruttobeträge,
+          angewandte Steuerbehandlung, XML nach EN 16931, archivierte PDF-Datei
+          sowie die SHA-256-Hashes zur Verkettung der Dokumente.
         </li>
         <li>
-          <strong>VAT-ID checks</strong> - the result of each VIES consultation,
-          kept with the invoice as evidence for the tax treatment.
+          <strong>USt-IdNr.-Prüfungen:</strong> das Ergebnis jeder VIES-Abfrage,
+          das als Nachweis der Steuerbehandlung mit der Rechnung gespeichert wird.
         </li>
         <li>
-          <strong>Operational logs</strong> - technical records of what the App
-          did, used to run it and to investigate faults.
+          <strong>Betriebsprotokolle:</strong> technische Aufzeichnungen zum Betrieb
+          der App und zur Untersuchung von Fehlern.
         </li>
       </ul>
 
-      <h2 id="buyers">Buyer data</h2>
+      <h2 id="buyers">Käuferdaten</h2>
       <p>
-        A German invoice has to name the person it is addressed to, so an
-        invoicing app cannot avoid buyer personal data the way a catalog app
-        can. To produce the document, Attesta processes the buyer&apos;s{" "}
-        <strong>name</strong> and any <strong>company name</strong>, the{" "}
-        <strong>invoice address</strong>, the <strong>email address</strong> the
-        invoice is sent to, the <strong>EU VAT ID</strong> where a business
-        buyer provides one, and the <strong>contents and amounts</strong> of the
-        order. These are the fields EN 16931 and §14 UStG require the invoice to
-        carry.
+        Eine deutsche Rechnung muss den Rechnungsempfänger nennen. Attesta
+        verarbeitet deshalb <strong>Name</strong> und gegebenenfalls{" "}
+        <strong>Firmenname</strong>, <strong>Rechnungsanschrift</strong>, die für
+        den Versand verwendete <strong>E-Mail-Adresse</strong>, eine vom
+        Geschäftskunden angegebene <strong>EU-USt-IdNr.</strong> sowie{" "}
+        <strong>Inhalt und Beträge</strong> der Bestellung. Diese Angaben werden
+        nach EN 16931 und § 14 UStG für die Rechnung benötigt.
       </p>
       <p>
-        Attesta never receives card numbers, bank credentials or any other
-        payment instrument. Payment is handled by Shopify and its payment
-        providers, and the App only learns that an order was paid and for how
-        much.
+        Attesta erhält keine Kartennummern, Bankzugangsdaten oder sonstigen
+        Zahlungsinstrumente. Zahlungen werden von Shopify und dessen
+        Zahlungsdienstleistern verarbeitet. Die App erfährt nur, dass und in welcher
+        Höhe eine Bestellung bezahlt wurde.
       </p>
       <p>
-        Access to buyer data is granted by Shopify under its Protected Customer
-        Data terms, and we use it only for the purposes set out below.
+        Shopify gewährt den Zugriff auf Käuferdaten nach seinen Bedingungen für
+        geschützte Kundendaten. Wir verwenden sie ausschließlich für die folgenden
+        Zwecke.
       </p>
 
-      <h2 id="use">How we use it</h2>
+      <h2 id="use">Verwendungszwecke</h2>
       <ul>
         <li>
-          Determine the correct tax treatment for each order, such as standard
-          VAT, Reverse-Charge, intra-Community supply, export or §19.
+          Ermittlung der Steuerbehandlung jeder Bestellung, etwa Regelbesteuerung,
+          Reverse-Charge, innergemeinschaftliche Lieferung, Ausfuhr oder § 19 UStG.
         </li>
         <li>
-          Number, render, validate and archive the invoice or credit note.
+          Nummerierung, Erstellung, Validierung und Archivierung von Rechnungen und
+          Gutschriften.
         </li>
-        <li>Email the document to the buyer on your behalf.</li>
+        <li>Versand des Dokuments in Ihrem Auftrag an den Käufer.</li>
         <li>
-          Verify a business buyer&apos;s VAT ID and keep the result as evidence.
+          Prüfung der USt-IdNr. eines Geschäftskunden und Speicherung des Ergebnisses als Nachweis.
         </li>
         <li>
-          Produce the exports you ask for: the GoBD ZIP, the
-          Verfahrensdokumentation, the DATEV booking batch.
+          Erstellung angeforderter Exporte: GoBD-ZIP, Verfahrensdokumentation und
+          DATEV-Buchungsstapel.
         </li>
-        <li>Show you your own ledger inside the App, and answer support requests.</li>
-        <li>Bill you for the plan you chose, through Shopify.</li>
+        <li>Anzeige Ihres Rechnungsjournals und Bearbeitung von Supportanfragen.</li>
+        <li>Abrechnung des gewählten Tarifs über Shopify.</li>
       </ul>
       <p>
-        We do not sell data, we do not share it for advertising, and we do not
-        use the contents of your invoices to train machine-learning models.
+        Wir verkaufen keine Daten, geben sie nicht zu Werbezwecken weiter und
+        verwenden Rechnungsinhalte nicht zum Trainieren von Machine-Learning-Modellen.
       </p>
 
-      <h2 id="shopify">Shopify scopes and webhooks</h2>
+      <h2 id="shopify">Shopify-Berechtigungen und Webhooks</h2>
       <p>
-        Attesta requests three read scopes and no write scope:{" "}
-        <strong>read_orders</strong>, which drives invoicing;{" "}
-        <strong>read_customers</strong>, which backs VAT-ID capture from a
-        business buyer&apos;s account; and <strong>read_products</strong>, which
-        fills in the line-item detail. The App does not modify your catalog,
-        your orders or your customers.
+        Attesta fordert drei Leseberechtigungen und keine Schreibberechtigung an:{" "}
+        <strong>read_orders</strong> für die Rechnungserstellung,{" "}
+        <strong>read_customers</strong> für die USt-IdNr.-Erfassung aus dem
+        Kundenkonto und <strong>read_products</strong> für Positionsdetails. Die
+        App verändert weder Ihren Katalog noch Bestellungen oder Kundendaten.
       </p>
       <p>
-        It subscribes to order webhooks so that a paid order, a refund or an
-        edit reaches the invoicing pipeline. It also registers the three privacy
-        webhooks Shopify requires:
+        Bestell-Webhooks übermitteln bezahlte Bestellungen, Erstattungen und
+        Änderungen an die Rechnungsverarbeitung. Attesta registriert außerdem die
+        drei von Shopify vorgeschriebenen Datenschutz-Webhooks:
       </p>
       <ul>
         <li>
-          <strong>customers/data_request</strong> - we compile the invoice
-          records we hold for the named orders and make them available to you,
-          so you can answer the buyer. We do not contact the buyer ourselves.
+          <strong>customers/data_request:</strong> Wir stellen Ihnen die zu den
+          genannten Bestellungen gespeicherten Rechnungsdaten bereit, damit Sie die
+          Anfrage des Käufers beantworten können. Wir kontaktieren den Käufer nicht selbst.
         </li>
         <li>
-          <strong>customers/redact</strong> - see{" "}
-          <a href="#retention">Retention and erasure</a>, because an issued
-          invoice cannot simply be deleted.
+          <strong>customers/redact:</strong> Siehe{" "}
+          <a href="#retention">Aufbewahrung und Löschung</a>, da eine ausgestellte
+          Rechnung nicht ohne Weiteres gelöscht werden kann.
         </li>
         <li>
-          <strong>shop/redact</strong> - Shopify sends this roughly 48 hours
-          after you uninstall, and we then erase the data we hold for your shop.
+          <strong>shop/redact:</strong> Shopify sendet diesen Webhook ungefähr 48
+          Stunden nach der Deinstallation. Anschließend löschen wir die zu Ihrem
+          Shop gespeicherten Daten.
         </li>
       </ul>
 
-      <h2 id="sharing">Sub-processors</h2>
-      <p>We pass data to others only where running the App requires it:</p>
+      <h2 id="sharing">Unterauftragsverarbeiter</h2>
+      <p>Wir geben Daten nur weiter, soweit dies für den Betrieb der App erforderlich ist:</p>
       <ul>
         <li>
-          <strong>Shopify</strong> - the platform the App runs on, the source of
-          the order data, and the processor of your subscription payments.
+          <strong>Shopify:</strong> Plattform der App, Quelle der Bestelldaten und
+          Abwickler Ihrer Abonnementzahlungen.
         </li>
         <li>
-          <strong>Our hosting provider</strong> - runs the application and the
-          database that holds your ledger and archived documents.
+          <strong>Unser Hostinganbieter:</strong> betreibt die Anwendung und die
+          Datenbank mit Ihrem Rechnungsjournal und den archivierten Dokumenten.
         </li>
         <li>
-          <strong>Our email provider</strong> - delivers the invoice emails sent
-          on your behalf, and our own notices to you.
+          <strong>Unser E-Mail-Anbieter:</strong> versendet Rechnungs-E-Mails in
+          Ihrem Auftrag und unsere Mitteilungen an Sie.
         </li>
         <li>
-          <strong>The European Commission</strong> - when a business buyer gives
-          a VAT ID, that number and its country code are sent to the
-          Commission&apos;s VIES service to be checked, together with your own
-          VAT number as the requesting party, which is what makes VIES return
-          the consultation identifier we store as proof. Nothing else about the
-          order is sent.
+          <strong>Die Europäische Kommission:</strong> Gibt ein Geschäftskunde eine
+          USt-IdNr. an, werden diese Nummer, der Ländercode und Ihre eigene USt-IdNr.
+          als anfragende Stelle an VIES übermittelt. Dadurch erhalten wir die als
+          Nachweis gespeicherte Abfragekennung. Weitere Bestelldaten werden nicht
+          übermittelt.
         </li>
       </ul>
       <p>
-        A current list of our sub-processors, with the entity and the country
-        each operates in, is available on request from{" "}
+        Eine aktuelle Liste unserer Unterauftragsverarbeiter einschließlich
+        Unternehmen und Sitzland erhalten Sie auf Anfrage unter{" "}
         <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
       </p>
 
-      <h2 id="retention">Retention and erasure</h2>
+      <h2 id="retention">Aufbewahrung und Löschung</h2>
       <p>
-        An issued invoice is not ordinary app data. German law requires it to be
-        kept, complete and unaltered, for <strong>ten years</strong> (GoBD, §14b
-        UStG). GDPR Art. 17(3)(b) is explicit that the right to erasure does not
-        apply where processing is necessary to meet a legal retention
-        obligation. That produces three different outcomes, and it is worth
-        knowing which is which.
+        Eine ausgestellte Rechnung ist nicht mit gewöhnlichen App-Daten
+        gleichzusetzen. Solange Attesta installiert bleibt, bewahrt das
+        Standardarchiv ausgestellte Rechnungen <strong>zehn Jahre</strong> auf.
+        Dies ist eine Produkt- und Servicezusage und bedeutet nicht, dass für jede
+        Rechnung eine gesetzliche Frist von zehn Jahren gilt. Die allgemeine Frist nach{" "}
+        <a href="https://www.gesetze-im-internet.de/ustg_1980/__14b.html">
+          § 14b UStG
+        </a>{" "}
+        beträgt acht Jahre. In bestimmten Fällen können längere Fristen gelten.
+        Als Verantwortlicher müssen Sie die für Ihre Unterlagen maßgebliche Frist
+        und Rechtsgrundlage bestimmen. Art. 17 Abs. 3 Buchst. b DSGVO schließt die
+        Löschung nur aus, soweit die Verarbeitung zur Erfüllung einer rechtlichen
+        Verpflichtung erforderlich bleibt.
       </p>
       <ul>
         <li>
-          <strong>A buyer asks to be erased, and an invoice was issued.</strong>{" "}
-          We <strong>retain</strong> the invoice and record the request. Erasing
-          it would put you in breach of your own retention duty, so
-          retain-and-log is the correct answer rather than a convenient one.
+          <strong>Ein Käufer verlangt Löschung und eine Rechnung wurde erstellt.</strong>{" "}
+          Wir dokumentieren die Anfrage und leiten sie an Sie als Verantwortlichen
+          weiter. Weisen Sie uns wegen einer fortbestehenden gesetzlichen Pflicht
+          zur Aufbewahrung an, verbleibt die Rechnung im Archiv. Andernfalls folgen
+          wir Ihrer rechtmäßigen Weisung nach dem AVV.
         </li>
         <li>
-          <strong>A buyer asks to be erased, and no invoice was issued.</strong>{" "}
-          Nothing is owed to the record-keeping rules here, so the stored order
-          payload for that failed attempt is erased. The entry itself remains,
-          without the payload, so you can still see that the order never
-          produced an invoice.
+          <strong>Ein Käufer verlangt Löschung und es wurde keine Rechnung erstellt.</strong>{" "}
+          Die für den fehlgeschlagenen Versuch gespeicherten Bestelldaten werden
+          gelöscht. Der Eintrag bleibt ohne Nutzdaten erhalten, damit erkennbar
+          bleibt, dass für die Bestellung keine Rechnung erstellt wurde.
         </li>
         <li>
-          <strong>You uninstall.</strong> On <code>shop/redact</code> we erase
-          what we hold for your shop as your processor: your seller profile, the
-          invoice ledger, the archived PDFs, the VIES evidence and your logo.
-          Your ten-year duty does not end with the uninstall, it stays with you
-          as the controller, so <strong>export your GoBD ZIP before you
-          leave</strong>.
+          <strong>Sie deinstallieren die App.</strong> Nach dem Webhook{" "}
+          <code>shop/redact</code> löschen wir die als Auftragsverarbeiter für Ihren
+          Shop gespeicherten Daten: Verkäuferprofil, Rechnungsjournal, archivierte
+          PDF-Dateien, VIES-Nachweise und Logo. Fortbestehende Aufbewahrungspflichten
+          liegen bei Ihnen. <strong>Exportieren Sie deshalb vor der Deinstallation
+          Ihr GoBD-ZIP.</strong>
         </li>
       </ul>
       <p>
-        Operational logs are kept only as long as they are useful for running
-        and debugging the service.
+        Betriebsprotokolle werden nur so lange gespeichert, wie sie für Betrieb und
+        Fehleranalyse erforderlich sind.
       </p>
 
-      <h2 id="rights">Your rights</h2>
+      <h2 id="rights">Ihre Rechte</h2>
       <p>
-        Where we are the controller, you have the rights the GDPR gives you:
-        access, rectification, erasure, restriction of processing, portability
-        and objection, and you may complain to your supervisory authority. Write
-        to <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> and we will
-        answer within the statutory period.
+        Soweit wir Verantwortlicher sind, stehen Ihnen die Rechte aus der DSGVO zu:
+        Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
+        Datenübertragbarkeit und Widerspruch. Sie können sich außerdem bei einer
+        Aufsichtsbehörde beschweren. Schreiben Sie an{" "}
+        <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. Wir antworten
+        innerhalb der gesetzlichen Frist.
       </p>
       <p>
-        Where <em>you</em> are the controller and we process buyer data for you,
-        you can exercise the same rights on your buyers&apos; behalf through the
-        App: the ledger and the exports give you everything we hold, subject to
-        the retention limit above.
-      </p>
-
-      <h2 id="security">Security</h2>
-      <p>
-        Data moves over HTTPS and is stored on access-controlled infrastructure.
-        Archived invoices are kept outside the public web root and are served
-        only to the shop that owns them, through links that are scoped and
-        time-limited. Each document&apos;s hash is chained to the one before it,
-        so a change to an archived invoice is detectable rather than silent.
-      </p>
-      <p>
-        Buyer personal data is <strong>encrypted at rest</strong> with AES-256,
-        not only in transit. That covers the buyer name, VAT ID and email we
-        store against an invoice, the EN 16931 XML and the stored invoice view
-        (both of which carry the full billing address), the order payload behind
-        a failed invoice attempt, the trader details VIES returns, and your
-        Shopify access token. The archived PDFs are encrypted on disk as well,
-        so a copy of the archive without the key is not readable.
-      </p>
-      <p>
-        There is no admin panel and no support login, so there is no screen
-        through which we can browse your invoices. Every request is
-        authenticated by a Shopify session token and every database query is
-        scoped to the shop making it, so one merchant&apos;s data is not
-        reachable from another&apos;s session. Reads of buyer data through the
-        App, meaning invoice views, downloads and the two bulk exports, are
-        written to a separate access log that records who read what and when,
-        never the data itself. That log is kept for one year.
-      </p>
-      <p>
-        No system is perfectly secure, and we do not claim otherwise, but we
-        take reasonable measures to protect what we hold.
+        Soweit <em>Sie</em> Verantwortlicher sind und wir Käuferdaten in Ihrem
+        Auftrag verarbeiten, können Sie diese Rechte für Ihre Käufer über die App
+        wahrnehmen. Rechnungsjournal und Exporte enthalten die von uns gespeicherten
+        Daten, vorbehaltlich der oben beschriebenen Aufbewahrung.
       </p>
 
-      <h2 id="changes">Changes to this policy</h2>
+      <h2 id="security">Sicherheit</h2>
       <p>
-        We may update this policy. Material changes will be reflected in the
-        &quot;Last updated&quot; date above, and where the change affects how
-        buyer data is processed we will tell you before it takes effect.
+        Daten werden über HTTPS übertragen und auf zugriffsgeschützter Infrastruktur
+        gespeichert. Archivierte Rechnungen liegen außerhalb des öffentlich
+        erreichbaren Webverzeichnisses. Sie werden nur dem zugehörigen Shop über
+        zweckgebundene, zeitlich begrenzte Links bereitgestellt. Der Hash jedes
+        Dokuments ist mit dem vorherigen verkettet, sodass Änderungen an einer
+        archivierten Rechnung erkennbar sind.
+      </p>
+      <p>
+        Personenbezogene Käuferdaten sind nicht nur bei der Übertragung, sondern
+        auch <strong>im Ruhezustand mit AES-256 verschlüsselt</strong>. Dies umfasst
+        Käufername, USt-IdNr. und E-Mail-Adresse, die XML nach EN 16931 und die
+        gespeicherte Rechnungsansicht mit vollständiger Rechnungsanschrift,
+        Bestelldaten fehlgeschlagener Rechnungsversuche, von VIES zurückgegebene
+        Händlerdaten und Ihr Shopify-Zugriffstoken. Auch archivierte PDF-Dateien
+        sind auf dem Datenträger verschlüsselt.
+      </p>
+      <p>
+        Es gibt weder ein Administrationspanel noch einen Support-Login, über den
+        Rechnungen durchsucht werden könnten. Jede Anfrage wird mit einem
+        Shopify-Sitzungstoken authentifiziert und jede Datenbankabfrage auf den
+        anfragenden Shop begrenzt. Zugriffe auf Käuferdaten über die App, darunter
+        Rechnungsansichten, Downloads und die beiden Sammelausfuhren, werden in einem
+        getrennten Zugriffsprotokoll erfasst. Dieses enthält, wer wann worauf
+        zugegriffen hat, jedoch nicht die Daten selbst, und wird ein Jahr aufbewahrt.
+      </p>
+      <p>
+        Kein System ist vollständig sicher. Wir treffen angemessene Maßnahmen zum
+        Schutz der von uns gespeicherten Daten.
       </p>
 
-      <h2 id="contact">Contact</h2>
+      <h2 id="changes">Änderungen dieser Erklärung</h2>
       <p>
-        Privacy questions, and anything else about using the App, go to{" "}
-        <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. Day to day
-        usage is covered in the <Link href="/attesta/docs">guide</Link>, and our{" "}
-        <Link href="/attesta/terms">Terms of Service</Link> cover the rest of
-        the relationship.
+        Wir können diese Datenschutzerklärung aktualisieren. Wesentliche Änderungen
+        werden im oben angegebenen Aktualisierungsdatum kenntlich gemacht. Betrifft
+        eine Änderung die Verarbeitung von Käuferdaten, informieren wir Sie vor
+        ihrem Inkrafttreten.
+      </p>
+
+      <h2 id="contact">Kontakt</h2>
+      <p>
+        Fragen zum Datenschutz oder zur Nutzung der App senden Sie an{" "}
+        <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. Hinweise zur
+        täglichen Nutzung finden Sie in der{" "}
+        <Link href="/attesta/docs">Anleitung</Link>. Im Übrigen gelten unsere{" "}
+        <Link href="/attesta/terms">Nutzungsbedingungen</Link>.
       </p>
     </LegalLayout>
   );

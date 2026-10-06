@@ -8,7 +8,9 @@ import ObaritoMark from "./ObaritoMark";
  * than the main Obarito footer. Features/Pricing point back to the landing-page
  * anchors so they work from any sub-page.
  */
-export default function AttestaFooter() {
+export default function AttestaFooter({ locale = "de" }: { locale?: "de" | "en" }) {
+  const english = locale === "en";
+  const basePath = english ? "/en/attesta" : "/attesta";
   return (
     <footer className="bg-[#08291F] text-[#9EBCB1]">
       <div className="mx-auto max-w-[1160px] px-5 pb-[30px] pt-[54px] sm:px-8">
@@ -23,45 +25,46 @@ export default function AttestaFooter() {
               </span>
             </div>
             <p className="m-0 max-w-[290px] text-[14px] leading-[1.6] text-[#6A9488]">
-              German e-invoicing for Shopify. Every paid order becomes a ZUGFeRD
-              invoice, archived for ten years and emailed.
+              {english
+                ? "E-invoicing for Shopify. Every paid order becomes a ZUGFeRD invoice, archived for ten years and delivered by email."
+                : "E-Rechnungen für Shopify. Aus jeder bezahlten Bestellung wird eine ZUGFeRD-Rechnung, die zehn Jahre archiviert und per E-Mail versendet wird."}
             </p>
           </div>
           <div>
             <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#6A9488]">
-              Product
+              {english ? "Product" : "Produkt"}
             </div>
             <div className="flex flex-col gap-[11px]">
-              <Link href="/attesta#features" className="text-[14.5px] text-[#9EBCB1]">
-                Features
+              <Link href={`${basePath}#features`} className="text-[14.5px] text-[#9EBCB1]">
+                {english ? "Features" : "Funktionen"}
               </Link>
-              <Link href="/attesta#how" className="text-[14.5px] text-[#9EBCB1]">
-                How it works
+              <Link href={`${basePath}#how`} className="text-[14.5px] text-[#9EBCB1]">
+                {english ? "How it works" : "So funktioniert es"}
               </Link>
-              <Link href="/attesta#pricing" className="text-[14.5px] text-[#9EBCB1]">
-                Pricing
+              <Link href={`${basePath}#pricing`} className="text-[14.5px] text-[#9EBCB1]">
+                {english ? "Pricing" : "Preise"}
               </Link>
-              <Link href="/attesta/docs" className="text-[14.5px] text-[#9EBCB1]">
-                Docs
+              <Link href={`${basePath}/docs`} className="text-[14.5px] text-[#9EBCB1]">
+                {english ? "Docs" : "Anleitung"}
               </Link>
             </div>
           </div>
           <div>
             <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#6A9488]">
-              Company
+              {english ? "Company" : "Unternehmen"}
             </div>
             <div className="flex flex-col gap-[11px]">
               <Link href="/support" className="text-[14.5px] text-[#9EBCB1]">
                 Support
               </Link>
-              <Link href="/attesta/privacy" className="text-[14.5px] text-[#9EBCB1]">
-                Privacy
+              <Link href={`${basePath}/privacy`} className="text-[14.5px] text-[#9EBCB1]">
+                {english ? "Privacy" : "Datenschutz"}
               </Link>
-              <Link href="/attesta/terms" className="text-[14.5px] text-[#9EBCB1]">
-                Terms
+              <Link href={`${basePath}/terms`} className="text-[14.5px] text-[#9EBCB1]">
+                {english ? "Terms" : "Nutzungsbedingungen"}
               </Link>
-              <Link href="/attesta/dpa" className="text-[14.5px] text-[#9EBCB1]">
-                DPA
+              <Link href={`${basePath}/dpa`} className="text-[14.5px] text-[#9EBCB1]">
+                {english ? "DPA" : "AVV"}
               </Link>
             </div>
           </div>
@@ -73,7 +76,8 @@ export default function AttestaFooter() {
             className="inline-flex items-center gap-[9px] rounded-full border border-[#14402F] bg-white/[0.04] px-3.5 py-2 text-[13px] text-[#9EBCB1]"
           >
             <ObaritoMark className="h-4 w-4 text-[#9EBCB1]" nodeColor="#34D399" />
-            An <span className="font-medium text-white">Obarito</span> app
+            {english ? "An app by" : "Eine App von"}{" "}
+            <span className="font-medium text-white">Obarito</span>
           </Link>
         </div>
       </div>

@@ -9,50 +9,56 @@ import { ATTESTA_APPSTORE_URL, SUPPORT_EMAIL } from "@/lib/config";
 import { breadcrumbJsonLd, createPageMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Attesta Documentation - How to use the app",
+  title: "Attesta Anleitung - So funktioniert die App",
   description:
-    "Learn Attesta onboarding, invoice and tax workflows, VIES checks, refunds, templates, billing, and DATEV and GoBD exports for Shopify.",
+    "Anleitung zu Attesta: Einrichtung, Rechnungen, Steuerbehandlung, VIES-Prüfung, Erstattungen, Vorlagen, Tarife sowie DATEV- und GoBD-Exporte.",
   path: "/attesta/docs",
+  locale: "de_DE",
+  languages: {
+    "de-DE": "/attesta/docs",
+    en: "/en/attesta/docs",
+    "x-default": "/attesta/docs",
+  },
 });
 
 const faqSchema = faqJsonLd([
   {
-    question: "Is a PDF invoice not enough?",
+    question: "Reicht eine PDF-Rechnung nicht aus?",
     answer:
-      "Not under the German mandate. From January 2027, affected B2B invoices must carry structured data a machine can read. ZUGFeRD embeds that data inside the PDF.",
+      "Nein. Betroffene B2B-Rechnungen müssen ab Januar 2027 strukturierte, maschinenlesbare Daten enthalten. ZUGFeRD bettet diese Daten in das PDF ein.",
   },
   {
-    question: "Will Attesta restart my existing invoice number series?",
+    question: "Beginnt Attesta meine Rechnungsnummernfolge neu?",
     answer:
-      "No. Enter the last number already issued and Attesta continues the sequence from there.",
+      "Nein. Trage die zuletzt vergebene Nummer ein. Attesta setzt die Folge anschließend fort.",
   },
   {
-    question: "Will Attesta slow my Shopify storefront down?",
+    question: "Verlangsamt Attesta meinen Shopify-Shop?",
     answer:
-      "No. Attesta works behind Shopify webhooks and does not add resources to storefront pages.",
+      "Nein. Attesta arbeitet über Shopify-Webhooks im Hintergrund und lädt keine zusätzlichen Ressourcen im Storefront.",
   },
   {
-    question: "What happens to my data if I uninstall Attesta?",
+    question: "Was passiert mit meinen Daten, wenn ich Attesta deinstalliere?",
     answer:
-      "Access is revoked and Shopify requests erasure of the shop's data. Merchants should export records they remain legally required to retain before uninstalling.",
+      "Der Zugriff wird entzogen und Shopify fordert die Löschung der Shop-Daten an. Exportiere vor der Deinstallation alle Unterlagen, die du weiterhin aufbewahren musst.",
   },
 ]);
 
 type TocItem = { id: string; label: string };
 
 const toc: TocItem[] = [
-  { id: "overview", label: "What Attesta does" },
-  { id: "start", label: "Getting started" },
-  { id: "dashboard", label: "Your dashboard" },
-  { id: "invoices", label: "Your invoices" },
-  { id: "tax", label: "Tax treatment" },
-  { id: "vatid", label: "VAT IDs and VIES" },
-  { id: "storno", label: "Refunds and corrections" },
-  { id: "template", label: "Your invoice design" },
-  { id: "settings", label: "Settings" },
-  { id: "exports", label: "Archive and exports" },
-  { id: "plans", label: "Plans and billing" },
-  { id: "faq", label: "FAQ and troubleshooting" },
+  { id: "overview", label: "Was Attesta macht" },
+  { id: "start", label: "Erste Schritte" },
+  { id: "dashboard", label: "Dashboard" },
+  { id: "invoices", label: "Rechnungen" },
+  { id: "tax", label: "Steuerbehandlung" },
+  { id: "vatid", label: "USt-IdNr. und VIES" },
+  { id: "storno", label: "Erstattungen und Korrekturen" },
+  { id: "template", label: "Rechnungsgestaltung" },
+  { id: "settings", label: "Einstellungen" },
+  { id: "exports", label: "Archiv und Exporte" },
+  { id: "plans", label: "Tarife und Abrechnung" },
+  { id: "faq", label: "FAQ und Fehlerbehebung" },
 ];
 
 /** Inline badge marking a feature that needs the Accounting plan. */
@@ -103,18 +109,18 @@ function Figure({
 
 export default function AttestaDocsPage() {
   return (
-    <div className="attesta-scope">
+    <div lang="de-DE" className="attesta-scope">
       <JsonLd
         data={[
           breadcrumbJsonLd([
             { name: "Obarito", path: "/" },
             { name: "Attesta", path: "/attesta" },
-            { name: "Documentation", path: "/attesta/docs" },
+            { name: "Anleitung", path: "/attesta/docs" },
           ]),
           faqSchema,
         ]}
       />
-      <AttestaHeader />
+      <AttestaHeader alternatePath="/en/attesta/docs" />
 
       {/* Title block */}
       <section className="mx-auto max-w-[1000px] px-5 pt-[clamp(44px,6vw,72px)] sm:px-8">
@@ -122,36 +128,36 @@ export default function AttestaDocsPage() {
           items={[
             { name: "Obarito", path: "/" },
             { name: "Attesta", path: "/attesta" },
-            { name: "Documentation" },
+            { name: "Anleitung" },
           ]}
         />
         <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#0E8058]">
-          Attesta · Guide
+          Attesta · Anleitung
         </div>
         <h1 className="m-0 mb-[18px] text-[clamp(34px,5vw,48px)] font-semibold tracking-[-0.035em] text-[#16202E]">
-          How to use Attesta
+          So funktioniert Attesta
         </h1>
         <p className="m-0 mb-[26px] max-w-[640px] text-[18px] leading-[1.6] text-[#5A6B80]">
-          Attesta answers about five questions when you install it, then writes
-          the invoice for every paid order on its own. This guide walks through
-          each screen and explains what the app decides for you.
+          Bei der Installation beantwortest du etwa fünf Fragen. Danach erstellt
+          Attesta die Rechnung für jede bezahlte Bestellung automatisch. Diese
+          Anleitung erklärt die einzelnen Bereiche der App.
         </p>
         <div className="flex flex-wrap gap-3">
           <a
             href={ATTESTA_APPSTORE_URL}
             className="rounded-[9px] bg-[#0F4B3C] px-[18px] py-[10px] text-[14px] font-medium text-white"
           >
-            Install Attesta
+            Attesta installieren
           </a>
           <Link
             href="/support"
             className="rounded-[9px] border border-[#D9E4E0] px-[18px] py-[10px] text-[14px] font-medium text-[#33463F]"
           >
-            Contact support
+            Support kontaktieren
           </Link>
         </div>
         <div className="mt-[26px] border-b border-[#E6EDEA] pb-2 font-mono text-[12px] text-[#64746E]">
-          LAST UPDATED · 26 August 2026
+          ZULETZT AKTUALISIERT · 7. Oktober 2026
         </div>
       </section>
 
@@ -159,7 +165,7 @@ export default function AttestaDocsPage() {
       <section className="mx-auto grid max-w-[1000px] grid-cols-1 items-start gap-10 px-5 pb-20 pt-10 sm:px-8 md:grid-cols-[200px_1fr] md:gap-[56px]">
         <nav className="toc top-[90px] hidden md:sticky md:block">
           <div className="mb-[14px] font-mono text-[10px] uppercase tracking-[0.14em] text-[#64746E]">
-            On this page
+            Auf dieser Seite
           </div>
           <div className="flex flex-col gap-2.5">
             {toc.map((item) => (
@@ -175,445 +181,441 @@ export default function AttestaDocsPage() {
         </nav>
 
         <div className="legal-body">
-          <h2 id="overview">What Attesta does</h2>
+          <h2 id="overview">Was Attesta macht</h2>
           <p>
-            Attesta watches your paid Shopify orders. When one is paid it picks
-            the German tax treatment that fits the buyer, takes the next number
-            in your sequence, renders your branded invoice, embeds the machine
-            readable XML inside it, files the result in a ten-year archive and
-            emails it. You do not open the order.
+            Attesta verarbeitet deine bezahlten Shopify-Bestellungen. Sobald eine
+            Bestellung bezahlt ist, wählt die App die passende deutsche
+            Steuerbehandlung, vergibt die nächste Rechnungsnummer, erstellt die
+            Rechnung in deinem Design, bettet die maschinenlesbare XML-Datei ein,
+            archiviert das Dokument für zehn Jahre und versendet es per E-Mail.
+            Du musst die Bestellung dafür nicht öffnen.
           </p>
           <p>
-            What it produces is a <strong>ZUGFeRD 2.2</strong> invoice: a PDF/A-3
-            a person can read, with the <strong>EN 16931</strong> CII XML
-            attached inside the same file. The XML is the part that counts
-            legally, and it is the part a plain PDF has never had. For
-            public-sector buyers with a Leitweg-ID, Attesta emits{" "}
-            <strong>XRechnung 3.0</strong> instead.
+            Das Ergebnis ist eine <strong>ZUGFeRD-2.2-Rechnung</strong>: eine
+            lesbare PDF/A-3-Datei mit eingebetteten CII-XML-Daten nach{" "}
+            <strong>EN 16931</strong>. Diese strukturierten Daten fehlen in einer
+            einfachen PDF-Rechnung. Für öffentliche Auftraggeber mit Leitweg-ID
+            erstellt Attesta stattdessen eine <strong>XRechnung 3.0</strong>.
           </p>
           <p>
-            The app is built for Germany. Other EU markets are designed but not
-            active yet, so a shop selling from outside Germany is not covered
-            today.
+            Attesta ist für Unternehmen in Deutschland entwickelt. Shops mit Sitz
+            außerhalb Deutschlands werden nicht unterstützt.
           </p>
 
-          <h2 id="start">Getting started</h2>
+          <h2 id="start">Erste Schritte</h2>
           <p>
-            Installing from the App Store opens a short wizard. It runs once and
-            asks about five questions, then the app is working.
+            Nach der Installation aus dem Shopify App Store führt dich ein kurzer
+            Assistent durch die Einrichtung. Du beantwortest etwa fünf Fragen,
+            danach ist die App einsatzbereit.
           </p>
           <ul>
             <li>
-              <strong>Company and tax.</strong> Your legal name and address,
-              USt-IdNr. and Steuernummer, and whether you invoice as a
-              Kleinunternehmer under §19 UStG. These print on every invoice, so
-              give the registered details rather than the trading name.
+              <strong>Unternehmens- und Steuerdaten.</strong> Hinterlege den
+              rechtlichen Namen, die Anschrift, USt-IdNr. und Steuernummer sowie
+              die Angabe, ob du die Kleinunternehmerregelung nach § 19 UStG nutzt.
+              Diese Daten erscheinen auf jeder Rechnung. Verwende deshalb die
+              eingetragenen Unternehmensdaten und nicht nur den Shopnamen.
             </li>
             <li>
-              <strong>Invoice rules.</strong> Whether invoices issue
-              automatically when an order is paid or wait for you, how numbering
-              runs, and whether to collect EU VAT IDs from business buyers. If
-              you already have a number series, tell Attesta the last number you
-              used and it continues from there rather than restarting at 1.
+              <strong>Rechnungsregeln.</strong> Lege fest, ob Attesta Rechnungen
+              nach der Zahlung automatisch oder erst nach deiner Freigabe erstellt,
+              wie die Nummerierung aufgebaut ist und ob USt-IdNr. von
+              Geschäftskunden erfasst werden sollen. Wenn du bereits einen
+              Nummernkreis verwendest, trägst du die zuletzt vergebene Nummer ein.
+              Attesta setzt die Reihe dort fort.
             </li>
             <li>
-              <strong>Finish.</strong> Everything else comes from your shop:
-              currency, buyer addresses, line items, tax rates.
+              <strong>Abschluss.</strong> Währung, Kundenanschriften, Positionen
+              und Steuersätze übernimmt Attesta aus deinem Shop.
             </li>
           </ul>
           <p>
-            The wizard is deliberately short. Attesta asks about five questions
-            because the rest is either in your shop already or fixed by the law.
+            Die Einrichtung bleibt bewusst kurz. Alles Weitere ist entweder schon
+            in deinem Shop hinterlegt oder durch die gesetzlichen Vorgaben bestimmt.
           </p>
 
-          <h2 id="dashboard">Your dashboard</h2>
+          <h2 id="dashboard">Dein Dashboard</h2>
           <p>
-            Home answers one question: is this shop compliant right now. The
-            status card at the top says either that everything is compliant or
-            that something needs attention, and lists the four checks behind
-            that answer, which are ZUGFeRD and XRechnung generation, gap-free
-            numbering, VAT logic and Reverse-Charge, and the ten-year GoBD
-            archive.
+            Auf der Startseite siehst du, ob für deinen Shop noch etwas zu tun ist.
+            Die Statuskarte zeigt das Ergebnis und die vier zugrunde liegenden
+            Prüfungen: ZUGFeRD- und XRechnung-Erstellung, lückenlose Nummerierung,
+            Umsatzsteuerlogik einschließlich Reverse-Charge sowie das zehnjährige
+            GoBD-Archiv.
           </p>
           <p>
-            Below it sits a countdown to January 2027, counters for invoices
-            this month, Stornorechnungen and orders waiting on you, a setup
-            checklist for the things worth finishing (logo, IBAN and payment
-            details, DATEV), and the documents issued most recently. Every
-            number comes from your real data.
+            Darunter findest du den Countdown bis Januar 2027, Zähler für die
+            Rechnungen des laufenden Monats, Stornorechnungen und offene
+            Bestellungen. Eine Checkliste erinnert an Logo, IBAN, Zahlungsangaben
+            und DATEV-Einrichtung. Außerdem werden die zuletzt erstellten Dokumente
+            angezeigt. Alle Werte stammen aus deinen tatsächlichen Daten.
           </p>
           <p>
-            On the free plan the page also shows how many invoices you have
-            issued this month against the free allowance.
+            Im kostenlosen Tarif zeigt die Seite außerdem, wie viele Rechnungen du
+            im laufenden Monat bereits erstellt hast.
           </p>
           <Figure
             src="/attesta/docs/dashboard.png"
-            alt="Attesta dashboard with a compliance status card, the January 2027 countdown, monthly counters, a setup checklist and recent activity"
+            alt="Attesta-Dashboard mit Statuskarte, Countdown bis Januar 2027, Monatszählern, Einrichtungscheckliste und letzten Aktivitäten"
             width={890}
             height={690}
-            caption="Home: the compliance card and its four checks, the countdown to January 2027, the month's counters, what is left to set up, and the last documents issued."
+            caption="Die Startseite zeigt den Status mit vier Prüfungen, den Countdown bis Januar 2027, die Monatswerte, offene Einrichtungsschritte und die zuletzt erstellten Dokumente."
           />
 
-          <h2 id="invoices">Your invoices</h2>
+          <h2 id="invoices">Deine Rechnungen</h2>
           <p>
-            <strong>Rechnungen</strong> lists every document Attesta has issued,
-            newest first: the number and whether it is a Rechnung or a
-            Stornorechnung, the order behind it, the buyer, the tax treatment
-            that was applied, its status, and the PDF and XML. You can filter by
-            type and search. The list reads from a flat ledger, so it opens at
-            once however many invoices sit behind it, and{" "}
-            <strong>Export</strong> pulls the whole ledger down as a GoBD ZIP.
+            Unter <strong>Rechnungen</strong> findest du alle von Attesta erstellten
+            Dokumente, beginnend mit dem neuesten. Jede Zeile zeigt Nummer und
+            Dokumenttyp, die zugehörige Bestellung, den Käufer, die angewandte
+            Steuerbehandlung, den Status sowie PDF und XML. Du kannst suchen und
+            nach Dokumenttyp filtern. Über <strong>Export</strong> lädst du das
+            vollständige Journal als GoBD-ZIP-Datei herunter.
           </p>
           <Figure
             src="/attesta/docs/invoices.png"
-            alt="The Attesta invoices list, each row showing the document number and type, order, buyer, tax treatment, status and PDF and XML links"
+            alt="Attesta-Rechnungsliste mit Dokumentnummer, Typ, Bestellung, Käufer, Steuerbehandlung, Status sowie PDF- und XML-Links"
             width={1404}
             height={538}
-            caption="Every document Attesta has issued, with the tax treatment it applied shown on the row and the PDF and XML beside it."
+            caption="Alle von Attesta erstellten Dokumente mit angewandter Steuerbehandlung sowie den zugehörigen PDF- und XML-Dateien."
           />
-          <p>Opening a document shows the legal record in a readable form:</p>
+          <p>Beim Öffnen eines Dokuments siehst du den Beleg übersichtlich aufbereitet:</p>
           <ul>
             <li>
-              A preview of the invoice as it was rendered, with the{" "}
-              <strong>XML</strong> on its own tab next to it.
+              Eine Vorschau der erstellten Rechnung und die <strong>XML</strong> in
+              einem eigenen Tab.
             </li>
             <li>
-              An <strong>audit trail</strong> of created, validated and
-              archived, carrying the GoBD hash for that document.
+              Ein <strong>Prüfprotokoll</strong> für Erstellung, Validierung und
+              Archivierung einschließlich des GoBD-Hashwerts.
             </li>
             <li>
-              <strong>Delivery and routing</strong>, which names the format that
-              went out: ZUGFeRD 2.2, EN 16931, PDF/A-3.
+              <strong>Versand und Format</strong> mit Angaben zum ausgegebenen
+              Format, etwa ZUGFeRD 2.2, EN 16931 und PDF/A-3.
             </li>
             <li>
-              <strong>VIES proof</strong>, the stored VAT-ID check, when the
-              buyer gave one.
+              Den gespeicherten <strong>VIES-Nachweis</strong>, wenn der Käufer
+              eine USt-IdNr. angegeben hat.
             </li>
           </ul>
           <p>
-            <strong>Download</strong> saves the real file, the same bytes that
-            were archived, not a fresh render. There is no Create button on this
-            page, because every document comes from a paid order.
+            Über <strong>Download</strong> lädst du genau die archivierte Datei
+            herunter, nicht eine neu erzeugte Version. Einen Button zum manuellen
+            Erstellen gibt es hier nicht, denn jedes Dokument gehört zu einer
+            bezahlten Bestellung.
           </p>
           <Figure
             src="/attesta/docs/invoice-detail.png"
-            alt="An Attesta invoice detail screen: the rendered invoice with an XML tab, and a sidebar with the audit trail, delivery format and VIES proof"
+            alt="Attesta-Rechnungsansicht mit Rechnungsvorschau, XML-Tab, Prüfprotokoll, Ausgabeformat und VIES-Nachweis"
             width={966}
             height={826}
-            caption="One document: the rendered invoice with the XML on its own tab, and the audit trail, the format that went out and the stored VIES check alongside it."
+            caption="Die Dokumentansicht enthält Rechnung und XML sowie das Prüfprotokoll, das Ausgabeformat und den gespeicherten VIES-Nachweis."
           />
           <p>
-            When an order cannot be invoiced, Attesta records the problem rather
-            than failing quietly. The open count shows on Home and the list
-            lives under <strong>Probleme</strong>, where you can fix the cause
-            and retry the order.
+            Kann Attesta eine Bestellung nicht abrechnen, wird das Problem sichtbar
+            erfasst. Die Anzahl offener Fälle erscheint auf der Startseite. Unter
+            <strong>Probleme</strong> kannst du die Ursache beheben und die
+            Verarbeitung erneut starten.
           </p>
 
-          <h2 id="tax">Tax treatment</h2>
+          <h2 id="tax">Steuerbehandlung</h2>
           <p>
-            Attesta decides the treatment per order, from the buyer, not from a
-            setting you have to remember to change:
+            Attesta bestimmt die Steuerbehandlung für jede Bestellung anhand der
+            Käuferdaten. Du musst dafür keine Einstellung manuell wechseln:
           </p>
           <ul>
             <li>
-              <strong>Standard</strong> German VAT at 19% or 7% on a domestic
-              sale.
+              <strong>Regelbesteuerung</strong> mit 19 % oder 7 % deutscher
+              Umsatzsteuer bei einem Verkauf innerhalb Deutschlands.
             </li>
             <li>
-              <strong>Reverse-Charge (§13b UStG)</strong> for a business buyer
-              in another EU country with a valid VAT ID. The invoice goes out at
-              0% and carries the reverse-charge notice.
+              <strong>Reverse-Charge (§ 13b UStG)</strong> bei einem
+              Geschäftskunden in einem anderen EU-Land mit gültiger USt-IdNr. Die
+              Rechnung weist 0 % Steuer und den entsprechenden Hinweis aus.
             </li>
             <li>
-              <strong>Intra-Community supply</strong> at 0%, on goods moving to
-              a VAT-registered business elsewhere in the EU, with the VAT ID as
-              proof.
+              <strong>Innergemeinschaftliche Lieferung</strong> mit 0 % bei Waren,
+              die an ein umsatzsteuerlich registriertes Unternehmen in einem
+              anderen EU-Land geliefert werden. Die USt-IdNr. dient als Nachweis.
             </li>
             <li>
-              <strong>Export (§6 UStG)</strong>, no VAT, for goods leaving the
-              EU.
+              <strong>Ausfuhrlieferung (§ 6 UStG)</strong> ohne Umsatzsteuer für
+              Waren, die die EU verlassen.
             </li>
             <li>
-              <strong>Kleinunternehmer (§19 UStG)</strong>, if you set that in
-              onboarding. No VAT is shown and the §19 notice takes its place.
+              <strong>Kleinunternehmer (§ 19 UStG)</strong>, wenn du dies bei der
+              Einrichtung angegeben hast. Die Rechnung weist keine Umsatzsteuer,
+              sondern den Hinweis nach § 19 UStG aus.
             </li>
           </ul>
           <p>
-            The treatment chooses both the legal notice printed on the invoice
-            and the tax codes written into the XML, and it is shown on every row
-            of the invoice list so you can see what was applied without opening
-            the document.
+            Die Steuerbehandlung bestimmt den rechtlichen Hinweis auf der Rechnung
+            und die Steuercodes in der XML-Datei. Sie wird außerdem direkt in der
+            Rechnungsliste angezeigt.
           </p>
 
-          <h2 id="vatid">VAT IDs and VIES</h2>
+          <h2 id="vatid">USt-IdNr. und VIES</h2>
           <p>
-            Reverse-Charge only holds up if the buyer&apos;s VAT ID is real, so
-            Attesta collects it before the order is paid. There are three places
-            a business buyer can enter it: a block in{" "}
-            <strong>checkout</strong>, a block in the <strong>cart</strong>, and
-            their <strong>customer account</strong> profile.
+            Reverse-Charge setzt eine gültige USt-IdNr. des Käufers voraus. Attesta
+            erfasst sie deshalb vor der Zahlung. Geschäftskunden können die Nummer
+            im <strong>Checkout</strong>, im <strong>Warenkorb</strong> oder in
+            ihrem <strong>Kundenkonto</strong> eingeben.
           </p>
           <p>
-            The ID is checked against <strong>VIES</strong>, the EU
-            commission&apos;s VAT number service. Attesta stores the
-            consultation it got back and shows it on the invoice detail page, so
-            if the treatment is ever questioned you have the check on file with
-            the document rather than a claim that you did it.
+            Attesta prüft die Nummer über <strong>VIES</strong>, den Dienst der
+            Europäischen Kommission zur Prüfung von Umsatzsteuer-Identifikationsnummern.
+            Das Prüfergebnis wird zusammen mit der Rechnung gespeichert und in der
+            Dokumentansicht angezeigt.
           </p>
           <Figure
             src="/attesta/docs/vat-id.png"
-            alt="A checkout business-details form with a validated EU VAT ID field, and a callout confirming the VIES check was stored with the invoice"
+            alt="Formular für Unternehmensdaten im Checkout mit geprüfter EU-USt-IdNr. und Hinweis zur gespeicherten VIES-Prüfung"
             width={710}
             height={620}
-            caption="A business buyer enters their USt-IdNr. before paying. Attesta checks it against VIES and keeps the consultation with the invoice."
+            caption="Der Geschäftskunde gibt seine USt-IdNr. vor der Zahlung ein. Attesta prüft sie über VIES und speichert das Ergebnis mit der Rechnung."
           />
 
-          <h2 id="storno">Refunds and corrections</h2>
+          <h2 id="storno">Erstattungen und Korrekturen</h2>
           <p>
-            A German invoice is never edited after it is issued. It is reversed
-            by a credit note, a <strong>Stornorechnung</strong>, and Attesta
-            writes those for you.
+            Eine ausgestellte Rechnung wird nicht nachträglich verändert. Die
+            Korrektur erfolgt über eine <strong>Stornorechnung</strong>, die Attesta
+            für dich erstellt.
           </p>
           <ul>
             <li>
-              <strong>Refund a paid order</strong> and Attesta issues an EN
-              16931 credit note that reverses the refunded amount, references
-              the original invoice and takes the next number in the same
-              sequence.
+              <strong>Erstattest du eine bezahlte Bestellung</strong>, erstellt
+              Attesta eine Gutschrift nach EN 16931. Sie storniert den erstatteten
+              Betrag, verweist auf die ursprüngliche Rechnung und erhält die
+              nächste Nummer im selben Nummernkreis.
             </li>
             <li>
-              <strong>Edit a paid order</strong> and Attesta compares the
-              edited order against the invoice on file. If the amounts or the
-              VAT changed, it cancels the old invoice in full and issues a
-              corrected one in the same locked step. Both go to the buyer, the
-              cancellation first.
+              <strong>Bearbeitest du eine bezahlte Bestellung</strong>, vergleicht
+              Attesta sie mit der gespeicherten Rechnung. Haben sich Beträge oder
+              Umsatzsteuer geändert, wird die alte Rechnung vollständig storniert
+              und eine korrigierte Rechnung erstellt. Der Käufer erhält zuerst die
+              Stornierung und anschließend die neue Rechnung.
             </li>
             <li>
-              Edits that change no money, such as tags, notes, fulfilment or a
-              corrected address, produce no new document.
+              Änderungen ohne Auswirkung auf den Betrag, etwa Tags, Notizen,
+              Fulfillment oder eine korrigierte Anschrift, erzeugen kein neues
+              Dokument.
             </li>
             <li>
-              An order edited down to nothing invoiceable is cancelled without a
-              replacement.
+              Bleibt nach einer Bearbeitung kein abrechenbarer Betrag übrig, wird
+              die Rechnung ohne Ersatz storniert.
             </li>
           </ul>
           <Figure
             src="/attesta/docs/storno.png"
-            alt="A refund turning an invoice into a credit note: the original number and amount beside the Stornorechnung and its negative amount, with the reference and document type 381"
+            alt="Erstattung mit ursprünglicher Rechnung und zugehöriger Stornorechnung samt negativem Betrag, Referenz und Dokumenttyp 381"
             width={780}
             height={520}
-            caption="A refund produces a credit note that reverses the amount, references the original invoice and takes the next number in the same sequence."
+            caption="Bei einer Erstattung entsteht eine Gutschrift, die den Betrag storniert, auf die ursprüngliche Rechnung verweist und die nächste Nummer im selben Nummernkreis erhält."
           />
 
-          <h2 id="template">Your invoice design</h2>
+          <h2 id="template">Deine Rechnungsgestaltung</h2>
           <p>
-            The <strong>Rechnungsvorlage</strong> screen is where the invoice
-            gets your brand instead of ours. It has three regions.
+            Unter <strong>Rechnungsvorlage</strong> passt du die Rechnung an dein
+            Erscheinungsbild an. Der Editor besteht aus drei Bereichen.
           </p>
           <ul>
             <li>
-              On the left, the blocks that make up the invoice. Drag to reorder
-              recipient, line items, totals, payment details, notes and footer.
-              The blocks the law requires are locked, so reordering cannot
-              accidentally cost you the legal validity of the document.
+              Links stehen die Bausteine der Rechnung. Empfänger, Positionen,
+              Summen, Zahlungsangaben, Hinweise und Fußzeile lassen sich per
+              Drag-and-drop anordnen. Gesetzlich erforderliche Bausteine sind
+              gesperrt und können nicht versehentlich entfernt werden.
             </li>
             <li>
-              In the middle, a live preview of your own invoice. A switcher
-              renders it under each tax case, including a credit note, so you
-              can see how a Reverse-Charge or §19 invoice will look before one
-              exists. Clicking a region of the preview selects that block.
+              In der Mitte siehst du eine Live-Vorschau. Du kannst verschiedene
+              Steuerfälle einschließlich einer Gutschrift auswählen und so vorab
+              prüfen, wie etwa eine Reverse-Charge- oder §-19-Rechnung aussieht.
+              Ein Klick in die Vorschau wählt den jeweiligen Baustein aus.
             </li>
             <li>
-              On the right, the Block, Brand and Template tabs: which line-item
-              columns appear, your logo, accent colour and font, and the base
-              layout.
+              Rechts findest du die Tabs für Baustein, Marke und Vorlage. Dort
+              bestimmst du sichtbare Positionsspalten, Logo, Akzentfarbe,
+              Schriftart und Grundlayout.
             </li>
           </ul>
           <p>
-            Nothing here can change a number. The design controls presentation
-            only, and every layout in the catalog renders all the mandatory EN
-            16931 fields.
+            Die Gestaltung verändert keine Rechnungswerte. Jede verfügbare Vorlage
+            enthält die erforderlichen Felder nach EN 16931.
           </p>
           <Figure
             src="/attesta/docs/template.png"
-            alt="The Attesta template designer: a list of invoice blocks with the required ones tagged, next to a live preview of the invoice in the merchant's own accent colour"
+            alt="Attesta-Vorlageneditor mit Liste der Rechnungsbausteine, gekennzeichneten Pflichtbausteinen und Live-Vorschau in der Akzentfarbe des Shops"
             width={750}
             height={570}
-            caption="Blocks on the left, your own invoice previewed live on the right, and the blocks the law requires locked where they are."
+            caption="Links stehen die Rechnungsbausteine, daneben die Live-Vorschau. Erforderliche Bausteine sind gesperrt."
           />
 
-          <h2 id="settings">Settings</h2>
-          <p>Five cards, each opening its own editor.</p>
+          <h2 id="settings">Einstellungen</h2>
+          <p>Die Einstellungen sind in fünf Bereiche gegliedert.</p>
           <ul>
             <li>
-              <strong>Company and tax</strong>. Your legal identity, tax IDs and
-              the Kleinunternehmer toggle. The same details the wizard asked
-              for, editable afterwards.
+              <strong>Unternehmen und Steuern.</strong> Hier bearbeitest du
+              Unternehmensdaten, Steuerkennzeichen und die Einstellung zur
+              Kleinunternehmerregelung.
             </li>
             <li>
-              <strong>Invoice rules</strong>. Automatic or manual issuing, the
-              numbering series including continuing an existing one, and B2B
-              VAT-ID capture.
+              <strong>Rechnungsregeln.</strong> Hier legst du die automatische oder
+              manuelle Erstellung, den Nummernkreis und die Erfassung von USt-IdNr.
+              bei Geschäftskunden fest.
             </li>
             <li>
-              <strong>Delivery</strong>. The subject and message of the invoice
-              email and its reply-to address, plus your payment block: IBAN,
-              BIC, payment terms and the net term in days, which becomes the due
-              date on the invoice.
+              <strong>Versand.</strong> Passe Betreff, Nachricht und Antwortadresse
+              der Rechnungs-E-Mail an. Außerdem hinterlegst du IBAN, BIC,
+              Zahlungsbedingungen und das Zahlungsziel in Tagen.
             </li>
             <li>
-              <strong>Accounting</strong>. Your tax accountant&apos;s email,
-              your DATEV Berater and Mandant numbers, and whether the export
-              books against SKR03 or SKR04. Any of the eight accounts it uses
-              can be overridden if your accountant runs a custom chart.
+              <strong>Buchhaltung.</strong> Trage die E-Mail-Adresse deiner
+              Steuerberatung, DATEV-Berater- und Mandantennummer sowie SKR03 oder
+              SKR04 ein. Die acht verwendeten Konten lassen sich bei einem
+              individuellen Kontenplan anpassen.
             </li>
             <li>
-              <strong>Advanced</strong>. Your default Leitweg-ID for
-              public-sector buyers, whether B2G invoices go out as XRechnung,
-              and your GoBD archive information and data export.
+              <strong>Erweitert.</strong> Hier verwaltest du die Standard-Leitweg-ID
+              für öffentliche Auftraggeber, den Versand von B2G-Rechnungen als
+              XRechnung sowie Angaben zum GoBD-Archiv und Datenexport.
             </li>
           </ul>
           <p>
-            At the bottom is a country section that reflects where you sell.
-            For Germany it says that no transmission network is required,
-            because a German invoice reaches the buyer by email.
+            Am Ende der Seite findest du die Ländereinstellungen. Für Deutschland
+            ist kein Übertragungsnetz erforderlich, da die Rechnung per E-Mail an
+            den Käufer gesendet wird.
           </p>
 
-          <h2 id="exports">Archive and exports</h2>
+          <h2 id="exports">Archiv und Exporte</h2>
           <p>
-            Every document Attesta issues is stored with its XML and a SHA-256
-            hash that chains to the document before it, along with a snapshot of
-            the template it was rendered with. That is what makes the archive
-            tamper-evident, and what a Betriebsprüfer is looking for when GoBD
-            asks you to keep the record complete for ten years.
+            Attesta speichert jedes erstellte Dokument zusammen mit seiner XML-Datei,
+            einem SHA-256-Hash und einer Momentaufnahme der verwendeten Vorlage. Der
+            Hash ist mit dem vorherigen Dokument verkettet und macht nachträgliche
+            Änderungen erkennbar. Das Standardarchiv von Attesta bewahrt Rechnungen
+            zehn Jahre lang auf. Die allgemeine gesetzliche Aufbewahrungsfrist für
+            Rechnungen beträgt acht Jahre. In bestimmten Fällen können längere
+            Fristen gelten. Dein Unternehmen bleibt dafür verantwortlich, die
+            jeweils maßgebliche Frist zu prüfen.
           </p>
-          <p>Three exports come out of it:</p>
+          <p>Drei Exporte stehen zur Verfügung:</p>
           <ul>
             <li>
-              <strong>GoBD ZIP</strong>, from the invoice list or the Advanced
-              card. It holds the XML and PDF of every document plus a manifest
-              carrying the hash chain, which is also what you hand over for a
-              GDPR data request.
+              <strong>GoBD-ZIP</strong> aus der Rechnungsliste oder dem Bereich
+              „Erweitert“. Das Archiv enthält XML und PDF jedes Dokuments sowie
+              eine Manifestdatei mit der Hashkette. Es kann auch für eine
+              DSGVO-Datenauskunft verwendet werden.
             </li>
             <li>
-              <strong>Verfahrensdokumentation</strong>, the procedural
-              documentation GoBD expects, generated as a German PDF pre-filled
-              with your details and how the pipeline works. A few merchant-only
-              passages are left as visible placeholders for you to complete.
+              <strong>Verfahrensdokumentation</strong> als deutsches PDF, das mit
+              deinen Angaben und der Beschreibung des Ablaufs vorausgefüllt wird.
+              Einige unternehmensspezifische Stellen bleiben als sichtbare
+              Platzhalter für deine Ergänzungen offen.
             </li>
             <li>
-              <strong>DATEV Buchungsstapel</strong>, an EXTF booking batch for a
-              date range, with one row per VAT-rate group so a mixed-rate
-              invoice splits correctly, mapped to your SKR03 or SKR04 accounts.
-              A range has to sit inside one fiscal year, and your Berater and
-              Mandant numbers have to be filled in, because DATEV refuses the
-              import without them. Rows are not marked as final, so your
-              accountant reviews the batch before posting it.
+              <strong>DATEV-Buchungsstapel</strong> im EXTF-Format für einen
+              ausgewählten Zeitraum. Bei Rechnungen mit mehreren Steuersätzen wird
+              je Steuersatzgruppe eine Zeile erzeugt und deinem SKR03- oder
+              SKR04-Konto zugeordnet. Der Zeitraum muss innerhalb eines
+              Wirtschaftsjahres liegen. Berater- und Mandantennummer sind für den
+              Import erforderlich. Die Buchungen werden nicht als festgeschrieben
+              markiert und können vor der Verbuchung geprüft werden.
               <PlanTag>Accounting</PlanTag>
             </li>
           </ul>
           <p>
-            The GoBD ZIP is available on every plan, including Free, because
-            getting your own records out is not something to charge for. The
-            DATEV batch needs the Accounting plan.
+            Das GoBD-ZIP ist in jedem Tarif einschließlich Free verfügbar. Für den
+            DATEV-Buchungsstapel benötigst du den Accounting-Tarif.
           </p>
           <Figure
             src="/attesta/docs/archive.png"
-            alt="Three archived documents in a chain, each showing its own SHA-256 hash and the hash of the previous document, above an export as GoBD ZIP action"
+            alt="Drei verkettete Archivdokumente mit eigenem SHA-256-Hash und dem Hash des vorherigen Dokuments sowie einer GoBD-ZIP-Exportfunktion"
             width={780}
             height={560}
-            caption="Each document carries its own SHA-256 hash and the hash of the one before it, which is what makes the archive tamper-evident."
+            caption="Jedes Dokument enthält einen eigenen SHA-256-Hash und den Hash des vorherigen Dokuments. So werden nachträgliche Änderungen erkennbar."
           />
           <Figure
             src="/attesta/docs/datev.png"
-            alt="The DATEV export with a date range, an SKR03 chart of accounts and a preview of the EXTF booking rows"
+            alt="DATEV-Export mit Zeitraum, SKR03-Kontenplan und Vorschau der EXTF-Buchungszeilen"
             width={780}
             height={560}
-            caption="The DATEV export: a date range, your chart of accounts, and the EXTF booking rows your accountant imports."
+            caption="Der DATEV-Export enthält Zeitraum, Kontenplan und die EXTF-Buchungszeilen für die Steuerberatung."
           />
 
-          <h2 id="plans">Plans and billing</h2>
+          <h2 id="plans">Tarife und Abrechnung</h2>
           <p>
-            Everything the law requires is in every paid plan. Plans differ by
-            volume and by accounting workflow, never by whether your invoices
-            are legally valid.
+            Alle bezahlten Tarife enthalten die Funktionen für die Rechnungserstellung.
+            Sie unterscheiden sich nach Umfang und Buchhaltungsablauf, nicht nach
+            der Gültigkeit der erstellten Rechnungen.
           </p>
           <ul>
             <li>
-              <strong>Free, $0</strong> - ZUGFeRD and XRechnung, manual or
-              automatic issuing, email delivery and numbering. There is a soft
-              allowance of 25 invoices a month: past it Attesta suggests
-              upgrading, but it keeps issuing. Compliance is never switched off.
-              Invoices on the free plan carry a small &quot;Erstellt mit
-              Attesta&quot; line on the visual, never in the XML, because the
-              XML is the legal record.
+              <strong>Free, 0 $</strong>: ZUGFeRD und XRechnung, manuelle oder
+              automatische Erstellung, E-Mail-Versand und Nummerierung. Der
+              Richtwert liegt bei 25 Rechnungen pro Monat. Danach empfiehlt Attesta
+              ein Upgrade, erstellt Rechnungen aber weiterhin. Im kostenlosen Tarif
+              steht auf der sichtbaren Rechnung klein „Erstellt mit Attesta“. Die
+              XML-Datei bleibt davon unberührt.
             </li>
             <li>
-              <strong>Compliance, $9/month</strong> (or $90 a year, taken as
-              one charge) - unlimited invoices, automatic Stornorechnungen,
-              USt-IdNr.-Erfassung with VIES, automatic Reverse-Charge and the
-              GoBD ten-year archive.
+              <strong>Compliance, 9 $ pro Monat</strong> oder 90 $ pro Jahr als
+              Einmalzahlung: unbegrenzte Rechnungen, automatische Stornorechnungen,
+              USt-IdNr.-Erfassung mit VIES, automatische Reverse-Charge-Behandlung
+              und das zehnjährige GoBD-Archiv.
             </li>
             <li>
-              <strong>Accounting, $19/month</strong> (or $190 a year, taken as
-              one charge) - everything in Compliance plus the DATEV package, numbering
-              migration, Verfahrensdokumentation and CSV export.
+              <strong>Accounting, 19 $ pro Monat</strong> oder 190 $ pro Jahr als
+              Einmalzahlung: alle Funktionen aus Compliance sowie DATEV-Paket,
+              Übernahme des Nummernkreises, Verfahrensdokumentation und CSV-Export.
             </li>
           </ul>
           <p>
-            Billing runs through Shopify and appears on your normal Shopify
-            invoice, in USD. A year costs ten months, so annual billing saves
-            16.67%. You can change
-            plans or cancel from inside the app at any time, and if you cancel
-            you land back on Free, where invoicing keeps working: the free tier
-            still issues legally valid e-invoices.
+            Die Abrechnung erfolgt in US-Dollar über Shopify und erscheint auf
+            deiner regulären Shopify-Rechnung. Der Jahrestarif kostet so viel wie
+            zehn Monate und spart damit 16,67 %. Du kannst den Tarif jederzeit in
+            der App wechseln oder kündigen. Nach einer Kündigung wechselst du zu
+            Free und Attesta erstellt weiterhin E-Rechnungen.
           </p>
 
-          <h2 id="faq">FAQ and troubleshooting</h2>
+          <h2 id="faq">FAQ und Fehlerbehebung</h2>
           <p>
-            <strong>Is a PDF invoice not enough?</strong> Not under the German
-            mandate. From January 2027 a B2B invoice has to carry structured
-            data a machine can read. ZUGFeRD solves it by putting that data
-            inside the PDF, so the same file works for your buyer and for their
-            software.
+            <strong>Reicht eine PDF-Rechnung nicht aus?</strong> Betroffene
+            B2B-Rechnungen müssen ab Januar 2027 strukturierte, maschinenlesbare
+            Daten enthalten. ZUGFeRD bettet diese Daten in die PDF-Datei ein, sodass
+            dieselbe Datei für den Käufer und seine Software nutzbar ist.
           </p>
           <p>
-            <strong>I already have an invoice number series. Will it
-            restart?</strong> No. In onboarding, or later under invoice rules,
-            enter the last number you issued and Attesta continues the sequence
-            from there. Numbering stays gap-free across the whole ledger.
+            <strong>Ich habe bereits einen Rechnungsnummernkreis. Beginnt er von
+            vorn?</strong> Nein. Gib bei der Einrichtung oder später unter
+            „Rechnungsregeln“ die zuletzt verwendete Nummer ein. Attesta setzt den
+            Nummernkreis lückenlos fort.
           </p>
           <p>
-            <strong>My shop is not in Germany.</strong> Attesta is Germany-first
-            today. Other markets change the tax-ID fields, the currency, the
-            invoice format and how the invoice is transmitted, and each one has
-            to be built before it is offered. They are on the roadmap, not in
-            the app.
+            <strong>Mein Shop sitzt nicht in Deutschland.</strong> Attesta ist für
+            Unternehmen entwickelt, die nach deutschen Vorgaben abrechnen. Andere
+            Länder werden nicht unterstützt.
           </p>
           <p>
-            <strong>Will it slow my storefront down?</strong> No. Attesta works
-            behind Shopify webhooks and touches nothing a shopper loads. An
-            invoice normally appears within a minute of the order being paid.
+            <strong>Verlangsamt Attesta meinen Shop?</strong> Nein. Attesta arbeitet
+            über Shopify-Webhooks im Hintergrund und lädt keine zusätzlichen
+            Ressourcen im Storefront. Eine Rechnung erscheint normalerweise
+            innerhalb einer Minute nach der Zahlung.
           </p>
           <p>
-            <strong>My buyer never got the invoice email.</strong> Check the
-            reply-to address and message under Delivery in Settings, then open
-            the document: if it is archived, the file exists and you can send it
-            yourself with Download while you sort the address out.
+            <strong>Mein Käufer hat die Rechnungs-E-Mail nicht erhalten.</strong>
+            Prüfe unter „Versand“ die Antwortadresse und den Nachrichtentext. Ist
+            das Dokument archiviert, kannst du es herunterladen und selbst senden,
+            während du die Adresse klärst.
           </p>
           <p>
-            <strong>What happens to my data if I uninstall?</strong> Access is
-            revoked at once and Shopify then asks us to erase the shop&apos;s
-            data. Export the GoBD ZIP first: German retention rules are your
-            obligation, and they run for ten years whether or not the app is
-            still installed. See the{" "}
-            <Link href="/attesta/privacy">Privacy Policy</Link>.
+            <strong>Was passiert bei der Deinstallation mit meinen Daten?</strong>
+            Der Zugriff wird sofort entzogen. Anschließend fordert Shopify die
+            Löschung der Shop-Daten an. Exportiere vorher das GoBD-ZIP, denn deine
+            Aufbewahrungspflichten gelten nach der Deinstallation weiter. Weitere
+            Informationen findest du in der{" "}
+            <Link href="/attesta/privacy">Datenschutzerklärung</Link>.
           </p>
           <div className="mt-9 rounded-[12px] border border-[#E6EDEA] bg-[#F5F8F7] px-[22px] py-[18px] text-[15px] leading-[1.65] text-[#3a4654]">
-            <strong>Still stuck?</strong> Email{" "}
-            <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> with your{" "}
-            <strong>.myshopify.com</strong> URL and the invoice number, and we
-            will pick it up the same business day.
+            <strong>Du brauchst Hilfe?</strong> Schreibe an{" "}
+            <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> und nenne deine{" "}
+            <strong>.myshopify.com</strong>-Adresse sowie die Rechnungsnummer. Wir
+            melden uns am selben Werktag.
           </div>
         </div>
       </section>

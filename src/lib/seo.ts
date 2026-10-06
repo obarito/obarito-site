@@ -14,9 +14,12 @@ type PageMetadataOptions = {
   path: string;
   socialTitle?: string;
   absoluteTitle?: boolean;
+  locale?: string;
+  languages?: Record<string, string>;
 };
 
 function socialImageFor(path: string) {
+  if (path.startsWith("/en/attesta")) return "/en/attesta/opengraph-image";
   if (path.startsWith("/attesta")) return "/attesta/opengraph-image";
   if (path.startsWith("/rewindly")) return "/rewindly/opengraph-image";
   return "/opengraph-image";
@@ -28,6 +31,8 @@ export function createPageMetadata({
   path,
   socialTitle,
   absoluteTitle = false,
+  locale,
+  languages,
 }: PageMetadataOptions): Metadata {
   const image = socialImageFor(path);
   const fullSocialTitle = socialTitle ?? `${title} · ${SITE_NAME}`;
@@ -35,13 +40,14 @@ export function createPageMetadata({
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, languages },
     openGraph: {
       title: fullSocialTitle,
       description,
       url: path,
       siteName: SITE_NAME,
       type: "website",
+      locale,
       images: [{ url: image, width: 1200, height: 630, alt: fullSocialTitle }],
     },
     twitter: {
@@ -79,11 +85,12 @@ export const attestaSoftwareJsonLd = {
   "@id": `${SITE_URL}/attesta#software`,
   name: "Attesta",
   description:
-    "German e-invoicing for Shopify with ZUGFeRD 2.2, EN 16931, VIES, DATEV, and a GoBD archive.",
+    "E-Rechnungen für Shopify mit ZUGFeRD 2.2, EN 16931, VIES, DATEV und GoBD-Archiv.",
   url: `${SITE_URL}/attesta`,
   installUrl: ATTESTA_APPSTORE_URL,
   applicationCategory: "BusinessApplication",
   operatingSystem: "Shopify",
+  inLanguage: "de-DE",
   publisher: { "@id": `${SITE_URL}/#organization` },
   offers: {
     "@type": "Offer",
@@ -91,6 +98,15 @@ export const attestaSoftwareJsonLd = {
     priceCurrency: "USD",
     url: ATTESTA_APPSTORE_URL,
   },
+};
+
+export const attestaEnglishSoftwareJsonLd = {
+  ...attestaSoftwareJsonLd,
+  "@id": `${SITE_URL}/en/attesta#software`,
+  description:
+    "E-invoicing for Shopify with ZUGFeRD 2.2, EN 16931, VIES, DATEV, and a GoBD archive.",
+  url: `${SITE_URL}/en/attesta`,
+  inLanguage: "en",
 };
 
 export const rewindlySoftwareJsonLd = {

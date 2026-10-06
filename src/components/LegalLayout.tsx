@@ -30,6 +30,7 @@ type LegalLayoutProps = {
    * link and selection colours to the app's green.
    */
   brand?: "obarito" | "rewindly" | "attesta";
+  language?: "de" | "en";
   children: ReactNode;
 };
 
@@ -48,26 +49,33 @@ export default function LegalLayout({
   path,
   notice,
   brand = "obarito",
+  language = "de",
   children,
 }: LegalLayoutProps) {
   const attesta = brand === "attesta";
+  const germanAttesta = attesta && language === "de";
+  const attestaHome = language === "en" ? "/en/attesta" : "/attesta";
+  const alternatePath = language === "en" ? path.replace(/^\/en/, "") : `/en${path}`;
   const appName = attesta ? "Attesta" : brand === "rewindly" ? "Rewindly" : null;
   const breadcrumbItems = [
     { name: "Obarito", path: "/" },
-    ...(appName ? [{ name: appName, path: `/${brand}` }] : []),
+    ...(appName ? [{ name: appName, path: attesta ? attestaHome : `/${brand}` }] : []),
     { name: title },
   ];
   const breadcrumbSchemaItems = [
     { name: "Obarito", path: "/" },
-    ...(appName ? [{ name: appName, path: `/${brand}` }] : []),
+    ...(appName ? [{ name: appName, path: attesta ? attestaHome : `/${brand}` }] : []),
     { name: title, path },
   ];
 
   return (
-    <div className={attesta ? "attesta-scope" : undefined}>
+    <div
+      lang={attesta ? (germanAttesta ? "de-DE" : "en") : undefined}
+      className={attesta ? "attesta-scope" : undefined}
+    >
       <JsonLd data={breadcrumbJsonLd(breadcrumbSchemaItems)} />
       {brand === "rewindly" && <RewindlyHeader />}
-      {attesta && <AttestaHeader />}
+      {attesta && <AttestaHeader locale={language} alternatePath={alternatePath} />}
       {brand === "obarito" && <ObaritoHeader />}
 
       {/* Title block */}
@@ -78,7 +86,7 @@ export default function LegalLayout({
             attesta ? "text-[#0E8058]" : "text-[#2563EB]"
           }`}
         >
-          Legal
+          {germanAttesta ? "Rechtliches" : "Legal"}
         </div>
         <h1 className="m-0 mb-[18px] text-[clamp(34px,5vw,48px)] font-semibold tracking-[-0.035em]">
           {title}
@@ -97,7 +105,8 @@ export default function LegalLayout({
           </div>
         )}
         <div className="mt-[22px] border-b border-[#EEF1F5] pb-2 font-mono text-[12px] text-[#5C6B82]">
-          LAST UPDATED · {lastUpdated} &nbsp;·&nbsp; EFFECTIVE · {effectiveDate}
+          {germanAttesta ? "ZULETZT AKTUALISIERT" : "LAST UPDATED"} · {lastUpdated}
+          &nbsp;·&nbsp; {germanAttesta ? "GÜLTIG AB" : "EFFECTIVE"} · {effectiveDate}
         </div>
       </section>
 
@@ -105,7 +114,7 @@ export default function LegalLayout({
       <section className="mx-auto grid max-w-[1000px] grid-cols-1 items-start gap-10 px-5 pb-20 pt-10 sm:px-8 md:grid-cols-[200px_1fr] md:gap-[56px]">
         <nav className="toc top-[90px] hidden md:sticky md:block">
           <div className="mb-[14px] font-mono text-[10px] uppercase tracking-[0.14em] text-[#5C6B82]">
-            On this page
+            {germanAttesta ? "Auf dieser Seite" : "On this page"}
           </div>
           <div className="flex flex-col gap-2.5">
             {toc.map((item) => (
@@ -123,7 +132,7 @@ export default function LegalLayout({
       </section>
 
       {brand === "rewindly" && <RewindlyFooter />}
-      {attesta && <AttestaFooter />}
+      {attesta && <AttestaFooter locale={language} />}
       {brand === "obarito" && <ObaritoFooter active={active} />}
     </div>
   );

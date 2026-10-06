@@ -5,58 +5,58 @@ import AttestaHeader from "@/components/AttestaHeader";
 import AttestaFooter from "@/components/AttestaFooter";
 import { ATTESTA_APPSTORE_URL } from "@/lib/config";
 import {
-  attestaSoftwareJsonLd,
+  attestaEnglishSoftwareJsonLd,
   createPageMetadata,
   faqJsonLd,
 } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Attesta - E-Rechnungen für Shopify",
+  title: "Attesta - German e-invoicing for Shopify",
   description:
-    "Erstellt aus bezahlten Shopify-Bestellungen validierte ZUGFeRD-2.2-Rechnungen nach EN 16931, mit VIES-Prüfung, DATEV-Export und manipulationsgeschütztem Archiv.",
-  path: "/attesta",
-  locale: "de_DE",
+    "Create validated ZUGFeRD 2.2 and EN 16931 invoices from paid Shopify orders, with VIES checks, DATEV exports, and a tamper-evident archive.",
+  path: "/en/attesta",
+  locale: "en_US",
   languages: { "de-DE": "/attesta", en: "/en/attesta", "x-default": "/attesta" },
 });
 
 const MANDATE = [
   {
-    label: "Januar 2027",
-    title: "Die Ausstellung wird Pflicht",
-    body: "Deutsche Unternehmen mit mehr als 800.000 € Vorjahresumsatz müssen für inländische B2B-Umsätze strukturierte E-Rechnungen ausstellen. Für kleinere Unternehmen endet die Übergangsfrist ein Jahr später.",
+    label: "January 2027",
+    title: "Issuing becomes mandatory",
+    body: "German businesses above €800,000 prior-year turnover must issue structured e-invoices for B2B sales. Everyone else follows.",
   },
   {
-    label: "Das Format",
-    title: "Ein PDF allein reicht nicht",
-    body: "Die Rechnung braucht strukturierte, maschinenlesbare Daten. ZUGFeRD 2.2 bettet die XML-Daten nach EN 16931 in ein PDF/A-3 ein. So bleibt dieselbe Datei für Menschen und Software lesbar.",
+    label: "The format",
+    title: "A PDF on its own is not one",
+    body: "The invoice needs structured data a machine can read. ZUGFeRD 2.2 carries the EN 16931 XML inside a PDF/A-3, so it stays readable to both.",
   },
   {
-    label: "Aufbewahrung",
-    title: "Acht Jahre sind die allgemeine Frist",
-    body: "Für Rechnungen gilt in Deutschland grundsätzlich eine Aufbewahrungsfrist von acht Jahren. In Einzelfällen gelten längere Fristen. Das Attesta-Archiv ist standardmäßig auf zehn Jahre ausgelegt.",
+    label: "Retention",
+    title: "Eight years is the general rule",
+    body: "German tax law generally requires invoices to be retained for eight years. They must stay complete, readable and available; longer periods can apply in particular cases.",
   },
 ];
 
 const FAQS = [
   {
-    question: "Muss jedes deutsche Unternehmen ab Januar 2027 strukturierte E-Rechnungen ausstellen?",
+    question: "Does every German business need to issue structured e-invoices from January 2027?",
     answer:
-      "Nein. Bei inländischen B2B-Umsätzen endet die Übergangsfrist für Unternehmen mit mehr als 800.000 € Vorjahresumsatz grundsätzlich am 1. Januar 2027. Unternehmen bis zu diesem Betrag können die Übergangsregelung in der Regel noch bis Ende 2027 nutzen. Ausnahmen und Sonderfälle bleiben bestehen.",
+      "Not at the same time. For domestic B2B sales, businesses with more than €800,000 in prior-year turnover generally lose the transitional option for ordinary PDFs or paper from 1 January 2027. Businesses at or below that threshold can generally use the transition through the end of 2027. Exceptions and special cases still apply.",
   },
   {
-    question: "Gilt eine gewöhnliche PDF-Rechnung als E-Rechnung?",
+    question: "Is an ordinary PDF invoice an e-invoice under the German rules?",
     answer:
-      "Nein. Eine E-Rechnung muss strukturierte Daten enthalten, die automatisch verarbeitet werden können. Eine passende ZUGFeRD-Datei verbindet diese Daten mit einem lesbaren PDF.",
+      "No. An e-invoice must contain structured data that can be processed automatically. A compliant ZUGFeRD file combines that structured data with a human-readable PDF.",
   },
   {
-    question: "Kann Attesta meine bestehende Rechnungsnummernfolge fortsetzen?",
+    question: "Can Attesta continue my existing invoice number sequence?",
     answer:
-      "Ja. Trage beim Einrichten die zuletzt vergebene Rechnungsnummer ein. Attesta setzt die Folge danach fort, statt eine neue Nummernreihe zu beginnen.",
+      "Yes. Enter the last number already issued during onboarding and Attesta continues from it instead of starting a separate sequence.",
   },
   {
-    question: "Ersetzt Attesta meine Steuerberatung?",
+    question: "Does Attesta replace my tax adviser?",
     answer:
-      "Nein. Attesta automatisiert die Erstellung, Prüfung, Zustellung und Archivierung der Rechnungen. Dein Unternehmen bleibt für die steuerliche Behandlung verantwortlich und sollte Einzelfragen fachlich prüfen lassen.",
+      "No. Attesta automates document creation, validation, delivery and archiving, but your business remains responsible for its tax treatment and should obtain professional advice for its circumstances.",
   },
 ];
 
@@ -64,46 +64,46 @@ const faqSchema = faqJsonLd(FAQS);
 
 const FEATURES = [
   {
-    title: "Automatisch nach der Zahlung",
-    body: "Sobald eine Bestellung bezahlt ist, vergibt Attesta die Rechnungsnummer, erstellt und validiert die Rechnung nach EN 16931, archiviert sie und versendet sie per E-Mail. Die Bestellung muss niemand öffnen.",
+    title: "Automatic on payment",
+    body: "An order is paid, and Attesta numbers the invoice, renders it, validates it against EN 16931, archives it and emails it. Nobody opens the order.",
   },
   {
-    title: "Die passende Steuerbehandlung pro Bestellung",
-    body: "19 % oder 7 %, Reverse-Charge, innergemeinschaftliche Lieferung, Ausfuhr außerhalb der EU oder Kleinunternehmer nach § 19 UStG. Attesta ermittelt die Behandlung anhand des Käufers.",
+    title: "The right tax treatment, per order",
+    body: "Standard 19% or 7%, Reverse-Charge, intra-Community supply, export outside the EU, or Kleinunternehmer §19. Decided from the buyer, not from a setting you have to remember.",
   },
   {
-    title: "USt-IdNr.-Erfassung und VIES",
-    body: "Geschäftskunden geben ihre EU-USt-IdNr. im Checkout, im Warenkorb oder im Kundenkonto ein. Attesta prüft sie über VIES und speichert die Abfragenummer bei der Rechnung.",
+    title: "USt-IdNr. capture and VIES",
+    body: "Business buyers add their EU VAT ID in checkout, in the cart, or on their account. Attesta checks it against VIES and stores the consultation number with the invoice.",
   },
   {
-    title: "Stornorechnungen bei Erstattungen",
-    body: "Bei der Erstattung einer bezahlten Bestellung erstellt Attesta eine Stornorechnung nach EN 16931. Sie korrigiert den erstatteten Betrag, verweist auf die ursprüngliche Rechnung und erhält die nächste Nummer derselben Folge.",
+    title: "Stornorechnungen from refunds",
+    body: "Refund a paid order and Attesta issues an EN 16931 credit note that reverses the refunded amount, references the original invoice and takes the next number in the same sequence.",
   },
   {
-    title: "Deine Marke auf der Rechnung",
-    body: "Wähle ein Design, deine Akzentfarbe und dein Logo. Die Vorschau aktualisiert sich sofort. Pflichtblöcke lassen sich anordnen und gestalten, aber nicht entfernen.",
+    title: "Your brand on the invoice",
+    body: "Pick a design, set your accent colour and logo, and watch a live preview. Blocks the law requires can be reordered and restyled, never removed.",
   },
   {
-    title: "GoBD-Archiv und DATEV",
-    body: "Jedes Dokument erhält einen SHA-256-Hash und wird mit dem vorherigen Dokument verkettet. Exportiere das Archiv als GoBD-ZIP oder übergib deiner Steuerberatung einen EXTF-Buchungsstapel.",
+    title: "GoBD archive and DATEV",
+    body: "Every document is hashed with SHA-256 and chained to the one before it. Export the ledger as a GoBD ZIP, or hand your accountant an EXTF booking batch.",
   },
 ];
 
 const STEPS = [
   {
     n: "01",
-    title: "Beantworte etwa fünf Fragen",
-    body: "Firmendaten, Steuernummern, automatische Ausstellung und eine bestehende Nummernfolge. Alles Weitere liest Attesta aus deinem Shop.",
+    title: "Answer about five questions",
+    body: "Your company and tax IDs, whether invoices issue automatically, and whether to continue an existing number series. Everything else Attesta reads from your shop.",
   },
   {
     n: "02",
-    title: "Verkaufe weiter wie bisher",
-    body: "Attesta verarbeitet bezahlte Bestellungen. Jede wird zu einem ZUGFeRD-2.2-PDF mit XML nach EN 16931, validiert, manipulationsgeschützt archiviert und an den Käufer gesendet.",
+    title: "Sell as you already do",
+    body: "Attesta watches paid orders. Each one becomes a ZUGFeRD 2.2 PDF with the EN 16931 XML inside it, validated, archived in a tamper-evident chain and emailed to the buyer.",
   },
   {
     n: "03",
-    title: "Übergib den Buchungsstapel",
-    body: "Deine Steuerberatung erhält einen DATEV-EXTF-Buchungsstapel mit SKR03 oder SKR04. Alternativ exportierst du das vollständige Archiv als GoBD-ZIP mit Manifest.",
+    title: "Hand your accountant the batch",
+    body: "A DATEV EXTF Buchungsstapel with your SKR03 or SKR04 accounts, or the whole ledger as a GoBD ZIP with a manifest. No folder of PDFs.",
   },
 ];
 
@@ -128,26 +128,26 @@ const TIERS = [
     name: "Free",
     price: "$0",
     yearly: null,
-    tagline: "Für den Einstieg",
+    tagline: "To get started",
     features: [
-      "25 Rechnungen pro Monat, keine Sperre",
+      "25 invoices / month, never blocked",
       "ZUGFeRD + XRechnung",
-      "Manuell oder automatisch",
-      "Versand per E-Mail",
-      "Rechnungsnummern",
+      "Manual or automatic",
+      "Email delivery",
+      "Numbering",
     ],
     popular: false,
   },
   {
     name: "Compliance",
     price: "$9",
-    yearly: "oder 90 $ / Jahr, 2 Monate kostenlos",
-    tagline: "Der gesamte Ablauf ohne Mengenlimit",
+    yearly: "or $90 / year, 2 months free",
+    tagline: "The whole job, no limit",
     features: [
-      "Unbegrenzte Rechnungen",
-      "Automatische Stornorechnungen",
+      "Unlimited invoices",
+      "Stornorechnungen (credit notes) automatic",
       "USt-IdNr.-Erfassung + VIES",
-      "Automatisches Reverse-Charge",
+      "Reverse-Charge automatic",
       "GoBD 10-Jahre-Archiv",
     ],
     popular: true,
@@ -155,14 +155,14 @@ const TIERS = [
   {
     name: "Accounting",
     price: "$19",
-    yearly: "oder 190 $ / Jahr, 2 Monate kostenlos",
-    tagline: "Für die Zusammenarbeit mit der Steuerberatung",
+    yearly: "or $190 / year, 2 months free",
+    tagline: "The tax-accountant plan",
     features: [
-      "Alles aus Compliance",
+      "Everything in Compliance",
       "DATEV-Paket (EXTF CSV + ZIP)",
-      "Übernahme der Nummernfolge",
+      "Numbering migration",
       "Verfahrensdokumentation",
-      "CSV-Export",
+      "CSV export",
     ],
     popular: false,
   },
@@ -170,44 +170,44 @@ const TIERS = [
 
 export default function AttestaPage() {
   return (
-    <div lang="de-DE" className="attesta-scope text-[#16202E]">
-      <JsonLd data={[attestaSoftwareJsonLd, faqSchema]} />
+    <div lang="en" className="attesta-scope text-[#16202E]">
+      <JsonLd data={[attestaEnglishSoftwareJsonLd, faqSchema]} />
       {/* ===== HEADER ===== */}
-      <AttestaHeader alternatePath="/en/attesta" />
+      <AttestaHeader locale="en" alternatePath="/attesta" />
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden bg-[#0F4B3C] text-white">
         <div className="mx-auto grid max-w-[1160px] grid-cols-1 items-center gap-14 px-5 pb-[clamp(60px,8vw,96px)] pt-[clamp(56px,8vw,92px)] sm:px-8 md:grid-cols-[1.05fr_0.95fr]">
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.07] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[#A9CFC1]">
-              <AttestaMark className="h-[13px] w-[13px] text-white" /> E-Rechnungen
-              für Shopify
+              <AttestaMark className="h-[13px] w-[13px] text-white" /> German
+              e-invoicing
             </div>
             <h1 className="m-0 mb-[22px] text-[clamp(38px,5.4vw,58px)] font-semibold leading-[1.04] tracking-[-0.035em]">
-              Aus jeder bezahlten Bestellung wird eine E-Rechnung.
+              Every paid order becomes a legal e-invoice.
             </h1>
             <p className="m-0 mb-[34px] max-w-[490px] text-[clamp(17px,2vw,20px)] leading-[1.6] text-[#B4D3C8]">
-              Attesta erstellt aus jeder bezahlten Shopify-Bestellung eine
-              ZUGFeRD-2.2-Rechnung mit XML nach EN 16931, archiviert sie zehn
-              Jahre und versendet sie per E-Mail. Du musst die Bestellung nicht öffnen.
+              Attesta turns each paid Shopify order into a ZUGFeRD 2.2 invoice with
+              the EN 16931 XML inside it, files it in a ten-year GoBD archive and
+              emails it. You never open the order.
             </p>
             <div className="flex flex-wrap items-center gap-3.5">
               <a
                 href={ATTESTA_APPSTORE_URL}
                 className="inline-flex items-center gap-[9px] rounded-[12px] bg-white px-6 py-3.5 text-[15.5px] font-semibold text-[#0B3729]"
               >
-                Bei Shopify installieren <span className="text-[17px]">→</span>
+                Add to Shopify <span className="text-[17px]">→</span>
               </a>
               <a
                 href="#how"
                 className="rounded-[12px] border border-white/[0.22] px-[22px] py-3.5 text-[15.5px] font-medium text-white"
               >
-                So funktioniert es
+                See how it works
               </a>
             </div>
             <div className="mt-[30px] flex flex-wrap gap-6 text-[13.5px] text-[#94B8AB]">
-              <span>✓ &nbsp;Kostenloser Tarif verfügbar</span>
-              <span>✓ &nbsp;Für deutsche Rechnungsregeln entwickelt</span>
+              <span>✓ &nbsp;Free plan available</span>
+              <span>✓ &nbsp;Germany first, EU to follow</span>
             </div>
           </div>
 
@@ -217,11 +217,11 @@ export default function AttestaPage() {
               <div className="flex items-center gap-[9px]">
                 <span className="h-[9px] w-[9px] rounded-full bg-[#34D399]" />
                 <span className="text-[14px] font-semibold text-[#16202E]">
-                  Rechnung ausgestellt
+                  Invoice issued
                 </span>
               </div>
               <span className="font-mono text-[11px] text-[#5C6B82]">
-                BESTELLUNG #1041
+                ORDER #1041
               </span>
             </div>
             <div className="flex flex-col gap-2 px-3.5 py-2.5">
@@ -231,7 +231,7 @@ export default function AttestaPage() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-[13.5px] font-semibold text-[#16202E]">
-                    Bestellung bezahlt
+                    Order paid
                   </div>
                   <div className="text-[12.5px] text-[#637385]">
                     Delacroix SARL · France
@@ -246,10 +246,10 @@ export default function AttestaPage() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-[13.5px] font-semibold text-[#16202E]">
-                    Reverse-Charge angewendet
+                    Reverse-Charge applied
                   </div>
                   <div className="text-[12.5px] text-[#387D59]">
-                    FR40312345678 in VIES gültig · 0 % USt.
+                    FR40312345678 valid in VIES · 0 % VAT
                   </div>
                 </div>
                 <span className="flex-none rounded-[8px] border border-[#CBEAD8] bg-white px-[11px] py-1.5 text-[12px] font-semibold text-[#0F4B3C]">
@@ -263,14 +263,14 @@ export default function AttestaPage() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-[13.5px] font-semibold text-[#16202E]">
-                    RE-2026-0147 archiviert
+                    RE-2026-0147 archived
                   </div>
                   <div className="text-[12.5px] text-[#637385]">
                     ZUGFeRD 2.2 · EN 16931 · PDF/A-3
                   </div>
                 </div>
                 <span className="flex-none text-[12px] text-[#5C6B82]">
-                  Versendet
+                  Emailed
                 </span>
               </div>
             </div>
@@ -282,15 +282,15 @@ export default function AttestaPage() {
       <section className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
         <div className="mb-11 max-w-[680px]">
           <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
-            Die E-Rechnungspflicht
+            The mandate
           </div>
           <h2 className="m-0 mb-3.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
-            Die E-Rechnung wird zum Standard.
+            E-Rechnung is not a nice-to-have any more.
           </h2>
           <p className="m-0 text-[18px] leading-[1.6] text-[#5A6B80]">
-            Deutschland stellt B2B-Rechnungen nach einem festen Zeitplan auf
-            strukturierte Formate um. Entscheidend sind das richtige Format, die
-            Steuerbehandlung und ein vollständiges Archiv für jede Bestellung.
+            Germany is moving B2B invoicing to a structured format on a fixed
+            timetable. Getting it right means the format, the tax treatment and the
+            archive, on every single order.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-[repeat(auto-fit,minmax(260px,1fr))]">
@@ -312,22 +312,22 @@ export default function AttestaPage() {
           ))}
         </div>
         <p className="m-0 mt-6 max-w-[860px] text-[13.5px] leading-[1.65] text-[#64746E]">
-          Quellen geprüft am 7. Oktober 2026: die{" "}
+          Sources reviewed 7 October 2026: the German Federal Ministry of
+          Finance&apos;s{" "}
           <a
             href="https://www.bundesfinanzministerium.de/Content/DE/FAQ/e-rechnung.htm"
             className="underline underline-offset-2"
           >
-            FAQ des Bundesfinanzministeriums zur E-Rechnung
+            e-invoice FAQ
           </a>{" "}
-          und die Übergangsregelungen in{" "}
+          and the transitional rules in{" "}
           <a
             href="https://www.gesetze-im-internet.de/ustg_1980/__27.html"
             className="underline underline-offset-2"
           >
             § 27 UStG
           </a>
-          . Diese Angaben dienen der allgemeinen Information und ersetzen keine
-          steuerliche oder rechtliche Beratung.
+          . This is general information, not tax or legal advice.
         </p>
       </section>
 
@@ -339,14 +339,14 @@ export default function AttestaPage() {
         <div className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
           <div className="mb-11 max-w-[680px]">
             <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
-              Funktionen
+              What it does
             </div>
             <h2 className="m-0 mb-3.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
-              Der vollständige Ablauf für jede Bestellung.
+              The whole job, per order.
             </h2>
             <p className="m-0 text-[18px] leading-[1.6] text-[#5A6B80]">
-              Nach wenigen Fragen übernimmt Attesta den Weg von der Zahlung bis zum
-              Archiv. Weitere Entscheidungen sind im Tagesgeschäft nicht nötig.
+              Attesta asks about five questions once, then handles the invoice from
+              payment to archive without another decision from you.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-[repeat(auto-fit,minmax(320px,1fr))]">
@@ -377,10 +377,10 @@ export default function AttestaPage() {
       >
         <div className="mb-11 max-w-[680px]">
           <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
-            So funktioniert es
+            How it works
           </div>
           <h2 className="m-0 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
-            Einmal einrichten, danach läuft es automatisch.
+            Set it up once, then leave it alone.
           </h2>
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
@@ -408,14 +408,14 @@ export default function AttestaPage() {
         <div className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
           <div className="mb-11 max-w-[680px]">
             <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
-              Preise
+              Pricing
             </div>
             <h2 className="m-0 mb-3.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
-              Alle kostenpflichtigen Tarife enthalten die Rechnungsfunktionen.
+              Everything the law requires is in every paid plan.
             </h2>
             <p className="m-0 text-[18px] leading-[1.6] text-[#5A6B80]">
-              Wähle den Tarif nach Rechnungsvolumen und Buchhaltungsablauf. Die
-              grundlegende Ausstellung gültiger E-Rechnungen bleibt in jedem Tarif erhalten.
+              Compliance is not an upsell. Choose by volume and accounting
+              workflow, never by legal certainty.
             </p>
           </div>
 
@@ -433,7 +433,7 @@ export default function AttestaPage() {
                 >
                   {featured && (
                     <div className="absolute right-5 top-5 rounded-full bg-[#34D399] px-[9px] py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[#0B3729]">
-                      Beliebt
+                      Popular
                     </div>
                   )}
                   <div
@@ -452,7 +452,7 @@ export default function AttestaPage() {
                         featured ? "text-[#A9CFC1]" : "text-[#5C6B82]"
                       }`}
                     >
-                      / Monat
+                      / month
                     </span>
                   </div>
                   <div
@@ -479,7 +479,7 @@ export default function AttestaPage() {
                         : "border border-[#C6D6CF] bg-white text-[#0F4B3C]"
                     }`}
                   >
-                    {t.name === "Free" ? "Kostenlos starten" : `${t.name} wählen`}
+                    {t.name === "Free" ? "Start free" : `Choose ${t.name}`}
                   </a>
 
                   <div className="flex flex-col gap-[11px]">
@@ -507,8 +507,8 @@ export default function AttestaPage() {
           </div>
 
           <p className="m-0 mt-8 text-[13.5px] text-[#64746E]">
-            Preise zuzüglich Umsatzsteuer. Die Abrechnung erfolgt über deine
-            Shopify-Rechnung. Jederzeit kündbar.
+            Prices exclude VAT. Billed through your Shopify invoice. Cancel any
+            time.
           </p>
         </div>
       </section>
@@ -518,14 +518,14 @@ export default function AttestaPage() {
         <div className="mx-auto max-w-[920px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
           <div className="mb-10 max-w-[680px]">
             <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
-              Häufige Fragen
+              Common questions
             </div>
             <h2 className="m-0 mb-3.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
-              Antworten zur E-Rechnung in Deutschland.
+              German e-invoicing, answered directly.
             </h2>
             <p className="m-0 text-[17px] leading-[1.6] text-[#5A6B80]">
-              Diese Antworten helfen bei der Einordnung. Lass Einzelfragen für
-              dein Unternehmen fachlich prüfen.
+              Short answers for planning purposes. Your adviser should confirm
+              how the rules apply to your business.
             </p>
           </div>
           <div className="flex flex-col gap-3">
@@ -544,9 +544,9 @@ export default function AttestaPage() {
             ))}
           </div>
           <p className="m-0 mt-6 text-[14px] text-[#64746E]">
-            Weitere Einzelheiten findest du in der{" "}
-            <a href="/attesta/docs" className="font-medium text-[#0E8058]">
-              Attesta-Anleitung
+            Need the operational details? Read the{" "}
+            <a href="/en/attesta/docs" className="font-medium text-[#0E8058]">
+              Attesta documentation
             </a>
             .
           </p>
@@ -557,23 +557,24 @@ export default function AttestaPage() {
       <section className="mx-auto max-w-[1160px] px-5 py-[clamp(56px,8vw,96px)] sm:px-8">
         <div className="relative overflow-hidden rounded-[24px] bg-[#0B3729] px-10 py-[clamp(40px,6vw,72px)] text-center">
           <h2 className="m-0 mb-4 text-[clamp(28px,4vw,44px)] font-semibold tracking-[-0.03em] text-white">
-            E-Rechnungen für jede bezahlte Bestellung.
+            German e-invoicing, handled per order.
           </h2>
           <p className="m-0 mx-auto mb-[30px] max-w-[500px] text-[18px] leading-[1.6] text-[#B4D3C8]">
-            Installiere Attesta kostenlos. Aus jeder bezahlten Bestellung entsteht
-            eine ZUGFeRD-Rechnung.
+            Install Attesta free and let every paid order leave a legally valid
+            ZUGFeRD invoice behind it.
           </p>
           <a
             href={ATTESTA_APPSTORE_URL}
             className="inline-flex items-center gap-[9px] rounded-[13px] bg-white px-7 py-[15px] text-[16px] font-semibold text-[#0B3729]"
           >
-            Bei Shopify installieren <span className="text-[18px]">→</span>
+            Add to Shopify <span className="text-[18px]">→</span>
           </a>
         </div>
       </section>
 
       {/* ===== FOOTER (with Obarito signature) ===== */}
-      <AttestaFooter />
+      <AttestaFooter locale="en" />
     </div>
   );
 }
+
