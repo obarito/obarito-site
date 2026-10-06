@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import LegalLayout, { type TocItem } from "@/components/LegalLayout";
 import { SUPPORT_EMAIL } from "@/lib/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
     "How Obarito and its apps collect, use, and protect data. Rewindly accesses only product data - never Shopify customer information.",
-};
+  path: "/privacy",
+});
 
 const toc: TocItem[] = [
   { id: "overview", label: "Overview" },
@@ -23,6 +25,7 @@ const toc: TocItem[] = [
 export default function PrivacyPage() {
   return (
     <LegalLayout
+      path="/privacy"
       title="Privacy Policy"
       intro="How Obarito and its apps collect, use, and protect data. This policy is shared across all Obarito apps; where an app differs, its App Store listing says so."
       toc={toc}

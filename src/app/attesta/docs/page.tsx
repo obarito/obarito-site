@@ -1,15 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import AttestaHeader from "@/components/AttestaHeader";
 import AttestaFooter from "@/components/AttestaFooter";
 import { ATTESTA_APPSTORE_URL, SUPPORT_EMAIL } from "@/lib/config";
+import { breadcrumbJsonLd, createPageMetadata, faqJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Attesta Documentation - How to use the app",
   description:
-    "How to use Attesta: onboarding, the compliance dashboard, your invoice ledger, per-order tax treatment, USt-IdNr. capture and VIES, Stornorechnungen, the invoice template designer, DATEV and GoBD exports, plans and billing.",
-};
+    "Learn Attesta onboarding, invoice and tax workflows, VIES checks, refunds, templates, billing, and DATEV and GoBD exports for Shopify.",
+  path: "/attesta/docs",
+});
+
+const faqSchema = faqJsonLd([
+  {
+    question: "Is a PDF invoice not enough?",
+    answer:
+      "Not under the German mandate. From January 2027, affected B2B invoices must carry structured data a machine can read. ZUGFeRD embeds that data inside the PDF.",
+  },
+  {
+    question: "Will Attesta restart my existing invoice number series?",
+    answer:
+      "No. Enter the last number already issued and Attesta continues the sequence from there.",
+  },
+  {
+    question: "Will Attesta slow my Shopify storefront down?",
+    answer:
+      "No. Attesta works behind Shopify webhooks and does not add resources to storefront pages.",
+  },
+  {
+    question: "What happens to my data if I uninstall Attesta?",
+    answer:
+      "Access is revoked and Shopify requests erasure of the shop's data. Merchants should export records they remain legally required to retain before uninstalling.",
+  },
+]);
 
 type TocItem = { id: string; label: string };
 
@@ -77,10 +104,27 @@ function Figure({
 export default function AttestaDocsPage() {
   return (
     <div className="attesta-scope">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Obarito", path: "/" },
+            { name: "Attesta", path: "/attesta" },
+            { name: "Documentation", path: "/attesta/docs" },
+          ]),
+          faqSchema,
+        ]}
+      />
       <AttestaHeader />
 
       {/* Title block */}
       <section className="mx-auto max-w-[1000px] px-5 pt-[clamp(44px,6vw,72px)] sm:px-8">
+        <Breadcrumbs
+          items={[
+            { name: "Obarito", path: "/" },
+            { name: "Attesta", path: "/attesta" },
+            { name: "Documentation" },
+          ]}
+        />
         <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#0E8058]">
           Attesta · Guide
         </div>
@@ -563,7 +607,7 @@ export default function AttestaDocsPage() {
             data. Export the GoBD ZIP first: German retention rules are your
             obligation, and they run for ten years whether or not the app is
             still installed. See the{" "}
-            <Link href="/privacy">Privacy Policy</Link>.
+            <Link href="/attesta/privacy">Privacy Policy</Link>.
           </p>
           <div className="mt-9 rounded-[12px] border border-[#E6EDEA] bg-[#F5F8F7] px-[22px] py-[18px] text-[15px] leading-[1.65] text-[#3a4654]">
             <strong>Still stuck?</strong> Email{" "}

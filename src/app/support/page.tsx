@@ -1,19 +1,41 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
 import ObaritoHeader from "@/components/ObaritoHeader";
 import ObaritoFooter from "@/components/ObaritoFooter";
 import AttestaMark from "@/components/AttestaMark";
 import { SUPPORT_EMAIL } from "@/lib/config";
+import { createPageMetadata, faqJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Support",
   description:
     "Get help with any Obarito app. Real people, real answers - most questions answered the same business day.",
-};
+  path: "/support",
+});
+
+const faqSchema = faqJsonLd([
+  {
+    question: "How should I contact Obarito about a Shopify app?",
+    answer:
+      "Email support@obarito.com and include your .myshopify.com URL so the team can find your installation quickly.",
+  },
+  {
+    question: "How do I request deletion of my Obarito app data?",
+    answer:
+      "Uninstalling triggers Shopify's redaction webhooks. You can also email support@obarito.com with a manual request. Records subject to a legal retention obligation may not be erased immediately.",
+  },
+  {
+    question: "Does Obarito offer onboarding help?",
+    answer:
+      "Yes. Larger stores can describe their setup by email and request a guided onboarding.",
+  },
+]);
 
 export default function SupportPage() {
   return (
     <>
+      <JsonLd data={faqSchema} />
       <ObaritoHeader active="support" />
 
       {/* HERO */}
@@ -163,8 +185,8 @@ export default function SupportPage() {
                 <Link href="/privacy" className="text-[#2563EB]">
                   Privacy Policy
                 </Link>
-                . Attesta keeps issued invoices for ten years even after an erasure
-                request, because German retention law requires it: the{" "}
+                . Records that remain subject to a legal retention obligation may
+                not be erased immediately. The{" "}
                 <Link href="/attesta/privacy" className="text-[#2563EB]">
                   Attesta policy
                 </Link>{" "}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { SITE_DESCRIPTION } from "@/lib/config";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/config";
+import { SITE_URL } from "@/lib/seo";
 import Analytics from "@/components/Analytics";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -20,18 +21,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://obarito.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Obarito - A Shopify app studio",
     template: "%s · Obarito",
   },
   description: SITE_DESCRIPTION,
-  openGraph: {
-    title: "Obarito - A Shopify app studio",
-    description: SITE_DESCRIPTION,
-    url: "https://obarito.com",
-    siteName: "Obarito",
-    type: "website",
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 

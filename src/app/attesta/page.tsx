@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import AttestaMark from "@/components/AttestaMark";
 import AttestaHeader from "@/components/AttestaHeader";
 import AttestaFooter from "@/components/AttestaFooter";
 import { ATTESTA_APPSTORE_URL } from "@/lib/config";
+import {
+  attestaSoftwareJsonLd,
+  createPageMetadata,
+  faqJsonLd,
+} from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Attesta - German e-invoicing for Shopify",
   description:
-    "Attesta turns every paid Shopify order into a ZUGFeRD 2.2 invoice with the EN 16931 XML inside it, archived for ten years and emailed. Reverse-Charge, VIES and DATEV included.",
-};
+    "Create validated ZUGFeRD 2.2 and EN 16931 invoices from paid Shopify orders, with VIES checks, DATEV exports, and a tamper-evident archive.",
+  path: "/attesta",
+});
 
 const MANDATE = [
   {
@@ -22,11 +29,36 @@ const MANDATE = [
     body: "The invoice needs structured data a machine can read. ZUGFeRD 2.2 carries the EN 16931 XML inside a PDF/A-3, so it stays readable to both.",
   },
   {
-    label: "The archive",
-    title: "Ten years, unchanged",
-    body: "GoBD wants the record kept complete and tamper-evident for a decade, with the numbering gap-free from the first invoice to the last.",
+    label: "Retention",
+    title: "Eight years is the general rule",
+    body: "German tax law generally requires invoices to be retained for eight years. They must stay complete, readable and available; longer periods can apply in particular cases.",
   },
 ];
+
+const FAQS = [
+  {
+    question: "Does every German business need to issue structured e-invoices from January 2027?",
+    answer:
+      "Not at the same time. For domestic B2B sales, businesses with more than €800,000 in prior-year turnover generally lose the transitional option for ordinary PDFs or paper from 1 January 2027. Businesses at or below that threshold can generally use the transition through the end of 2027. Exceptions and special cases still apply.",
+  },
+  {
+    question: "Is an ordinary PDF invoice an e-invoice under the German rules?",
+    answer:
+      "No. An e-invoice must contain structured data that can be processed automatically. A compliant ZUGFeRD file combines that structured data with a human-readable PDF.",
+  },
+  {
+    question: "Can Attesta continue my existing invoice number sequence?",
+    answer:
+      "Yes. Enter the last number already issued during onboarding and Attesta continues from it instead of starting a separate sequence.",
+  },
+  {
+    question: "Does Attesta replace my tax adviser?",
+    answer:
+      "No. Attesta automates document creation, validation, delivery and archiving, but your business remains responsible for its tax treatment and should obtain professional advice for its circumstances.",
+  },
+];
+
+const faqSchema = faqJsonLd(FAQS);
 
 const FEATURES = [
   {
@@ -137,6 +169,7 @@ const TIERS = [
 export default function AttestaPage() {
   return (
     <div className="attesta-scope text-[#16202E]">
+      <JsonLd data={[attestaSoftwareJsonLd, faqSchema]} />
       {/* ===== HEADER ===== */}
       <AttestaHeader />
 
@@ -276,6 +309,24 @@ export default function AttestaPage() {
             </div>
           ))}
         </div>
+        <p className="m-0 mt-6 max-w-[860px] text-[13.5px] leading-[1.65] text-[#64746E]">
+          Sources reviewed 7 October 2026: the German Federal Ministry of
+          Finance&apos;s{" "}
+          <a
+            href="https://www.bundesfinanzministerium.de/Content/DE/FAQ/e-rechnung.htm"
+            className="underline underline-offset-2"
+          >
+            e-invoice FAQ
+          </a>{" "}
+          and the transitional rules in{" "}
+          <a
+            href="https://www.gesetze-im-internet.de/ustg_1980/__27.html"
+            className="underline underline-offset-2"
+          >
+            § 27 UStG
+          </a>
+          . This is general information, not tax or legal advice.
+        </p>
       </section>
 
       {/* ===== FEATURES ===== */}
@@ -456,6 +507,46 @@ export default function AttestaPage() {
           <p className="m-0 mt-8 text-[13.5px] text-[#64746E]">
             Prices exclude VAT. Billed through your Shopify invoice. Cancel any
             time.
+          </p>
+        </div>
+      </section>
+
+      {/* ===== FAQ ===== */}
+      <section className="border-y border-[#E6EDEA] bg-[#F5F8F7]">
+        <div className="mx-auto max-w-[920px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
+          <div className="mb-10 max-w-[680px]">
+            <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#0E8058]">
+              Common questions
+            </div>
+            <h2 className="m-0 mb-3.5 text-[clamp(28px,3.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]">
+              German e-invoicing, answered directly.
+            </h2>
+            <p className="m-0 text-[17px] leading-[1.6] text-[#5A6B80]">
+              Short answers for planning purposes. Your adviser should confirm
+              how the rules apply to your business.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            {FAQS.map((item) => (
+              <details
+                key={item.question}
+                className="group rounded-[14px] border border-[#DCE7E2] bg-white px-5 py-4"
+              >
+                <summary className="cursor-pointer list-none pr-6 text-[16px] font-semibold leading-[1.45] text-[#16202E]">
+                  {item.question}
+                </summary>
+                <p className="m-0 mt-3 max-w-[780px] text-[15px] leading-[1.65] text-[#5A6B80]">
+                  {item.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+          <p className="m-0 mt-6 text-[14px] text-[#64746E]">
+            Need the operational details? Read the{" "}
+            <a href="/attesta/docs" className="font-medium text-[#0E8058]">
+              Attesta documentation
+            </a>
+            .
           </p>
         </div>
       </section>

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import LegalLayout, { type TocItem } from "@/components/LegalLayout";
 import { SUPPORT_EMAIL } from "@/lib/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Terms of Service - Rewindly",
   description: "The terms governing use of the Rewindly app.",
-};
+  path: "/rewindly/terms",
+});
 
 const toc: TocItem[] = [
   { id: "service", label: "The service" },
@@ -22,6 +24,7 @@ const toc: TocItem[] = [
 export default function RewindlyTermsPage() {
   return (
     <LegalLayout
+      path="/rewindly/terms"
       title="Terms of Service"
       intro={`These Terms of Service ("Terms") govern your use of Rewindly ("the App"), operated by Obarito ("we", "us"). By installing or using the App you agree to these Terms.`}
       toc={toc}

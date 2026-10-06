@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import RewindlyMark from "@/components/RewindlyMark";
 import RewindlyHeader from "@/components/RewindlyHeader";
 import RewindlyFooter from "@/components/RewindlyFooter";
 import { APPSTORE_URL } from "@/lib/config";
+import { createPageMetadata, rewindlySoftwareJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Rewindly - A watchdog for your Shopify catalog",
   description:
     "Rewindly watches every product edit in your store, flags the suspicious ones, and lets you undo any change with a single click.",
-};
+  path: "/rewindly",
+});
 
 export default function RewindlyPage() {
   return (
     <div className="rewindly-scope text-[#16202E]">
+      <JsonLd data={rewindlySoftwareJsonLd} />
       {/* ===== HEADER ===== */}
       <RewindlyHeader />
 

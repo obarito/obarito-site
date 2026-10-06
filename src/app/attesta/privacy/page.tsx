@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LegalLayout, { type TocItem } from "@/components/LegalLayout";
 import { SUPPORT_EMAIL } from "@/lib/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy - Attesta",
   description:
     "How Attesta handles store, seller and buyer data when it issues German e-invoices, including the ten-year GoBD retention that limits erasure.",
-};
+  path: "/attesta/privacy",
+});
 
 const toc: TocItem[] = [
   { id: "roles", label: "Who controls what" },
@@ -26,6 +28,7 @@ const toc: TocItem[] = [
 export default function AttestaPrivacyPage() {
   return (
     <LegalLayout
+      path="/attesta/privacy"
       title="Privacy Policy"
       intro={`This Privacy Policy explains how Attesta ("the App"), operated by Obarito ("we", "us"), handles data when you install and use the App on your Shopify store. Attesta writes invoices, so unlike our other apps it does process personal data about your buyers. This policy sets out exactly which data, why, and how long we keep it.`}
       toc={toc}

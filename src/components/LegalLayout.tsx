@@ -1,10 +1,13 @@
 import type { ReactNode } from "react";
+import Breadcrumbs from "./Breadcrumbs";
+import JsonLd from "./JsonLd";
 import ObaritoHeader from "./ObaritoHeader";
 import ObaritoFooter from "./ObaritoFooter";
 import RewindlyHeader from "./RewindlyHeader";
 import RewindlyFooter from "./RewindlyFooter";
 import AttestaHeader from "./AttestaHeader";
 import AttestaFooter from "./AttestaFooter";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export type TocItem = { id: string; label: string };
 
@@ -16,6 +19,7 @@ type LegalLayoutProps = {
   /** Human-readable effective/last-updated dates shown under the title. */
   lastUpdated: string;
   effectiveDate: string;
+  path: string;
   /** Optional callout shown above the dates (e.g. a pre-launch review note). */
   notice?: ReactNode;
   /**
@@ -41,20 +45,34 @@ export default function LegalLayout({
   active,
   lastUpdated,
   effectiveDate,
+  path,
   notice,
   brand = "obarito",
   children,
 }: LegalLayoutProps) {
   const attesta = brand === "attesta";
+  const appName = attesta ? "Attesta" : brand === "rewindly" ? "Rewindly" : null;
+  const breadcrumbItems = [
+    { name: "Obarito", path: "/" },
+    ...(appName ? [{ name: appName, path: `/${brand}` }] : []),
+    { name: title },
+  ];
+  const breadcrumbSchemaItems = [
+    { name: "Obarito", path: "/" },
+    ...(appName ? [{ name: appName, path: `/${brand}` }] : []),
+    { name: title, path },
+  ];
 
   return (
     <div className={attesta ? "attesta-scope" : undefined}>
+      <JsonLd data={breadcrumbJsonLd(breadcrumbSchemaItems)} />
       {brand === "rewindly" && <RewindlyHeader />}
       {attesta && <AttestaHeader />}
       {brand === "obarito" && <ObaritoHeader />}
 
       {/* Title block */}
       <section className="mx-auto max-w-[1000px] px-5 pt-[clamp(44px,6vw,72px)] sm:px-8">
+        <Breadcrumbs items={breadcrumbItems} />
         <div
           className={`mb-4 font-mono text-[11px] uppercase tracking-[0.18em] ${
             attesta ? "text-[#0E8058]" : "text-[#2563EB]"

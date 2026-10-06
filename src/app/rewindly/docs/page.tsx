@@ -1,15 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import RewindlyHeader from "@/components/RewindlyHeader";
 import RewindlyFooter from "@/components/RewindlyFooter";
 import { APPSTORE_URL, SUPPORT_EMAIL } from "@/lib/config";
+import { breadcrumbJsonLd, createPageMetadata, faqJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Rewindly Documentation - How to use the app",
   description:
-    "Learn how to use Rewindly: automatic product snapshots, version timelines, comparing changes, one-click restore/undo, point-in-time bulk rollback, EU/UK Omnibus price compliance, and alerts.",
-};
+    "Learn Rewindly product snapshots, version comparison, one-click restore, bulk rollback, alerts, and EU/UK Omnibus price-history tools.",
+  path: "/rewindly/docs",
+});
+
+const faqSchema = faqJsonLd([
+  {
+    question: "Why is my Rewindly dashboard empty after installation?",
+    answer:
+      "Rewindly captures a baseline at installation and records later changes. Edit a product and the dashboard should populate within moments.",
+  },
+  {
+    question: "Does Rewindly track product changes from before installation?",
+    answer:
+      "No. Product history starts when Rewindly is installed and snapshots are captured going forward.",
+  },
+  {
+    question: "Will Rewindly slow down my Shopify store?",
+    answer:
+      "No. Rewindly works in the background through Shopify webhooks and does not add resources to storefront pages.",
+  },
+  {
+    question: "What happens to my data if I uninstall Rewindly?",
+    answer:
+      "Access is revoked immediately and the store's stored data is erased after Shopify sends its deletion request.",
+  },
+]);
 
 type TocItem = { id: string; label: string };
 
@@ -67,10 +94,27 @@ function Figure({
 export default function RewindlyDocsPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Obarito", path: "/" },
+            { name: "Rewindly", path: "/rewindly" },
+            { name: "Documentation", path: "/rewindly/docs" },
+          ]),
+          faqSchema,
+        ]}
+      />
       <RewindlyHeader />
 
       {/* Title block */}
       <section className="mx-auto max-w-[1000px] px-5 pt-[clamp(44px,6vw,72px)] sm:px-8">
+        <Breadcrumbs
+          items={[
+            { name: "Obarito", path: "/" },
+            { name: "Rewindly", path: "/rewindly" },
+            { name: "Documentation" },
+          ]}
+        />
         <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#2563EB]">
           Rewindly · Guide
         </div>
@@ -364,7 +408,7 @@ export default function RewindlyDocsPage() {
             <strong>What happens to my data if I uninstall?</strong> Your access is
             revoked immediately, and Shopify then asks us to erase the store&apos;s
             data, which we do in full. See the{" "}
-            <Link href="/privacy">Privacy Policy</Link> for details.
+            <Link href="/rewindly/privacy">Privacy Policy</Link> for details.
           </p>
           <div className="mt-9 rounded-[12px] border border-[#E2E8F0] bg-[#F7F8FA] px-[22px] py-[18px] text-[15px] leading-[1.65] text-[#3a4654]">
             <strong>Still stuck?</strong> Email{" "}

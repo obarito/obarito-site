@@ -1,11 +1,28 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
 import ObaritoHeader from "@/components/ObaritoHeader";
 import ObaritoMark from "@/components/ObaritoMark";
 import AttestaMark, { AttestaGlyph } from "@/components/AttestaMark";
+import { SITE_DESCRIPTION } from "@/lib/config";
+import {
+  createPageMetadata,
+  organizationJsonLd,
+  websiteJsonLd,
+} from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Obarito - A Shopify app studio",
+  socialTitle: "Obarito - A Shopify app studio",
+  description: SITE_DESCRIPTION,
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
       <ObaritoHeader active="apps" />
 
       {/* ===== HERO ===== */}
@@ -244,8 +261,14 @@ export default function HomePage() {
                 <Link href="/rewindly" className="text-[14.5px] text-[#CBD5E1]">
                   Rewindly
                 </Link>
+                <Link href="/rewindly/docs" className="text-[14.5px] text-[#CBD5E1]">
+                  Rewindly docs
+                </Link>
                 <Link href="/attesta" className="text-[14.5px] text-[#CBD5E1]">
                   Attesta
+                </Link>
+                <Link href="/attesta/docs" className="text-[14.5px] text-[#CBD5E1]">
+                  Attesta docs
                 </Link>
                 <span className="text-[14.5px] text-[#6A7E9A]">More coming soon</span>
               </div>

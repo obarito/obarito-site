@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import LegalLayout, { type TocItem } from "@/components/LegalLayout";
 import { LEGAL_EMAIL } from "@/lib/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Terms of Service",
   description:
     "The terms that govern your use of obarito.com and the apps Obarito publishes on the Shopify App Store.",
-};
+  path: "/terms",
+});
 
 const toc: TocItem[] = [
   { id: "acceptance", label: "Acceptance" },
@@ -24,6 +26,7 @@ const toc: TocItem[] = [
 export default function TermsPage() {
   return (
     <LegalLayout
+      path="/terms"
       title="Terms of Service"
       intro="The terms that govern your use of obarito.com and the apps Obarito publishes on the Shopify App Store."
       toc={toc}

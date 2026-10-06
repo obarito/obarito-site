@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LegalLayout, { type TocItem } from "@/components/LegalLayout";
 import { SUPPORT_EMAIL } from "@/lib/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Terms of Service - Attesta",
   description:
     "The terms governing use of the Attesta app: what the software does, what stays your responsibility as the invoice issuer, plans and billing, and liability.",
-};
+  path: "/attesta/terms",
+});
 
 const toc: TocItem[] = [
   { id: "service", label: "The service" },
@@ -28,6 +30,7 @@ const toc: TocItem[] = [
 export default function AttestaTermsPage() {
   return (
     <LegalLayout
+      path="/attesta/terms"
       title="Terms of Service"
       intro={`These Terms of Service ("Terms") govern your use of Attesta ("the App"), operated by Obarito ("we", "us"). By installing or using the App you agree to these Terms, on behalf of yourself and the store you represent.`}
       toc={toc}

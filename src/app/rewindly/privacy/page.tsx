@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import LegalLayout, { type TocItem } from "@/components/LegalLayout";
 import { SUPPORT_EMAIL } from "@/lib/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy - Rewindly",
   description: "How Rewindly collects, uses, and protects data.",
-};
+  path: "/rewindly/privacy",
+});
 
 const toc: TocItem[] = [
   { id: "collect", label: "Information we collect" },
@@ -21,6 +23,7 @@ const toc: TocItem[] = [
 export default function RewindlyPrivacyPage() {
   return (
     <LegalLayout
+      path="/rewindly/privacy"
       title="Privacy Policy"
       intro={`This Privacy Policy explains how Rewindly ("the App"), operated by Obarito ("we", "us"), collects, uses, and protects information when you install and use the App on your Shopify store. By installing Rewindly you agree to this policy.`}
       toc={toc}

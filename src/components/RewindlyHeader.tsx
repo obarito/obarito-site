@@ -34,6 +34,9 @@ export default function RewindlyHeader() {
           <Link href="/rewindly#pricing" className={navLink}>
             Pricing
           </Link>
+          <Link href="/rewindly/docs" className={navLink}>
+            Docs
+          </Link>
           <Link href="/support" className={navLink}>
             Support
           </Link>

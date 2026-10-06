@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LegalLayout, { type TocItem } from "@/components/LegalLayout";
 import { SUPPORT_EMAIL } from "@/lib/config";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Data Processing Agreement - Attesta",
   description:
     "The Art. 28 GDPR terms on which Obarito processes your buyers' personal data when Attesta issues invoices on your behalf.",
-};
+  path: "/attesta/dpa",
+});
 
 const toc: TocItem[] = [
   { id: "parties", label: "Parties and scope" },
@@ -29,6 +31,7 @@ const toc: TocItem[] = [
 export default function AttestaDpaPage() {
   return (
     <LegalLayout
+      path="/attesta/dpa"
       title="Data Processing Agreement"
       intro={`Attesta writes invoices, so it processes personal data about your buyers on your behalf. This agreement sets out the terms of that processing under Art. 28 GDPR. It takes effect when you install the App and runs for as long as the installation does. You do not need to sign anything separately.`}
       toc={toc}
