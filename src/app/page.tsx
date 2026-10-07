@@ -25,8 +25,9 @@ export default function HomePage() {
       <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
       <ObaritoHeader active="apps" />
 
-      {/* ===== HERO ===== */}
-      <section className="mx-auto grid max-w-[1120px] grid-cols-1 items-center gap-14 px-5 pb-[clamp(48px,7vw,88px)] pt-[clamp(56px,9vw,104px)] sm:px-8 md:grid-cols-[1.1fr_0.9fr]">
+      <main>
+        {/* ===== HERO ===== */}
+        <section className="mx-auto grid max-w-[1120px] grid-cols-1 items-center gap-14 px-5 pb-[clamp(48px,7vw,88px)] pt-[clamp(56px,9vw,104px)] sm:px-8 md:grid-cols-[1.1fr_0.9fr]">
         <div>
           <div className="mb-[26px] inline-flex items-center gap-2 rounded-full bg-[#EFF4FF] px-[11px] py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#2563EB]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" /> A Shopify app
@@ -94,13 +95,13 @@ export default function HomePage() {
             <circle cx="141.4" cy="98.6" r="4" fill="#2563EB" />
           </svg>
         </div>
-      </section>
+        </section>
 
-      {/* ===== APPS GRID ===== */}
-      <section
-        id="apps"
-        className="border-y border-[#EEF1F5] bg-[#F7F8FA] scroll-mt-[72px]"
-      >
+        {/* ===== APPS GRID ===== */}
+        <section
+          id="apps"
+          className="border-y border-[#EEF1F5] bg-[#F7F8FA] scroll-mt-[72px]"
+        >
         <div className="mx-auto max-w-[1120px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
           <div className="mb-9">
             <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#2563EB]">
@@ -207,13 +208,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
-      {/* ===== STUDIO STRIP ===== */}
-      <section
-        id="studio"
-        className="mx-auto max-w-[1120px] px-5 py-[clamp(64px,8vw,104px)] scroll-mt-[72px] sm:px-8"
-      >
+        {/* ===== STUDIO STRIP ===== */}
+        <section
+          id="studio"
+          className="mx-auto max-w-[1120px] px-5 py-[clamp(64px,8vw,104px)] scroll-mt-[72px] sm:px-8"
+        >
         <div className="grid grid-cols-1 items-center gap-14 md:grid-cols-[0.85fr_1.15fr]">
           <div>
             <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#2563EB]">
@@ -236,7 +237,8 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-      </section>
+        </section>
+      </main>
 
       {/* ===== FOOTER ===== */}
       <footer className="bg-[#0B0F17] text-[#CBD5E1]">
