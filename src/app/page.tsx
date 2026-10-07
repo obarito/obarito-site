@@ -120,6 +120,7 @@ export default function HomePage() {
             {/* Rewindly card */}
             <Link
               href="/rewindly"
+              prefetch={false}
               className="block rounded-[18px] border border-[#E2E8F0] bg-white px-8 py-[34px] transition-[box-shadow,transform] duration-200 hover:-translate-y-[3px] hover:shadow-[0_14px_40px_rgba(15,23,42,0.10)]"
             >
               <div className="mb-[26px] flex items-center justify-between">
@@ -157,6 +158,7 @@ export default function HomePage() {
             {/* Attesta card */}
             <Link
               href="/attesta"
+              prefetch={false}
               className="block rounded-[18px] border border-[#E2E8F0] bg-white px-8 py-[34px] transition-[box-shadow,transform] duration-200 hover:-translate-y-[3px] hover:shadow-[0_14px_40px_rgba(15,23,42,0.10)]"
             >
               <div className="mb-[26px] flex items-center justify-between">
