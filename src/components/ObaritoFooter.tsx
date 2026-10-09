@@ -11,7 +11,7 @@ type ObaritoFooterProps = {
  * brand + nav links over the studio sibling line.
  */
 export default function ObaritoFooter({ active }: ObaritoFooterProps) {
-  const link = (key: "apps" | "support" | "privacy" | "terms") =>
+  const link = (key: "products" | "support" | "privacy" | "terms") =>
     active === key ? "text-[#F1F5F9]" : "text-[#CBD5E1]";
 
   return (
@@ -25,8 +25,8 @@ export default function ObaritoFooter({ active }: ObaritoFooterProps) {
             </span>
           </Link>
           <div className="flex flex-wrap gap-[26px]">
-            <Link href="/#apps" className={`text-[14px] ${link("apps")}`}>
-              Apps
+            <Link href="/#products" className={`text-[14px] ${link("products")}`}>
+              Products
             </Link>
             <Link href="/support" className={`text-[14px] ${link("support")}`}>
               Support

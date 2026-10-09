@@ -3,7 +3,7 @@ import ObaritoMark from "./ObaritoMark";
 
 type ObaritoHeaderProps = {
   /** Highlights the matching nav link as the current page. */
-  active?: "apps" | "about" | "support";
+  active?: "products" | "about" | "support";
 };
 
 /**
@@ -25,8 +25,8 @@ export default function ObaritoHeader({ active }: ObaritoHeaderProps) {
           </span>
         </Link>
         <nav className="flex items-center gap-5 sm:gap-[30px]">
-          <Link href="/#apps" className={`${linkBase} ${linkColor("apps")} hidden sm:inline`}>
-            Apps
+          <Link href="/#products" className={`${linkBase} ${linkColor("products")} hidden sm:inline`}>
+            Products
           </Link>
           <Link href="/#studio" className={`${linkBase} ${linkColor("about")} hidden sm:inline`}>
             About
@@ -39,11 +39,11 @@ export default function ObaritoHeader({ active }: ObaritoHeaderProps) {
             Support
           </Link>
           <Link
-            href="/attesta"
+            href="/deckle"
             prefetch={false}
             className="rounded-[9px] bg-[#0B0F17] px-4 py-[9px] text-[14px] font-medium text-white"
           >
-            View Attesta
+            View Deckle
           </Link>
         </nav>
       </div>

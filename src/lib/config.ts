@@ -22,4 +22,4 @@ export const LEGAL_EMAIL = "legal@obarito.com";
 
 export const SITE_NAME = "Obarito";
 export const SITE_DESCRIPTION =
-  "Obarito is a small studio building focused, dependable apps that protect and improve Shopify stores.";
+  "Obarito makes Shopify apps for store operations and themes for storefront design.";

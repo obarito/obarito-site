@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/en/attesta/docs", alternatePath: "/attesta/docs", changeFrequency: "monthly", priority: 0.7 },
     { path: "/rewindly", changeFrequency: "monthly", priority: 0.9 },
     { path: "/rewindly/docs", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/deckle", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/deckle/docs", changeFrequency: "monthly", priority: 0.8 },
     { path: "/support", changeFrequency: "yearly", priority: 0.6 },
     { path: "/attesta/dpa", alternatePath: "/en/attesta/dpa", changeFrequency: "yearly", priority: 0.3 },
     { path: "/en/attesta/dpa", alternatePath: "/attesta/dpa", changeFrequency: "yearly", priority: 0.2 },

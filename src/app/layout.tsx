@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Obarito - A Shopify app studio",
+    default: "Obarito - A Shopify product studio",
     template: "%s · Obarito",
   },
   description: SITE_DESCRIPTION,

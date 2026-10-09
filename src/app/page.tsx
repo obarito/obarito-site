@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import ObaritoHeader from "@/components/ObaritoHeader";
 import ObaritoMark from "@/components/ObaritoMark";
 import AttestaMark, { AttestaGlyph } from "@/components/AttestaMark";
+import { DeckleGlyph } from "@/components/DeckleMark";
 import { SITE_DESCRIPTION } from "@/lib/config";
 import {
   createPageMetadata,
@@ -12,8 +13,8 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Obarito - A Shopify app studio",
-  socialTitle: "Obarito - A Shopify app studio",
+  title: "Obarito - A Shopify product studio",
+  socialTitle: "Obarito - A Shopify product studio",
   description: SITE_DESCRIPTION,
   path: "/",
   absoluteTitle: true,
@@ -23,30 +24,28 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
-      <ObaritoHeader active="apps" />
+      <ObaritoHeader active="products" />
 
       <main>
         {/* ===== HERO ===== */}
         <section className="mx-auto grid max-w-[1120px] grid-cols-1 items-center gap-14 px-5 pb-[clamp(48px,7vw,88px)] pt-[clamp(56px,9vw,104px)] sm:px-8 md:grid-cols-[1.1fr_0.9fr]">
         <div>
           <div className="mb-[26px] inline-flex items-center gap-2 rounded-full bg-[#EFF4FF] px-[11px] py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#2563EB]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" /> A Shopify app
-            studio
+            <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" /> A Shopify product studio
           </div>
           <h1 className="m-0 mb-[22px] text-[clamp(38px,5.4vw,60px)] font-semibold leading-[1.05] tracking-[-0.035em]">
-            Tools that protect and improve Shopify stores.
+            Products for running and presenting a Shopify store.
           </h1>
           <p className="m-0 mb-[34px] max-w-[480px] text-[clamp(17px,2vw,19px)] leading-[1.6] text-[#475569]">
-            Obarito is a small studio building focused, dependable apps for Shopify
-            merchants - each one engineered to watch over your store and quietly
-            earn its keep.
+            Rewindly watches product changes. Attesta handles German e-invoicing.
+            Deckle gives art, decor and leather goods their own storefront layouts.
           </p>
           <div className="flex flex-wrap gap-3.5">
             <Link
-              href="#apps"
+              href="#products"
               className="rounded-[11px] bg-[#2563EB] px-[22px] py-[13px] text-[15px] font-medium text-white"
             >
-              Explore the apps
+              Explore the products
             </Link>
             <Link
               href="#studio"
@@ -74,8 +73,12 @@ export default function HomePage() {
             {/* Every node sits ON the r=92 orbit, which is the whole idea of the
                 diagram. Keep any new one at a distance of 92 from 120,120: pick the
                 angle, then cx = 120 + 92·cos θ, cy = 120 + 92·sin θ. */}
-            {/* future faint node */}
-            <circle cx="37.71" cy="161.14" r="7" fill="#fff" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="2 3" />
+            {/* deckle node */}
+            <line x1="120" y1="120" x2="37.71" y2="161.14" stroke="#E2E8F0" strokeWidth="1.5" />
+            <g transform="translate(22.71 146.14)">
+              <circle cx="15" cy="15" r="15" fill="#C67139" />
+              <DeckleGlyph x="5" y="5" width="20" height="20" color="#fff" />
+            </g>
             {/* attesta node */}
             <line x1="120" y1="120" x2="202.29" y2="161.14" stroke="#E2E8F0" strokeWidth="1.5" />
             <g>
@@ -99,7 +102,7 @@ export default function HomePage() {
 
         {/* ===== APPS GRID ===== */}
         <section
-          id="apps"
+          id="products"
           className="border-y border-[#EEF1F5] bg-[#F7F8FA] scroll-mt-[72px]"
         >
         <div className="mx-auto max-w-[1120px] px-5 py-[clamp(56px,7vw,84px)] sm:px-8">
@@ -108,11 +111,11 @@ export default function HomePage() {
               The portfolio
             </div>
             <h2 className="m-0 mb-2.5 text-[clamp(28px,3.6vw,38px)] font-semibold tracking-[-0.03em]">
-              One studio, a growing shelf of focused apps.
+              Three products from one studio.
             </h2>
             <p className="m-0 max-w-[560px] text-[17px] leading-[1.6] text-[#5C6B82]">
-              Every Obarito app does one job well and orbits the same dependable
-              center. Here&apos;s what&apos;s on the shelf today.
+              Rewindly and Attesta work behind the scenes. Deckle controls how the
+              storefront looks and how customers shop it.
             </p>
           </div>
 
@@ -189,21 +192,46 @@ export default function HomePage() {
               </span>
             </Link>
 
-            {/* Coming soon card */}
-            <div className="flex flex-col items-start justify-center rounded-[18px] border-[1.5px] border-dashed border-[#D2DAE3] bg-transparent px-8 py-[34px]">
-              <div className="mb-[22px] flex h-12 w-12 items-center justify-center rounded-[13px] border-[1.5px] border-dashed border-[#C7D2E0]">
-                <ObaritoMark className="h-[26px] w-[26px] text-[#94A3B8] opacity-70" nodeColor="#94A3B8" />
+            {/* Deckle card */}
+            <Link href="/deckle" prefetch={false} className="block rounded-[18px] border border-[#E2E8F0] bg-white px-8 py-[34px] transition-[box-shadow,transform] duration-200 hover:-translate-y-[3px] hover:shadow-[0_14px_40px_rgba(15,23,42,0.10)]">
+              <div className="mb-[26px] flex items-center justify-between">
+                <div className="flex items-center gap-[13px]">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[13px] bg-[#C67139] text-white">
+                    <DeckleGlyph className="h-[32px] w-[32px]" />
+                  </div>
+                  <div>
+                    <div className="text-[20px] font-semibold tracking-[-0.02em] text-[#0B0F17]">Deckle</div>
+                    <div className="mt-px text-[13px] text-[#5C6B82]">Shopify theme</div>
+                  </div>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF7ED] px-[9px] py-[5px] font-mono text-[10px] uppercase tracking-[0.08em] text-[#9A3412]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#C67139]" /> Theme
+                </span>
               </div>
-              <div className="mb-2 text-[20px] font-semibold tracking-[-0.02em] text-[#334155]">
+              <p className="m-0 mb-6 text-[15.5px] leading-[1.6] text-[#334155]">
+                A $360 theme for art prints, home decor and leather goods,
+                with uncropped artwork, live print configuration and three presets.
+              </p>
+              <span className="inline-flex items-center gap-[7px] text-[14.5px] font-medium text-[#2563EB]">
+                View Deckle <span className="text-[16px]">→</span>
+              </span>
+            </Link>
+
+            {/* More products card */}
+            <div className="rounded-[18px] border border-dashed border-[#D7DEE8] bg-[#FAFBFC] px-8 py-[34px]">
+              <div className="mb-[26px] flex h-12 w-12 items-center justify-center rounded-[13px] border border-dashed border-[#D7DEE8] text-[#B6C2D3]">
+                <ObaritoMark className="h-6 w-6" nodeColor="#CBD5E1" />
+              </div>
+              <h3 className="m-0 mb-2.5 text-[20px] font-semibold tracking-[-0.02em] text-[#0B0F17]">
                 More in orbit
-              </div>
-              <p className="m-0 mb-[22px] max-w-[300px] text-[15px] leading-[1.6] text-[#5C6B82]">
-                New Obarito apps are in the works - each built to the same steady,
+              </h3>
+              <p className="m-0 mb-6 max-w-[330px] text-[15.5px] leading-[1.6] text-[#5C6B82]">
+                New Obarito products are in the works, each built to the same steady,
                 well-engineered standard.
               </p>
               <Link
                 href="/support"
-                className="rounded-[9px] border border-[#D9DFE7] px-4 py-[9px] text-[14px] font-medium text-[#5C6B82]"
+                className="inline-flex rounded-[10px] border border-[#D9DFE7] bg-white px-[15px] py-[10px] text-[14px] font-medium text-[#475569] transition-colors hover:border-[#B8C2D0] hover:text-[#0B0F17]"
               >
                 Get notified
               </Link>
@@ -228,13 +256,12 @@ export default function HomePage() {
           </div>
           <div>
             <p className="m-0 mb-[18px] text-[clamp(17px,1.9vw,20px)] leading-[1.62] text-[#334155]">
-              Obarito is a small, independent studio building Shopify apps that
-              merchants can actually trust with their store. We ship slowly and
-              deliberately - no dark patterns, no bloat, no surprises.
+              Obarito is a small, independent studio. We keep each product&apos;s scope
+              tight and release it when the work is ready.
             </p>
             <p className="m-0 text-[clamp(17px,1.9vw,20px)] leading-[1.62] text-[#5C6B82]">
-              Each app is engineered to be quiet, dependable, and genuinely useful
-              - a stable core you can build a store around. Obarito is sibling to{" "}
+              Rewindly monitors product data, Attesta creates compliant invoices and
+              Deckle supplies the storefront. Obarito is sibling to{" "}
               <span className="text-[#334155]">wpaxiom</span>, our WordPress studio.
             </p>
           </div>
@@ -254,12 +281,12 @@ export default function HomePage() {
                 </span>
               </div>
               <p className="m-0 max-w-[260px] text-[14px] leading-[1.6] text-[#6A7E9A]">
-                Focused, dependable Shopify apps from a studio that ships with care.
+                Shopify apps and themes from a small independent studio.
               </p>
             </div>
             <div>
               <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#6A7E9A]">
-                Apps
+                Products
               </div>
               <div className="flex flex-col gap-[11px]">
                 <Link href="/rewindly" className="text-[14.5px] text-[#CBD5E1]">
@@ -274,7 +301,8 @@ export default function HomePage() {
                 <Link href="/attesta/docs" className="text-[14.5px] text-[#CBD5E1]">
                   Attesta docs
                 </Link>
-                <span className="text-[14.5px] text-[#6A7E9A]">More coming soon</span>
+                <Link href="/deckle" className="text-[14.5px] text-[#CBD5E1]">Deckle theme</Link>
+                <Link href="/deckle/docs" className="text-[14.5px] text-[#CBD5E1]">Deckle docs</Link>
               </div>
             </div>
             <div>

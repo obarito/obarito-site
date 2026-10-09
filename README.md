@@ -18,7 +18,8 @@ This is a standalone repo, separate from the Laravel apps it markets.
 | `/attesta/terms` | Attesta terms of service |
 | `/privacy`  | Privacy policy (shared across apps) - **DRAFT scaffolding**             |
 | `/terms`    | Terms of service - **DRAFT scaffolding**                                |
-| `/support`  | Support / contact                                                       |
+| `/support`  | Support policy and contact form                                         |
+| `/deckle/docs` | Deckle theme setup, templates, print options and troubleshooting     |
 
 > Shopify App Store submission requires `/rewindly`, `/privacy`, and `/support`.
 
@@ -66,6 +67,16 @@ site), so the CTAs need no per-button code. Note: tracking stops at the App Stor
 jump - reconcile outbound clicks against installs in the Shopify Partner
 dashboard. Add a Meta Pixel / other ad tag in `Analytics.tsx` behind its own
 `NEXT_PUBLIC_*` flag when needed.
+
+### Support form
+
+The support form posts to `/api/support` and sends the request plus an automatic
+reply through Resend. Add these variables to the Vercel project:
+
+- `RESEND_API_KEY`: a Resend API key allowed to send from the verified domain
+- `SUPPORT_FORM_FROM`: the sender, normally `Obarito Support <support@obarito.com>`
+
+The form accepts one JPG, PNG, WebP, GIF, PDF or MP4 attachment up to 3 MB.
 
 ### Speed Insights
 

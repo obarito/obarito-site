@@ -3,32 +3,31 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import ObaritoHeader from "@/components/ObaritoHeader";
 import ObaritoFooter from "@/components/ObaritoFooter";
-import AttestaMark from "@/components/AttestaMark";
+import SupportForm from "@/components/SupportForm";
 import { SUPPORT_EMAIL } from "@/lib/config";
 import { createPageMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Support",
   description:
-    "Get help with any Obarito app. Real people, real answers - most questions answered the same business day.",
+    "Get help with Deckle and Obarito apps. Send a support request with your Shopify store details and attachments.",
   path: "/support",
 });
 
 const faqSchema = faqJsonLd([
   {
-    question: "How should I contact Obarito about a Shopify app?",
+    question: "What does Deckle theme support include?",
     answer:
-      "Email support@obarito.com and include your .myshopify.com URL so the team can find your installation quickly.",
+      "Support covers theme settings, sections, templates, presets and bugs in Deckle's own code. It does not include custom code, third-party apps or Shopify account setup.",
   },
   {
-    question: "How do I request deletion of my Obarito app data?",
-    answer:
-      "Uninstalling triggers Shopify's redaction webhooks. You can also email support@obarito.com with a manual request. Records subject to a legal retention obligation may not be erased immediately.",
+    question: "How quickly does Obarito reply?",
+    answer: "Obarito replies within one business day, Monday to Friday, Bangladesh time.",
   },
   {
-    question: "Does Obarito offer onboarding help?",
+    question: "Should I edit my live Shopify theme?",
     answer:
-      "Yes. Larger stores can describe their setup by email and request a guided onboarding.",
+      "No. Duplicate the theme first, make code changes on the copy and publish it only after checking it.",
   },
 ]);
 
@@ -38,171 +37,124 @@ export default function SupportPage() {
       <JsonLd data={faqSchema} />
       <ObaritoHeader active="support" />
 
-      {/* HERO */}
       <section className="mx-auto max-w-[1000px] px-5 pt-[clamp(48px,6vw,76px)] text-center sm:px-8">
         <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#2563EB]">
           Support
         </div>
         <h1 className="m-0 mb-[18px] text-[clamp(34px,5vw,50px)] font-semibold tracking-[-0.035em]">
-          We&apos;re here to help.
+          Tell us what is happening.
         </h1>
-        <p className="mx-auto m-0 max-w-[560px] text-[19px] leading-[1.6] text-[#5C6B82]">
-          Real people, real answers. Reach out about any Obarito app and we&apos;ll
-          get you sorted - most questions are answered the same business day.
+        <p className="mx-auto m-0 max-w-[620px] text-[19px] leading-[1.6] text-[#5C6B82]">
+          Send the details below and we will reply within one business day, Monday to Friday,
+          Bangladesh time.
         </p>
       </section>
 
-      {/* CONTACT CARDS */}
       <section className="mx-auto max-w-[1000px] px-5 pb-2 pt-11 sm:px-8">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-[1.3fr_1fr]">
-          {/* Email card */}
-          <div className="flex flex-col justify-between rounded-[20px] bg-[#0B0F17] p-10 text-white">
+          <div className="flex flex-col justify-between rounded-[20px] bg-[#0B0F17] p-8 text-white sm:p-10">
             <div>
               <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-[#6A7E9A]">
-                Email us
+                Email
               </div>
               <a
                 href={`mailto:${SUPPORT_EMAIL}`}
-                className="text-[clamp(24px,3.4vw,32px)] font-semibold tracking-[-0.025em] text-white"
+                className="text-[clamp(23px,3.4vw,32px)] font-semibold tracking-[-0.025em] text-white"
               >
                 {SUPPORT_EMAIL}
               </a>
-              <p className="m-0 mt-4 max-w-[380px] text-[15px] leading-[1.6] text-[#94A3B8]">
-                Tell us your store URL, which app you&apos;re using, and what&apos;s
-                happening. Screenshots help.
+              <p className="m-0 mt-4 max-w-[400px] text-[15px] leading-[1.6] text-[#94A3B8]">
+                You can use the form below or email us directly. Include your myshopify.com
+                address so we can identify the store.
               </p>
             </div>
             <div className="mt-8 flex gap-7 border-t border-[#1C2230] pt-6">
               <div>
-                <div className="text-[20px] font-semibold">&lt; 1 day</div>
-                <div className="mt-0.5 text-[13px] text-[#6A7E9A]">
-                  Typical first reply
-                </div>
+                <div className="text-[20px] font-semibold">1 business day</div>
+                <div className="mt-0.5 text-[13px] text-[#6A7E9A]">Reply time</div>
               </div>
               <div>
                 <div className="text-[20px] font-semibold">Mon to Fri</div>
-                <div className="mt-0.5 text-[13px] text-[#6A7E9A]">Support hours</div>
+                <div className="mt-0.5 text-[13px] text-[#6A7E9A]">Bangladesh time</div>
               </div>
             </div>
           </div>
 
-          {/* Quick links */}
           <div className="flex flex-col gap-4">
-            <Link
-              href="/rewindly"
-              className="flex items-center gap-4 rounded-[16px] border border-[#E2E8F0] bg-[#F7F8FA] p-6"
-            >
-              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-[11px] bg-[#1a3353]">
-                <svg viewBox="0 0 24 24" className="h-[22px] w-[22px]" aria-hidden="true">
-                  <rect x="6" y="6" width="12" height="2.8" rx="1.4" fill="#fff" opacity="0.5" />
-                  <rect x="6" y="10.6" width="12" height="2.8" rx="1.4" fill="#fff" opacity="0.78" />
-                  <rect x="6" y="15.2" width="12" height="2.8" rx="1.4" fill="#fff" />
-                </svg>
-              </div>
-              <div>
-                <div className="text-[16px] font-semibold text-[#0B0F17]">
-                  Rewindly help
-                </div>
-                <div className="mt-0.5 text-[13.5px] text-[#5C6B82]">
-                  Setup, snapshots &amp; undo
-                </div>
+            <Link href="/deckle/docs" className="rounded-[16px] border border-[#E2E8F0] bg-[#F7F8FA] p-6">
+              <div className="text-[16px] font-semibold text-[#0B0F17]">Deckle documentation</div>
+              <div className="mt-1 text-[13.5px] leading-[1.5] text-[#5C6B82]">
+                Setup, print options, templates and troubleshooting
               </div>
             </Link>
-            <Link
-              href="/attesta/docs"
-              className="flex items-center gap-4 rounded-[16px] border border-[#E2E8F0] bg-[#F7F8FA] p-6"
-            >
-              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-[11px] bg-[#0F4B3C] text-white">
-                <AttestaMark className="h-[22px] w-[22px]" />
+            <Link href="/attesta/docs" className="rounded-[16px] border border-[#E2E8F0] bg-[#F7F8FA] p-6">
+              <div className="text-[16px] font-semibold text-[#0B0F17]">Attesta documentation</div>
+              <div className="mt-1 text-[13.5px] leading-[1.5] text-[#5C6B82]">
+                E-invoicing, VAT and DATEV
               </div>
-              <div>
-                <div className="text-[16px] font-semibold text-[#0B0F17]">
-                  Attesta help
-                </div>
-                <div className="mt-0.5 text-[13.5px] text-[#5C6B82]">
-                  E-invoicing, VAT &amp; DATEV
-                </div>
+            </Link>
+            <Link href="/rewindly/docs" className="rounded-[16px] border border-[#E2E8F0] bg-[#F7F8FA] p-6">
+              <div className="text-[16px] font-semibold text-[#0B0F17]">Rewindly documentation</div>
+              <div className="mt-1 text-[13.5px] leading-[1.5] text-[#5C6B82]">
+                Setup, snapshots and restore
               </div>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* HOW TO GET HELP */}
-      <section className="mx-auto max-w-[1000px] px-5 py-[clamp(48px,6vw,72px)] sm:px-8">
-        <h2 className="m-0 mb-2 text-[clamp(24px,3vw,30px)] font-semibold tracking-[-0.03em]">
-          How to get help fast
-        </h2>
-        <p className="m-0 mb-8 text-[16px] text-[#5C6B82]">
-          A little context up front means we can fix things in one reply instead of
-          three.
-        </p>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
-          {[
-            { n: "1", h: "Tell us the basics", p: "Your store URL, the app and plan you're on, and when the issue started." },
-            { n: "2", h: "Show us what you see", p: "A screenshot or short screen recording is worth a thousand words." },
-            { n: "3", h: "We take it from there", p: "We'll reply with a fix or next steps, usually within one business day." },
-          ].map((card) => (
-            <div key={card.n} className="rounded-[16px] border border-[#E2E8F0] p-7">
-              <div className="mb-[18px] flex h-[34px] w-[34px] items-center justify-center rounded-[9px] bg-[#0B0F17] text-[15px] font-semibold text-white">
-                {card.n}
-              </div>
-              <div className="mb-[7px] text-[17px] font-semibold">{card.h}</div>
-              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5C6B82]">{card.p}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ */}
       <section className="border-y border-[#EEF1F5] bg-[#F7F8FA]">
-        <div className="mx-auto max-w-[1000px] px-5 py-[clamp(48px,6vw,72px)] sm:px-8">
-          <h2 className="m-0 mb-7 text-[clamp(24px,3vw,30px)] font-semibold tracking-[-0.03em]">
-            Common questions
-          </h2>
-          <div className="flex flex-col gap-3.5">
-            <div className="rounded-[14px] border border-[#E2E8F0] bg-white px-[26px] py-[22px]">
-              <div className="mb-1.5 text-[16px] font-semibold">
-                Is there a Shopify-specific way to reach you?
-              </div>
-              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5C6B82]">
-                Yes - email is best for now. Include your{" "}
-                <strong className="text-[#334155]">.myshopify.com</strong> URL so we
-                can find your install quickly.
-              </p>
+        <div className="mx-auto max-w-[1000px] px-5 py-[clamp(52px,7vw,80px)] sm:px-8">
+          <div className="mb-8">
+            <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.16em] text-[#2563EB]">
+              Contact form
             </div>
-            <div className="rounded-[14px] border border-[#E2E8F0] bg-white px-[26px] py-[22px]">
-              <div className="mb-1.5 text-[16px] font-semibold">
-                How do I request data deletion?
-              </div>
-              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5C6B82]">
-                Uninstalling triggers Shopify&apos;s redaction webhooks. For a manual
-                request, email{" "}
-                <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#2563EB]">
-                  {SUPPORT_EMAIL}
-                </a>{" "}
-                and see the{" "}
-                <Link href="/privacy" className="text-[#2563EB]">
-                  Privacy Policy
-                </Link>
-                . Records that remain subject to a legal retention obligation may
-                not be erased immediately. The{" "}
-                <Link href="/attesta/privacy" className="text-[#2563EB]">
-                  Attesta policy
-                </Link>{" "}
-                explains where that line falls.
-              </p>
-            </div>
-            <div className="rounded-[14px] border border-[#E2E8F0] bg-white px-[26px] py-[22px]">
-              <div className="mb-1.5 text-[16px] font-semibold">
-                Do you offer onboarding help?
-              </div>
-              <p className="m-0 text-[14.5px] leading-[1.6] text-[#5C6B82]">
-                For larger stores, yes. Mention your setup and we&apos;ll walk you
-                through it.
-              </p>
-            </div>
+            <h2 className="m-0 mb-2 text-[clamp(26px,3.4vw,34px)] font-semibold tracking-[-0.03em]">
+              Send a support request
+            </h2>
+            <p className="m-0 max-w-[660px] text-[15.5px] leading-[1.65] text-[#5C6B82]">
+              Tell us what you expected, what happened and where. We will email you a copy of
+              the request automatically.
+            </p>
           </div>
+          <SupportForm />
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-[1000px] grid-cols-1 gap-10 px-5 py-[clamp(52px,7vw,80px)] sm:px-8 md:grid-cols-[220px_1fr] md:gap-[58px]">
+        <div>
+          <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.16em] text-[#2563EB]">Deckle</div>
+          <h2 className="m-0 text-[clamp(25px,3vw,31px)] font-semibold tracking-[-0.03em]">
+            Support policy
+          </h2>
+        </div>
+        <div className="legal-body">
+          <p>
+            Deckle support is free for every store that bought the theme from the Shopify Theme
+            Store.
+          </p>
+          <h2>What we help with</h2>
+          <ul>
+            <li>Setting up Deckle settings, sections, templates and presets.</li>
+            <li>Questions about how a built-in feature works.</li>
+            <li>Bugs in the theme&apos;s own code, fixed through a theme update.</li>
+          </ul>
+          <h2>What support does not cover</h2>
+          <ul>
+            <li>Code changed by you or another developer.</li>
+            <li>Custom features, new sections or design work beyond the theme settings.</li>
+            <li>Third-party apps and their code.</li>
+            <li>Payments, shipping, domains, taxes and other store setup outside the theme.</li>
+          </ul>
+          <p>
+            Duplicate the theme before editing code so you always have an untouched copy. For
+            custom work, hire a qualified developer through the{" "}
+            <a href="https://www.shopify.com/partners/directory">Shopify Partner Directory</a>.
+          </p>
+          <p>
+            Before writing, check the <Link href="/deckle/docs">Deckle documentation</Link> and
+            confirm that your store is using the latest theme version.
+          </p>
         </div>
       </section>
 
