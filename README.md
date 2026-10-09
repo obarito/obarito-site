@@ -45,6 +45,9 @@ All site-wide constants live in **`src/lib/config.ts`**:
   install CTA points here: `https://apps.shopify.com/rewindly-product-watchdog`.
 - `ATTESTA_APPSTORE_URL` - the same thing for Attesta. Every install CTA on
   `/attesta` points here: `https://apps.shopify.com/attesta-e-rechnung-zugferd`.
+- `DECKLE_THEME_STORE_URL` - reads `NEXT_PUBLIC_DECKLE_THEME_STORE_URL`. Add the
+  public Theme Store listing after Shopify approves Deckle. The header, hero,
+  closing CTA, and product schema update from this one value.
 - `SUPPORT_EMAIL` - the only inbox that exists. Support, privacy and data
   requests all point here, including from the legal pages. There is no
   `privacy@`; give it its own constant again only once the mailbox is real.

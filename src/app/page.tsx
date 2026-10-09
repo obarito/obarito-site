@@ -20,11 +20,34 @@ export const metadata: Metadata = createPageMetadata({
   absoluteTitle: true,
 });
 
+const studioPrinciples = [
+  {
+    number: "01",
+    title: "A clear job",
+    body: "Each product starts with one part of running a Shopify store and stays focused on it.",
+  },
+  {
+    number: "02",
+    title: "Useful documentation",
+    body: "Setup, day-to-day use and troubleshooting are documented alongside the product.",
+  },
+  {
+    number: "03",
+    title: "Direct support",
+    body: "Questions reach the same small studio that designs, builds and maintains the products.",
+  },
+  {
+    number: "04",
+    title: "Made for Shopify",
+    body: "The apps work inside Shopify, while Deckle supplies the customer-facing storefront.",
+  },
+] as const;
+
 export default function HomePage() {
   return (
     <>
       <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
-      <ObaritoHeader active="products" />
+      <ObaritoHeader active="products" featuredProduct="attesta" />
 
       <main>
         {/* ===== HERO ===== */}
@@ -119,7 +142,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {/* Rewindly card */}
             <Link
               href="/rewindly"
@@ -179,7 +202,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ECFDF5] px-[9px] py-[5px] font-mono text-[10px] uppercase tracking-[0.08em] text-[#0E8058]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#34D399]" /> New
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#34D399]" /> Live
                 </span>
               </div>
               <p className="m-0 mb-6 text-[15.5px] leading-[1.6] text-[#334155]">
@@ -226,8 +249,7 @@ export default function HomePage() {
                 More in orbit
               </h3>
               <p className="m-0 mb-6 max-w-[330px] text-[15.5px] leading-[1.6] text-[#5C6B82]">
-                New Obarito products are in the works, each built to the same steady,
-                well-engineered standard.
+                New Obarito products are in the works. We will share them when they are ready to use.
               </p>
               <Link
                 href="/support"
@@ -243,29 +265,78 @@ export default function HomePage() {
         {/* ===== STUDIO STRIP ===== */}
         <section
           id="studio"
-          className="mx-auto max-w-[1120px] px-5 py-[clamp(64px,8vw,104px)] scroll-mt-[72px] sm:px-8"
+          className="border-y border-[#E2E8F0] bg-[#F7F8FA] scroll-mt-[72px]"
         >
-        <div className="grid grid-cols-1 items-center gap-14 md:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#2563EB]">
-              The studio
+          <div className="mx-auto max-w-[1120px] px-5 py-[clamp(64px,8vw,104px)] sm:px-8">
+            <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-14">
+              <div>
+                <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#2563EB]">
+                  The studio
+                </div>
+                <h2 className="m-0 text-[clamp(30px,4vw,42px)] font-semibold leading-[1.12] tracking-[-0.035em]">
+                  Focused products, maintained by the people who build them.
+                </h2>
+              </div>
+              <div>
+                <p className="m-0 mb-[18px] text-[clamp(17px,1.9vw,20px)] leading-[1.62] text-[#334155]">
+                  Obarito is a small, independent studio. We keep each product&apos;s scope
+                  tight and release it when the work is ready.
+                </p>
+                <p className="m-0 text-[clamp(16px,1.8vw,18px)] leading-[1.62] text-[#5C6B82]">
+                  Rewindly monitors product data, Attesta creates compliant invoices and
+                  Deckle supplies the storefront. Obarito is sibling to{" "}
+                  <span className="text-[#334155]">wpaxiom</span>, our WordPress studio.
+                </p>
+              </div>
             </div>
-            <h2 className="m-0 text-[clamp(26px,3.2vw,34px)] font-semibold leading-[1.15] tracking-[-0.03em]">
-              Steady hands on your store&apos;s data.
-            </h2>
+
+            <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-[18px] border border-[#DDE4EC] bg-[#DDE4EC] sm:grid-cols-2 lg:grid-cols-4">
+              {studioPrinciples.map((principle) => (
+                <article
+                  key={principle.number}
+                  className="bg-white p-6 sm:p-7"
+                >
+                  <div className="mb-8 font-mono text-[11px] tracking-[0.12em] text-[#8A99AD]">
+                    {principle.number}
+                  </div>
+                  <h3 className="m-0 text-[18px] font-semibold tracking-[-0.02em] text-[#0B0F17]">
+                    {principle.title}
+                  </h3>
+                  <p className="m-0 mt-3 text-[14px] leading-[1.65] text-[#5C6B82]">
+                    {principle.body}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
-          <div>
-            <p className="m-0 mb-[18px] text-[clamp(17px,1.9vw,20px)] leading-[1.62] text-[#334155]">
-              Obarito is a small, independent studio. We keep each product&apos;s scope
-              tight and release it when the work is ready.
-            </p>
-            <p className="m-0 text-[clamp(17px,1.9vw,20px)] leading-[1.62] text-[#5C6B82]">
-              Rewindly monitors product data, Attesta creates compliant invoices and
-              Deckle supplies the storefront. Obarito is sibling to{" "}
-              <span className="text-[#334155]">wpaxiom</span>, our WordPress studio.
-            </p>
+        </section>
+
+        {/* ===== SUPPORT CTA ===== */}
+        <section className="mx-auto max-w-[1120px] px-5 py-[clamp(64px,8vw,96px)] sm:px-8">
+          <div className="relative overflow-hidden rounded-[24px] bg-[#101827] text-white shadow-[0_24px_70px_rgba(15,23,42,0.14)]">
+            <div className="absolute -left-24 -top-28 h-72 w-72 rounded-full border border-white/[0.06]" aria-hidden="true" />
+            <div className="absolute -left-12 -top-16 h-44 w-44 rounded-full border border-white/[0.06]" aria-hidden="true" />
+            <div className="relative px-7 py-10 sm:px-10 sm:py-12 md:px-14 md:py-14">
+              <div className="max-w-[650px]">
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#30518A] bg-[#17243A] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[#8DB5FF]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#60A5FA]" />
+                  Support
+                </div>
+                <h2 className="m-0 max-w-[620px] text-[clamp(32px,4.2vw,46px)] font-semibold leading-[1.06] tracking-[-0.04em]">
+                  Need a hand with an Obarito product?
+                </h2>
+                <p className="m-0 mt-5 max-w-[620px] text-[16px] leading-[1.7] text-[#AEBBD0]">
+                  Send us your store details, a description of the problem and any useful screenshots or files.
+                </p>
+                <Link
+                  href="/support"
+                  className="mt-8 inline-flex items-center gap-2 rounded-[10px] bg-white px-5 py-3 text-[14.5px] font-medium text-[#101827] transition-transform hover:-translate-y-0.5"
+                >
+                  Contact support <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
         </section>
       </main>
 

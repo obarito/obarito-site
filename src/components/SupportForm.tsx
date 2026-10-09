@@ -43,7 +43,7 @@ export default function SupportForm() {
     "mt-2 w-full rounded-[10px] border border-[#CBD5E1] bg-white px-4 py-3 text-[15px] text-[#0B0F17] outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20";
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-[20px] border border-[#E2E8F0] bg-white p-6 sm:p-8">
+    <form onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <label className="text-[14px] font-medium text-[#334155]">
           First name

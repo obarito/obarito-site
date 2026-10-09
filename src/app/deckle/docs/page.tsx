@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import DeckleHeader from "@/components/DeckleHeader";
+import DeckleFooter from "@/components/DeckleFooter";
 import JsonLd from "@/components/JsonLd";
-import ObaritoHeader from "@/components/ObaritoHeader";
-import ObaritoFooter from "@/components/ObaritoFooter";
 import { breadcrumbJsonLd, createPageMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
@@ -59,7 +59,7 @@ export default function DeckleDocsPage() {
   return (
     <>
       <JsonLd data={[breadcrumbJsonLd([{ name: "Obarito", path: "/" }, { name: "Deckle documentation", path: "/deckle/docs" }]), faqSchema]} />
-      <ObaritoHeader />
+      <DeckleHeader />
 
       <section className="mx-auto max-w-[1000px] px-5 pt-[clamp(44px,6vw,72px)] sm:px-8">
         <Breadcrumbs items={[{ name: "Obarito", path: "/" }, { name: "Deckle documentation" }]} />
@@ -190,7 +190,7 @@ export default function DeckleDocsPage() {
         </div>
       </section>
 
-      <ObaritoFooter />
+      <DeckleFooter />
     </>
   );
 }

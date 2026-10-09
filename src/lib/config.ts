@@ -17,6 +17,13 @@ export const APPSTORE_URL = "https://apps.shopify.com/rewindly-product-watchdog"
 export const ATTESTA_APPSTORE_URL =
   "https://apps.shopify.com/attesta-e-rechnung-zugferd";
 
+/**
+ * Set this after Shopify publishes the Deckle Theme Store listing. Leaving it
+ * empty keeps every Deckle CTA honest while the theme is under review.
+ */
+export const DECKLE_THEME_STORE_URL =
+  process.env.NEXT_PUBLIC_DECKLE_THEME_STORE_URL?.trim() ?? "";
+
 export const SUPPORT_EMAIL = "support@obarito.com";
 export const LEGAL_EMAIL = "legal@obarito.com";
 
