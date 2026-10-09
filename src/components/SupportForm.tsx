@@ -10,13 +10,15 @@ export default function SupportForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // React clears currentTarget once the handler yields, so keep the form before the first await.
+    const form = event.currentTarget;
     setState("sending");
     setMessage("");
 
     try {
       const response = await fetch("/api/support", {
         method: "POST",
-        body: new FormData(event.currentTarget),
+        body: new FormData(form),
       });
       const result = (await response.json()) as { message?: string };
 
@@ -24,7 +26,7 @@ export default function SupportForm() {
         throw new Error(result.message || "We could not send your request.");
       }
 
-      event.currentTarget.reset();
+      form.reset();
       setState("sent");
       setMessage(
         "Thanks, we have received your request. A copy is on its way to your inbox, and we will reply within one business day."
