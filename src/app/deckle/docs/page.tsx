@@ -20,6 +20,11 @@ const toc = [
   ["prints", "Print options"],
   ["templates", "Templates"],
   ["sections", "Sections"],
+  ["rooms", "Room photos and sets"],
+  ["trade", "Trade and gallery wall"],
+  ["artists", "Artist pages"],
+  ["filters", "Filters"],
+  ["images", "Image sizes"],
   ["fields", "Optional fields"],
   ["cart", "Cart and payments"],
   ["apps", "Apps"],
@@ -111,9 +116,12 @@ export default function DeckleDocsPage() {
             ["Colors", "Color schemes, page background, prices and sale prices"],
             ["Style", "Corners, borders, buttons, cards, filters, search, gift cards and cart presentation"],
             ["Motion", "Off, subtle or full motion and the preset motion character"],
-            ["Print options", "Size, frame and finish mappings used by the live print preview"],
+            ["Print options", "The product option names used for size, frame and finish"],
+            ["Print sizes", "Each size value's longest edge and hanging note"],
+            ["Frames", "Each frame value's face width, mount, color and material"],
+            ["Finishes", "Each finish value's preview, description and paper name"],
             ["Quick view", "Layout, stock threshold, dispatch note and room photo"],
-            ["Cart", "Free shipping threshold, notes, gift wrapping and dispatch wording"],
+            ["Cart", "Free shipping threshold, order note, gift wrapping product and when each line ships"],
             ["Social media", "Facebook, Instagram, YouTube, TikTok, X and other profile links"],
           ]} />
           <p>Type sizes follow one scale built from the base size and scale ratio. Shoppers who enable reduced motion on their device receive the static version regardless of the theme setting.</p>
@@ -136,19 +144,81 @@ export default function DeckleDocsPage() {
             ["product.limited", "Limited editions with a close date and numbered run"],
             ["product.made-to-order", "Products made after purchase with a lead time"],
             ["product.gift-card", "Gift cards with recipient details and send date"],
+            ["gift_card", "The gift card the recipient receives, with its code and QR code"],
             ["collection", "Default filtered collection"],
             ["collection.dense", "Tighter grid for large catalogs"],
             ["collection.editorial", "A collection story with content between products"],
+            ["list-collections", "The index of all collections"],
+            ["page", "Default page"],
             ["page.about, page.artists, page.contact, page.faq", "About, artists, contact and FAQ pages"],
             ["page.trade, page.wall", "Trade quick order and gallery wall builder"],
-            ["blog, article, search, 404, password", "Journal, search and utility pages"],
+            ["metaobject/deckle_artist", "One page for each artist entry"],
+            ["cart", "The cart page"],
+            ["search, search.count", "Search results, and a version that leads with the number of results"],
+            ["blog, article, 404, password", "Journal and utility pages"],
           ]} />
-          <p>For limited editions, add a JSON product metafield named <code>deckle.edition</code> with the run size, close date and per-size sold counts. Without it, the product behaves as a standard edition.</p>
+          <h3 id="limited" className="m-0 mb-2 mt-6 text-[17px] font-semibold text-[#0B0F17]">Limited editions</h3>
+          <p>A product on the product.limited template sells each size as its own numbered run. To show real numbers, add a JSON product metafield named <code>deckle.edition</code> with these keys:</p>
+          <ul>
+            <li><code>run</code>: how many prints each size&apos;s run holds.</li>
+            <li><code>closes</code>: the date the edition closes, such as <code>2026-12-31</code>.</li>
+            <li><code>sizes</code>: an object keyed by size option value. Each size has a <code>sold</code> count and, once it sells out, a <code>sold_out_on</code> date.</li>
+          </ul>
+          <pre className="my-4 overflow-x-auto rounded-[12px] bg-[#F7F8FA] p-4 text-[13px] leading-[1.6]"><code>{`{
+  "run": 50,
+  "closes": "2026-12-31",
+  "sizes": {
+    "40 cm": { "sold": 12 },
+    "70 cm": { "sold": 50, "sold_out_on": "2026-10-02" }
+  }
+}`}</code></pre>
+          <p>Without the metafield, the product sells as a standard edition. The section&apos;s <strong>Preview with sample data</strong> setting fills the runs with sample numbers so you can see the layout before you add data. Set it to Off before your store goes live, or shoppers will see the sample counts.</p>
 
           <h2 id="sections">Sections</h2>
           <p>Use Add section in the theme editor. The library includes hero slideshows, editorial stories, featured collections and products, room scenes, gallery walls, shop the room, before and after, artists, testimonials, customer photos, trust rows, marquees, journal posts and recently viewed products.</p>
           <p>Product sections include the print and general product layouts, Complete the look, Make it a pair, What fits, product recommendations and pickup availability. Collection pages include headers, subcollection navigation, sets, filtered grids and editorial layouts.</p>
           <p>The header supports nested menus, a desktop mega menu, a phone drawer and predictive search. The signup popup starts its delay only after the shopper interacts with the page. Deckle&apos;s cookie consent section is optional and hidden by default, so use Shopify&apos;s own customer privacy banner unless you deliberately enable the theme section.</p>
+
+          <h2 id="rooms">Room photos and sets</h2>
+          <p>Several sections draw a print on a photograph or pin products to it. Each one uses percentages for position: across runs from 0 at the left edge to 100 at the right, and down from 0 at the top to 100 at the bottom.</p>
+          <ul>
+            <li><strong>Quick view room photo</strong> (Theme settings, Quick view): a wall the print hangs on, shown as the first picture in the gallery layout. Set <em>Wall shown</em> to how many centimeters of wall the photo covers from top to bottom; that sets the print&apos;s scale. <em>Hangs at, across</em> and <em>Hangs at, down</em> place the print, and the crop point keeps the right part of the photo in view.</li>
+            <li><strong>Room scene:</strong> each scene is a photo with the edition already hanging in it. Pick the product, then place its marker, with separate positions for phones.</li>
+            <li><strong>Shop the room:</strong> add a Piece block for each product in the photo and place its marker.</li>
+            <li><strong>Complete the look sets:</strong> each set lists its prints in hanging order, one size per print in the same order (for example <code>50, 40, 40, 50</code>), and the frame option value the set is sold in.</li>
+          </ul>
+
+          <h2 id="trade">Trade order and gallery wall</h2>
+          <p>The trade page (page.trade) lists every product in the chosen collection as a row with its options and a quantity, so a buyer can order many prints at once. Leave the collection empty to list the whole catalog. Options named under <em>Options kept at their first value</em>, such as Paper, are hidden and ordered at their first value. Add a Trade tier block for each discount level.</p>
+          <p>The gallery wall page (page.wall) lets shoppers hang prints on an empty wall. Use a photo of a wall taken square on, set <em>Width of the wall in the photo</em> in centimeters so prints are drawn to scale, and set the center point of the set. Frame blocks limit which frames the wall offers; with none, it offers every framed option. Set break-in blocks add ready-made arrangements: Salon takes 4 prints, Row 3 and Pair 2.</p>
+          <p><strong>Discounts are not applied by the theme.</strong> The set savings in Complete the look, Shop the room and the gallery wall, and the trade tiers, are only shown on the page. Create a matching automatic discount under Discounts in Shopify admin so the cart and checkout charge the same price.</p>
+
+          <h2 id="artists">Artist pages</h2>
+          <p>Artist pages use a metaobject definition with the type <code>deckle_artist</code>. Create it under Settings, Custom data, Metaobjects, turn on its web pages, and assign the metaobject/deckle_artist template. Only <code>name</code> is required. Without an entry, artist links fall back to the vendor&apos;s product list.</p>
+          <Table headers={["Field key", "Type", "Shows"]} rows={[
+            ["name", "Single line text", "The artist's name (required)"],
+            ["vendor", "Single line text", "The vendor name on their products, if it differs from the name"],
+            ["region, life_dates", "Single line text", "Region and dates under the name"],
+            ["intro, bio", "Multi-line text", "Opening line and biography"],
+            ["portrait, portrait_mobile", "File", "Portrait, with an optional phone crop"],
+            ["medium, medium_note, medium_note_short", "Single line text", "The medium and a note about it"],
+            ["works", "Collection", "The artist's editions; without it, every product whose vendor is the artist"],
+            ["start_product, start_note, start_sheet", "Product, multi-line text, single line text", "The edition to start with, a note and its sheet size"],
+            ["timeline_eyebrow, timeline_heading", "Single line text", "The timeline's heading"],
+            ["related", "List of single line text", "Other makers to show at the foot of the page"],
+          ]} />
+          <p>The timeline places each edition by a four-digit year in its <code>deckle.work_date</code> field. The Artist of the month card in the header and on the artists page takes a name, which is matched against your product vendors.</p>
+
+          <h2 id="filters">Filters</h2>
+          <p>Collection and search pages show the filters your store offers. Shopify includes availability, price, product type and vendor. To filter by a product option or a metafield, such as orientation or color, add it with Shopify&apos;s Search &amp; Discovery app; the theme shows it without further setup.</p>
+
+          <h2 id="images">Image sizes</h2>
+          <Table headers={["Where", "Size"]} rows={[
+            ["Hero slide", "2880 x 1200 or larger, left third kept quiet for the text; phone image 390 x 420"],
+            ["Room scene", "2752 x 1280 or larger; phone crop 358 x 440"],
+            ["Complete the look set", "1612 x 1248 or larger; phone crop 684 x 342"],
+          ]} />
+          <p>Every phone image is optional. Without one, the main image is cropped to fit.</p>
 
           <h2 id="fields">Optional product and collection fields</h2>
           <Table headers={["Field", "Owner", "Adds"]} rows={[
@@ -160,15 +230,18 @@ export default function DeckleDocsPage() {
             ["deckle.licence", "Product", "Image license line"],
             ["deckle.edition", "Product JSON", "Limited edition run data"],
             ["custom.pairs_with", "Product reference", "Paired product in Complete the look"],
+            ["custom.short_name", "Product", "Short name in the Complete the look heading and bundle title"],
             ["custom.card_note, custom.card_detail", "Product", "Extra card, search and cart details"],
             ["custom.size_detail", "Variant", "Size details in cart lines"],
             ["custom.menu_color, custom.menu_detail", "Collection", "Color chip and detail in menus"],
           ]} />
-          <p>Artist pages can use a <code>deckle_artist</code> metaobject. Without it, artist links fall back to the vendor product list. Ratings come from a reviews app through Shopify&apos;s standard rating fields.</p>
+          <p>Artist pages use the <code>deckle_artist</code> metaobject described above. Ratings come from a reviews app through Shopify&apos;s standard rating fields.</p>
 
           <h2 id="cart">Cart, checkout and payments</h2>
           <p>The cart drawer and cart page share the same settings. They show line discounts, subscription names, unit prices, tax wording and product options. Discount codes are entered at checkout.</p>
-          <p>Shop Pay Installments and accelerated checkout buttons appear after Shopify Payments and Shop Pay are enabled. Pickup availability appears when local pickup is enabled for a location with a street address.</p>
+          <p>To offer gift wrapping, create a product with a single variant priced at your wrapping fee and choose it under Theme settings, Cart, Gift wrapping product. Shoppers add or remove it with one tick. Products tagged <code>made-to-order</code> show when they ship, counted in working days from the Cart settings.</p>
+          <p>Products with selling plans from a subscription or pre-order app show a purchase option picker with each plan&apos;s price. A one-time purchase is offered too, unless the product requires a plan.</p>
+          <p>Shop Pay Installments, accelerated checkout buttons and the footer&apos;s Follow on Shop button appear after Shopify Payments and Shop Pay are enabled. Turn Follow on Shop on or off in the Footer section. Pickup availability appears when local pickup is enabled for a location with a street address.</p>
 
           <h2 id="apps">Apps</h2>
           <p>Deckle does not bundle a review or wishlist app. Install the app you prefer and add its app block to the product page. Product sections accept app blocks, and Custom Liquid can host snippets supplied by an app.</p>
