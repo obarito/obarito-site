@@ -148,7 +148,7 @@ export default function DeckleDocsPage() {
             ["collection", "Default filtered collection"],
             ["collection.dense", "Tighter grid for large catalogs"],
             ["collection.editorial", "A collection story with content between products"],
-            ["list-collections", "The index of all collections"],
+            ["list-collections", "The curated collections index, followed by an All collections grid that lists every collection with products, a page at a time"],
             ["page", "Default page"],
             ["page.about, page.artists, page.contact, page.faq", "About, artists, contact and FAQ pages"],
             ["page.trade, page.wall", "Trade quick order and gallery wall builder"],
@@ -177,6 +177,9 @@ export default function DeckleDocsPage() {
           <h2 id="sections">Sections</h2>
           <p>Use Add section in the theme editor. The library includes hero slideshows, editorial stories, featured collections and products, room scenes, gallery walls, shop the room, before and after, artists, testimonials, customer photos, trust rows, marquees, journal posts and recently viewed products.</p>
           <p>Product sections include the print and general product layouts, Complete the look, Make it a pair, What fits, product recommendations and pickup availability. Collection pages include headers, subcollection navigation, sets, filtered grids and editorial layouts.</p>
+          <p>On the product page, the Description block prints the product description in full, with its formatting. The section&apos;s <strong>Short description</strong> setting adds a line above it; leave it blank to show the description alone. A featured product on another page shows the short description, or the start of the product description when it is blank.</p>
+          <p>A collection header prints the collection&apos;s description from Shopify admin; the section&apos;s intro text only shows when a collection has no description. With <strong>Use the collection image</strong> on (the default), the banner shows the collection&apos;s own image when it has one, and the section&apos;s banner photograph otherwise. Turn it off to use the section&apos;s photograph on every collection.</p>
+          <p>The <strong>Collections grid</strong> section lists every collection that has products, 24 to a page by default (<em>Collections per page</em>), with page links below. Pick a menu in the section to choose which collections show and in what order. Placed below another section, its heading becomes a second-level heading.</p>
           <p>The header supports nested menus, a desktop mega menu, a phone drawer and predictive search. The signup popup starts its delay only after the shopper interacts with the page. Deckle&apos;s cookie consent section is optional and hidden by default, so use Shopify&apos;s own customer privacy banner unless you deliberately enable the theme section.</p>
 
           <h2 id="rooms">Room photos and sets</h2>
